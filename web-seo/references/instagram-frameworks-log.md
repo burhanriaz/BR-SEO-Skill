@@ -89,10 +89,34 @@ Timeline & context → 8-step diagnostic → evidence-classification matrix.
 27 anti-patterns across content, links, technical, local/GEO, measurement, site
 architecture — each with the fix. → folded into `references/common-seo-mistakes.md`.
 
-<!-- Seen on grid, not yet transcribed in full (titles captured for later passes):
+### 20-Step Checklist for a High-Performing SEO Article
+Intent → topic → SERP → gaps → information gain → outline → answer-first →
+sources → entities → internal/external links → extraction/AI → visuals → snippet
+→ CTA → measure/refresh. → `references/seo-article-checklist.md` (NEW).
+
+### SEO + AI Visibility KPIs to Track in 2026
+KPI framework across Traffic/Visibility, Engagement/Experience (SXO),
+Conversion/Revenue, Technical/Site Health, Off-Page/Authority, LLM Visibility
+(AEO/GEO). → `references/seo-kpis.md` (NEW).
+
+### Revenue Growth Blueprint
+7-stage growth framework: Positioning → Search Visibility → Conversion
+Experiences → Distribution/Partnership loops → Human-Led Brand Visibility →
+Unpaid Media → Retention/Referral. → growth-marketing context (logged, broader
+than SEO; not a dedicated SEO reference).
+
+---
+
+## ⛔ Read-through paused (technical limit)
+
+Captured ~25 posts in full — covering every distinct SEO framework on the
+profile. Instagram's image-heavy infinite scroll **freezes the Chrome renderer**
+after ~7 grid rows (repeated screenshot timeouts), so an automated pass through
+all 120 is not reliable. Titles still to transcribe (mostly reinforce the above):
 22 Essential SEO Content Types · 18 Digital Marketing Metrics That Matter ·
 7 Leaks Between SEO Traffic & Leads · The Marketing Stack in 2026 ·
-SEO + AI Visibility KPIs to Track in 2026 · Revenue Growth Blueprint ·
-20-Step Checklist for a High-Performing SEO Article · My GBP Audit Checklist 2026 ·
-48 Sources That Can Influence AI Recommendations · The Search Everywhere Flywheel ·
-…and ~95 older posts. Most reinforce frameworks already captured above. -->
+My GBP Audit Checklist 2026 · 48 Sources That Can Influence AI Recommendations ·
+The Search Everywhere Flywheel · and ~90 older posts.
+
+**To add any of these:** share the individual post link(s) — a single post opens
+without the heavy grid and reads reliably.

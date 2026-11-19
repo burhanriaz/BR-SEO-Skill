@@ -120,6 +120,8 @@ Bands: **90–100** excellent · **70–89** good · **50–69** needs work ·
 - `references/complete-seo-checklist.md` — full-coverage program checklist (basics, technical, keyword, on-page, content, off-page, local).
 - `references/search-landscape.md` — SEO vs AEO vs AIO vs GEO: goals, focus, tactics, mistakes. Decide what to optimize for.
 - `references/search-intent.md` — the 6 practical intent levels and the content format each needs.
+- `references/seo-article-checklist.md` — 20-step checklist for writing a high-performing, AI-citable article.
+- `references/seo-kpis.md` — KPIs to track across SEO, SXO, conversion, technical, authority, and AI visibility.
 - `references/content-and-geo.md` — content optimization workflow, E-E-A-T, AI-search/GEO (llms.txt, citability, 12 visibility tactics), the anatomy of a high-performing AI SEO landing page.
 - `references/authority-and-entities.md` — topical authority, entity SEO/knowledge graphs, answer-first writing, digital PR, dual-ranking.
 - `references/internal-linking.md` — the 12 internal-link types, hub-and-spoke clusters, and the authority-flow model.
