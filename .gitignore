@@ -1,0 +1,24 @@
+# OS / editor cruft
+.DS_Store
+Thumbs.db
+desktop.ini
+*~
+.idea/
+.vscode/
+*.swp
+
+# Logs / temp
+*.log
+tmp/
+scratch/
+
+# Local environment
+.env
+.env.local
+
+# Report outputs generated when running the skill (keep templates, not fills)
+/reports/
+*-audit-report.md
+*-fix-report.md
+*-content-report.md
+!web-seo/templates/*.md
