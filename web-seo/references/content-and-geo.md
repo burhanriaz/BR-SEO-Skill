@@ -86,6 +86,24 @@ and Google AI Overviews (GEO).
 - Consider an **`llms.txt`** file (site root) summarizing key pages/policies for
   LLMs, and keep it consistent with the sitemap.
 
+### 12 ways to improve SEO & AI-search visibility
+
+1. **Keep information up to date** — fresh, accurate content is likelier to be
+   cited in AI answers.
+2. **Implement structured data** — schema helps engines & AI understand content.
+3. **Organize with logical headings** — clear H1→H2→H3 aids scanning & extraction.
+4. **Structure content for clarity** — short paragraphs, lists, tables.
+5. **Optimize for passage-level retrieval** — each section answers on its own.
+6. **Add expert signals** — author credentials, citations, case studies, real data.
+7. **Build topic clusters** — hub-and-spoke internal linking for topical authority.
+8. **Build multi-platform brand presence** — search, AI tools, social, communities.
+9. **Participate in trusted communities** — Reddit, LinkedIn, Quora, niche forums.
+10. **Publish multi-format content** — media, diagrams, podcasts, video.
+11. **Show original research & insights** — unique data/frameworks earn citations.
+12. **Use search-driven titles** — match real audience intent and phrasing.
+
+> Source: "12 Ways to Improve SEO & AI Search Visibility", @faizaparwezofficial.
+
 ### AEO specifics
 
 - Provide a concise answer near the top for snippet/voice capture.

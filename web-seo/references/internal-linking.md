@@ -44,5 +44,27 @@ type in the right place.
 4. Link **siblings** where contextually relevant (not exhaustively).
 5. Keep anchor text varied but on-topic; avoid identical anchors site-wide.
 
+## Authority-flow model (where link equity should travel)
+
+Think of internal links as routing **authority** from where it's earned to where
+it converts:
+
+1. **Link-earning assets** (original research, data studies, industry reports)
+   attract external links and concentrate authority.
+2. They **pass link equity** through relevant, crawlable internal links down to
+   **topic hubs** (pillar pages) — e.g. a "Technical SEO" hub and a "Local SEO"
+   hub, cross-linked by topic links to **build topical relationships**.
+3. Each hub links to its **supporting content** cluster, and the spokes link back
+   — **strengthening the topic cluster**.
+4. Finally, route contextual links into **conversion pages** (services, "book an
+   audit", pricing) so the accumulated authority supports pages that convert.
+
+When auditing, check that authority actually reaches money pages: link-earning
+assets → hubs → supporting content → conversion pages, with no dead ends.
+
 Report findings and fixes using the standard audit/fix templates; for a cluster
-redesign, include the intended hub→spoke map in the fix report.
+redesign, include the intended hub→spoke map and the conversion-page link routing
+in the fix report.
+
+> Sources: "The 12 Types of Internal Links" and "The Internal Linking Authority
+> Flow", @faizaparwezofficial.

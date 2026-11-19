@@ -117,12 +117,19 @@ Bands: **90–100** excellent · **70–89** good · **50–69** needs work ·
 ## Reference map
 
 - `references/audit-methodology.md` — full technical + on-page check list, "good" states, how to verify each.
+- `references/complete-seo-checklist.md` — full-coverage program checklist (basics, technical, keyword, on-page, content, off-page, local).
 - `references/search-landscape.md` — SEO vs AEO vs AIO vs GEO: goals, focus, tactics, mistakes. Decide what to optimize for.
-- `references/content-and-geo.md` — content optimization workflow, E-E-A-T, AI-search/GEO (llms.txt, citability), the anatomy of a high-performing AI SEO landing page.
-- `references/internal-linking.md` — the 12 internal-link types and a hub-and-spoke cluster method.
+- `references/search-intent.md` — the 6 practical intent levels and the content format each needs.
+- `references/content-and-geo.md` — content optimization workflow, E-E-A-T, AI-search/GEO (llms.txt, citability, 12 visibility tactics), the anatomy of a high-performing AI SEO landing page.
+- `references/authority-and-entities.md` — topical authority, entity SEO/knowledge graphs, answer-first writing, digital PR, dual-ranking.
+- `references/internal-linking.md` — the 12 internal-link types, hub-and-spoke clusters, and the authority-flow model.
 - `references/robots-directives.md` — the 12 robots meta directives and when to use each.
+- `references/redirects.md` — the 10 redirect types and when to use each.
+- `references/schema-types.md` — 10 structured-data types for AI-ready sites.
+- `references/common-seo-mistakes.md` — the 8 most expensive mistakes, their cost, and the fix.
 - `references/local-seo.md` — Google Business Profile + local-SEO workflow (NAP, citations, reviews).
 - `references/diagnostics.md` — Search Console's 10 essential reports, ranking-drop / Google-update diagnosis, and baseline-and-diff ("Git for SEO") drift monitoring.
+- `references/instagram-frameworks-log.md` — running index of the @faizaparwezofficial posts the skill draws on.
 - `references/pre-deployment-checklist.md` — go/no-go release gate.
 - `templates/audit-report-template.md` · `templates/fix-report-template.md` · `templates/content-report-template.md` — fill-in deliverables.
 
