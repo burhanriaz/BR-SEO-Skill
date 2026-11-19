@@ -22,3 +22,50 @@ instances as findings with evidence in the audit report. Mistakes 1–4 are usua
 blockers/high; 5–8 are high/medium depending on the site's goals.
 
 > Source: "8 Most Expensive SEO Mistakes", @faizaparwezofficial.
+
+---
+
+## 27 SEO moves that fail in the AI + GEO + AEO world
+
+Anti-patterns to flag during an audit, grouped by area → the corrected practice.
+
+**Content**
+1. Chasing exact-match keywords → map intent; build deeper reference-grade pages.
+2. Publishing dozens of thin posts weekly → ship fewer comprehensive pieces; update monthly.
+3. Writing for bots → write plain-English answers, facts, steps, sources.
+4. Mass AI content with no review → human-led, expert-reviewed, with bylines.
+5. Clickbait titles that don't match content → clear titles + a 50–60-word answer up top.
+6. Spinning/rewriting competitor pages → add first-hand experience, data, unique POV.
+7. Ignoring updates once published → refresh winners (FAQs, stats, examples) every 60–90 days.
+
+**Links & authority**
+8. Buying links / PBNs → earn editorial mentions via PR, data, quotes, partnerships.
+9. Sitewide link swaps → contextual in-content citations from relevant pages.
+10. "More links = better" → quality over quantity; diversify sources & mentions.
+11. Exact-match anchors → natural anchors matching the reader's next click.
+
+**Technical**
+12. Over-indexing on keyword meta tags → proper titles, headings, structured data.
+13. Nofollow internal links "for sculpting" → link descriptively; let equity flow.
+14. Publishing without schema → add JSON-LD (Organization/FAQ, HowTo, Product).
+15. One stale sitemap → maintain clean XML, fix canonicals, keep indexing healthy.
+16. Desktop-only UX → mobile-first, Core Web Vitals, lazy-loading, accessible markup.
+17. Ignoring accessibility (alt text, headings) → accessible content helps users and machines.
+
+**Local / GEO**
+18. "Set & forget" Google Business Profile → keep NAP, services, photos, Q&A fresh.
+19. Spammy/city-stuffed listing names → real brand names; win with reviews & local proof.
+20. Auto-generated city/service pages → high-quality location pages with real proof.
+
+**Measurement & mindset**
+21. Rankings as the success metric → track qualified leads, revenue, visitors.
+22. Last-click-only reporting → attribute across touchpoints (assisted conv., call tracking).
+23. Ignoring AI surfaces (AEO) → monitor mentions/citations in ChatGPT, Perplexity, Gemini, Copilot.
+24. One-and-done SEO → operate in cycles: measure → fix → ship one win weekly.
+
+**Site architecture**
+25. Flat everything-to-everything linking → hub-and-spoke clusters.
+26. Orphan pages with no inbound links → link every important page from a hub/menu.
+27. Multiple pages on the same intent (cannibalization) → consolidate to one intent per page.
+
+> Source: "27 SEO Moves That Fail in the AI + GEO + AEO World", @faizaparwezofficial.

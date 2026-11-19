@@ -85,6 +85,14 @@ BreadcrumbList, WebSite, LocalBusiness. → `references/schema-types.md` (NEW).
 Timeline & context → 8-step diagnostic → evidence-classification matrix.
 → `references/diagnostics.md`.
 
-<!-- Still to read below row 4: 22 Essential SEO Content Types · 18 Digital
-Marketing Metrics That Matter · 7 Leaks Between SEO Traffic & Leads · The
-Marketing Stack in 2026 · and older posts. -->
+### 27 SEO Moves That Fail in the AI + GEO + AEO World
+27 anti-patterns across content, links, technical, local/GEO, measurement, site
+architecture — each with the fix. → folded into `references/common-seo-mistakes.md`.
+
+<!-- Seen on grid, not yet transcribed in full (titles captured for later passes):
+22 Essential SEO Content Types · 18 Digital Marketing Metrics That Matter ·
+7 Leaks Between SEO Traffic & Leads · The Marketing Stack in 2026 ·
+SEO + AI Visibility KPIs to Track in 2026 · Revenue Growth Blueprint ·
+20-Step Checklist for a High-Performing SEO Article · My GBP Audit Checklist 2026 ·
+48 Sources That Can Influence AI Recommendations · The Search Everywhere Flywheel ·
+…and ~95 older posts. Most reinforce frameworks already captured above. -->
