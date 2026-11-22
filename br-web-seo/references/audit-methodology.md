@@ -25,10 +25,15 @@ diagnosis & drift monitoring → `diagnostics.md`.
 | Canonical tags | Every indexable page has exactly one self-referencing (or intended) `<link rel="canonical">` with an absolute URL. No conflicting/multiple canonicals. |
 | HTTP status codes | Indexable pages return `200`. Redirects are `301` (permanent) not `302` for moved content. No redirect chains/loops. |
 | 404 / soft-404 handling | Missing pages return a real `404` status, not `200` with an "oops" body. |
-| Sitemap | `sitemap.xml` exists, lists canonical URLs only, is referenced in `robots.txt`, and is submitted to Search Console. Under 50k URLs / 50MB per file. |
+| Sitemap | `sitemap.xml` exists, lists canonical URLs only, is referenced in `robots.txt`, and is submitted to Search Console. Under 50k URLs / 50MB per file. Google ignores `<changefreq>`/`<priority>` — don't rely on them. |
+| HTML sitemap (humans) | In addition to the XML sitemap, a categorized HTML sitemap page aids users and internal crawling; keep it current with no broken links. |
+| Image / specialized sitemaps | For image-heavy or media sites, an image sitemap gives crawlers image metadata (own sitemap type). |
 | URL structure | Lowercase, hyphenated, stable, no session IDs or deep unnecessary nesting; consistent trailing-slash policy. |
 | Pagination / infinite scroll | Paginated content reachable via crawlable `<a href>` links, not JS-only. |
 | JS rendering | For SPAs: confirm primary content and `<head>` tags exist in the **rendered** DOM. Pure CSR with empty initial HTML risks non-indexing — consider SSR/prerender. |
+| URL path-truncation | Every ancestor directory serves real content (users delete trailing URL segments hoping for a parent listing — `/blog/2026/` and `/blog/` should not 404). |
+| Faceted / filter navigation | Filter & sort params can spawn near-infinite URL variations (duplicate content + crawl-budget waste). Control with `rel="canonical"`, `noindex`, or `robots.txt`/parameter handling. |
+| Crawl budget | On large sites, `noindex` low-value but frequently-crawled URLs so bots spend budget on pages that matter. |
 
 ## 2. On-page content & HTML
 
@@ -39,7 +44,8 @@ diagnosis & drift monitoring → `diagnostics.md`.
 | `<h1>` | Exactly one per page, describes the page, not empty. |
 | Heading hierarchy | Logical `h1 → h2 → h3`, no skipped levels used purely for styling. |
 | Content quality | Substantive, unique (not duplicated across URLs), matches search intent, no keyword stuffing. |
-| Image `alt` | Descriptive `alt` on content images; empty `alt=""` on decorative ones. |
+| Image `alt` | Descriptive `alt` on content images; empty `alt=""` on decorative ones. When an image **is a link**, its `alt` is treated like the link's anchor text — write it that way. |
+| Image filenames | Descriptive, hyphenated filenames (`red-running-shoes.jpg`, not `IMG_1234.jpg`) — the filename is a crawl signal. |
 | Internal linking | Descriptive anchor text (not "click here"); important pages reachable in few clicks; no orphan pages. |
 | Outbound links | Intentional `rel="nofollow"`/`sponsored`/`ugc` where appropriate. |
 | `lang` attribute | `<html lang="…">` set correctly. |
@@ -87,6 +93,9 @@ Measure on mobile; use lab (Lighthouse) and, if available, field data (CrUX).
 | `hreflang` | Reciprocal `<link rel="alternate" hreflang="…">` per language/region, plus `x-default`. |
 | Localized content | Translated content on distinct URLs; consistent canonical/hreflang signals. |
 
+Full method (URL structure, geotargeting, localization, market prioritization) →
+`international-seo.md`.
+
 ## 7. Security & infrastructure signals
 
 | Check | What good looks like |
@@ -118,3 +127,13 @@ Measure on mobile; use lab (Lighthouse) and, if available, field data (CrUX).
   findings as `file:line`.
 - **Performance**: Lighthouse / PageSpeed Insights for lab metrics; CrUX/Search
   Console for field metrics if the user has access.
+- **Server log analysis** (when logs are available): parse access logs for crawler
+  user-agents, response codes, and crawl frequency per URL to see *real* bot
+  behavior — crawl-budget waste, repeatedly-crawled low-value URLs, and errors GSC
+  may not surface. Verify a claimed Googlebot by checking the UA **contains** the
+  token (don't exact-match — Google changes it) and confirming via reverse-DNS.
+- **Google search operators** for discovery & competitive checks: `site:` (index
+  coverage / index bloat), `intitle:`/`allintitle:`, `intext:`/`allintext:`,
+  `inurl:`, `filetype:`, exact phrase `"…"`, exclusion `-term`, and chaining. (Note:
+  `link:`, `cache:`, and `related:` have been retired/are unreliable — don't depend
+  on them.)

@@ -41,6 +41,21 @@ if asked.
 - **Quality:** useful, accurate, comprehensive, readable — satisfy the intent
   better than the current top results.
 
+### Readability metrics (measure, don't eyeball)
+
+Score drafts on concrete readability signals, not just keyword presence — easier
+reading lifts engagement and extraction:
+
+- **Flesch Reading Ease** — aim for a score appropriate to the audience (higher =
+  easier); most web content targets ~60+.
+- **Passive voice** — keep the share of passive sentences low.
+- **Transition words** — a healthy proportion aids flow and scannability.
+- **Sentence & paragraph length** — favor short sentences and short paragraphs;
+  flag long run-ons and walls of text.
+
+> Note: readability targets guide revision — they are **not** keyword-density
+> targets. Ignore legacy "1–2% density / keyword N times" advice; it's deprecated.
+
 ### Good vs poor (quick reference)
 
 - Title — poor: `Best AI SEO Tools AI SEO Software AI SEO Platform 2026`;
@@ -103,6 +118,39 @@ and Google AI Overviews (GEO).
 12. **Use search-driven titles** — match real audience intent and phrasing.
 
 > Source: "12 Ways to Improve SEO & AI Search Visibility", @faizaparwezofficial.
+
+### Groundability — the mechanism behind citations
+
+AI answers increasingly **ground** their output against a fresh search index and
+attribute sources (e.g. Bing's model fact-checks LLM output against the live
+index). The content that earns attribution is content an engine can *ground*:
+indexed, factual, current, and unambiguous. Make claims verifiable — explicit
+numbers, dates, named entities, and primary-source citations — so your page is the
+thing the model can safely cite.
+
+### Where fresh web content still beats AI answers (differentiation)
+
+LLM-generated answers are weakest on **real-time and high-stakes** queries:
+product **pricing**, **directions**, **weather** and other live data, **news**,
+**sports scores**, and **YMYL** (your-money-your-life) topics. These are exactly
+where fresh, authoritative, well-structured web content wins the click and the
+citation — prioritize them.
+
+### Always verify AI-generated content
+
+AI drafting is fine; publishing it unchecked is not. Evidence: CNET found errors in
+**41 of 71** AI-written articles; one 30-query study found ~20% of ChatGPT output
+overtly incorrect and over half with material omissions. **Rule:** human-review,
+fact-check, and add first-hand experience before publishing. Unreviewed mass AI
+content is a known anti-pattern (see `common-seo-mistakes.md`).
+
+### Prompt patterns for SEO tasks
+
+Reusable prompts when drafting with an LLM (always verify output):
+- *"Read the following content and suggest five title-tag options."*
+- *"Create the Schema.org JSON-LD markup for the following content."*
+- *"Create a detailed, intent-led outline for an article on [topic]."*
+- *"Suggest titles for eight articles on [topic]."*
 
 ### AEO specifics
 

@@ -38,7 +38,9 @@ SEO Skill/
     │   ├── seo-kpis.md                  KPIs across SEO/SXO/conversion/tech/authority/AI
     │   ├── content-and-geo.md           content optimization + GEO/AEO + AI landing page
     │   ├── authority-and-entities.md    topical authority, entity SEO, digital PR
-    │   ├── internal-linking.md          12 link types + hub-and-spoke + authority flow
+    │   ├── internal-linking.md          12 link types + hub-and-spoke + authority flow + siloing
+    │   ├── off-page-seo.md              earning backlinks, backlink audit, link velocity, ORM
+    │   ├── international-seo.md          hreflang, ccTLD vs subdir, geotargeting, localization
     │   ├── robots-directives.md         12 robots meta directives
     │   ├── redirects.md                 10 redirect types
     │   ├── schema-types.md              10 JSON-LD schema types

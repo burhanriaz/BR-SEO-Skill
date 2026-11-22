@@ -62,6 +62,20 @@ it converts:
 When auditing, check that authority actually reaches money pages: link-earning
 assets → hubs → supporting content → conversion pages, with no dead ends.
 
+## Siloing (a stricter form of clustering)
+
+Siloing deliberately **concentrates internal links within a theme** and limits
+cross-theme linking, so topical authority pools where you want it:
+
+- **Physical silo** — the theme is mirrored in the **URL/directory** hierarchy
+  (`/running-shoes/trail/…`), so structure itself signals grouping.
+- **Virtual silo** — the grouping is created purely by **internal-link patterns**
+  (contextual links kept within the topic), independent of URL structure.
+
+Use siloing when a site spans several distinct topics that shouldn't dilute each
+other; keep cross-silo links intentional and sparse. Hub-and-spoke is the lighter,
+default version; siloing is the stricter version for larger multi-topic sites.
+
 Report findings and fixes using the standard audit/fix templates; for a cluster
 redesign, include the intended hub→spoke map and the conversion-page link routing
 in the fix report.

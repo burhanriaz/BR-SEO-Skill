@@ -69,3 +69,24 @@ Anti-patterns to flag during an audit, grouped by area → the corrected practic
 27. Multiple pages on the same intent (cannibalization) → consolidate to one intent per page.
 
 > Source: "27 SEO Moves That Fail in the AI + GEO + AEO World", @faizaparwezofficial.
+
+---
+
+## A few more traps (from the SEO-book review pass)
+
+- **Cloaking by device/agent** → serving crawlers different content than users
+  (e.g. "please access from mobile" to desktop while giving bots the full page) is
+  cloaking. Serve the same content to users and crawlers; for device redirects,
+  send a mobile user to the **equivalent** mobile page, never the mobile homepage.
+- **Unnatural link velocity** → a sudden mass **gain** *or* **loss/churn** of
+  backlinks looks manipulative. Don't buy bursts of links; investigate sudden drops
+  (lost referrer, negative SEO) rather than ignoring them.
+- **Keyword-density targets** → "hit 1–2% / mention the keyword N times" is
+  deprecated thinking. Write for intent and entities; measure readability, not
+  density.
+- **Buying aged/expired domains for their authority** → an explicit Google
+  spam-policy violation (expired-domain abuse). Build authority by earning links.
+- **Dead "link-building" tactics** → mass directory submission, reciprocal-link
+  exchanges, PBNs, social-bookmark/forum-signature/blog-comment keyword links,
+  advertorial links without `rel="sponsored"` → all are link schemes. See
+  `off-page-seo.md` for what to do instead.

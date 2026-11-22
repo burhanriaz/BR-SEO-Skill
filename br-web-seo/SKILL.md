@@ -125,7 +125,9 @@ Bands: **90–100** excellent · **70–89** good · **50–69** needs work ·
 - `references/seo-kpis.md` — KPIs to track across SEO, SXO, conversion, technical, authority, and AI visibility.
 - `references/content-and-geo.md` — content optimization workflow, E-E-A-T, AI-search/GEO (llms.txt, citability, 12 visibility tactics), the anatomy of a high-performing AI SEO landing page.
 - `references/authority-and-entities.md` — topical authority, entity SEO/knowledge graphs, answer-first writing, digital PR, dual-ranking.
-- `references/internal-linking.md` — the 12 internal-link types, hub-and-spoke clusters, and the authority-flow model.
+- `references/internal-linking.md` — the 12 internal-link types, hub-and-spoke clusters, the authority-flow model, and siloing.
+- `references/off-page-seo.md` — earning external backlinks, backlink quality signals, backlink audit/reclamation, link velocity, and brand-SERP reputation management.
+- `references/international-seo.md` — hreflang, ccTLD vs subdirectory/subdomain, geotargeting, localization, and market prioritization.
 - `references/robots-directives.md` — the 12 robots meta directives and when to use each.
 - `references/redirects.md` — the 10 redirect types and when to use each.
 - `references/schema-types.md` — 10 structured-data types for AI-ready sites.

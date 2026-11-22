@@ -26,5 +26,30 @@ permanent moves — a wrong choice leaks or splits ranking signals.
 - [ ] Internal links point to the **final** URL, not through a redirect.
 - [ ] No meta-refresh/JS redirects where a server redirect is possible.
 - [ ] Removed pages 301 to the best equivalent (or return a clean 404/410 if none).
+- [ ] **Inbound** (external) links resolve to the live page in **one hop** — not
+      through a 302 or a multi-redirect chain (lost equity + slower crawl).
 
-> Source: "The 10 Types of Redirects in SEO", @faizaparwezofficial.
+## Broken-backlink reclamation
+
+Dead URLs on your site that still receive **external** links are leaking earned
+authority. Find them (crawl your 404s + a backlink tool), then **301** each to the
+best live equivalent. One of the highest-ROI, lowest-effort SEO wins. See
+`off-page-seo.md`.
+
+## Site migrations & replatforming (redirect-driven)
+
+A redesign, CMS change, or domain move is a **migration** — plan redirects *before*
+the switch, or rankings crater:
+
+1. **Inventory** every existing indexed URL (crawl + Search Console + sitemaps).
+2. **Preserve** URLs where possible; where they must change, map old → new 1:1.
+3. Put **301s** in place **before/at** cutover — never let old URLs 404 at launch.
+4. For a **domain move**, file a **Change of Address** in Google Search Console.
+5. Keep the old XML sitemap temporarily so Google recrawls and reprocesses the 301s.
+6. Post-launch: monitor coverage, 404s, and rankings; fix broken redirects fast.
+
+> Cautionary pattern: a replatform that silently renames every URL (and 404s the
+> old ones) can drop a site from page 1 to page 3 overnight.
+
+> Source: "The 10 Types of Redirects in SEO", @faizaparwezofficial; migration &
+> reclamation practices from the book review pass.

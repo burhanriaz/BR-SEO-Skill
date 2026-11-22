@@ -3,6 +3,10 @@
 For businesses targeting a city/region or "near me" intent. Local ranking is
 driven by **relevance, distance, and prominence** — audit all three.
 
+> Why it matters: ~76% of people who run a local smartphone search visit a
+> business within 24 hours, and ~28% of those visits end in a purchase (Google) —
+> local intent is high-conversion.
+
 ## Workflow / audit areas
 
 1. **Google Business Profile (GBP) optimization**
@@ -12,6 +16,8 @@ driven by **relevance, distance, and prominence** — audit all three.
    - Q&A seeded and monitored; no spam answers.
 2. **Local keyword research & intent**
    - Target location-specific queries and real "near me"/service-area intent.
+   - Cover **both phrasings**: keyword-first and city-first ("kitchen remodeling
+     Baltimore" *and* "Baltimore kitchen remodeling").
    - Build location + service landing pages where justified (avoid doorway/thin
      duplicates).
 3. **Website & on-page local SEO**
@@ -25,6 +31,11 @@ driven by **relevance, distance, and prominence** — audit all three.
 5. **Reviews & reputation management**
    - Steady review velocity; owner responses to positive **and** negative.
    - Review schema only where genuinely applicable (follow Google's rules).
+   - **Acquisition tactics (white-hat):** ask immediately after service (response
+     rate drops the longer you wait); send **one** polite reminder ~3 days later;
+     make it **one-click**. Don't pay for or incentivize reviews, don't funnel
+     everyone to a single platform, and never collect reviews from a single-IP
+     in-store kiosk — platforms filter these as spam.
 6. **Local authority & link building**
    - Local backlinks: chambers, local press, sponsorships, partners.
 7. **Local SEO analytics & performance**

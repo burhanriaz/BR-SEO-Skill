@@ -45,6 +45,17 @@ the other.
   objective with shared tactics (clarity, structure, authority, schema), not two
   separate projects. This is the spine of the whole roadmap.
 
+## The human layer: working with the team
+
+SEO fails in handoff as often as in strategy. Build this into every engagement:
+
+- **Educate engineering/IT** on SEO basics so back-end changes (URL changes,
+  redirects, render mode, blocked resources) don't silently break SEO.
+- **Attach a dollar cost to each unfixed issue** — "this 404 pattern loses ~$X/mo
+  in organic revenue" gets fixes prioritized far better than "it's bad for SEO."
+- **Stay available after handoff.** Don't treat handed-off fixes as "someone
+  else's problem"; verify they shipped correctly and re-test.
+
 ## Note on the source page (CRO, not SEO technique)
 
 The source is a sales landing page. Its *conversion* tactics — countdown timers,

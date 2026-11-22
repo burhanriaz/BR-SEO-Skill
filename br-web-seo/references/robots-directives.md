@@ -21,6 +21,14 @@ seen. Set directives via `<meta name="robots" content="…">` or the
 | 11 | `notranslate` | Prevents Google offering a translated version | Disable Google's translation for a page |
 | 12 | `indexifembedded` | Allows indexing of `noindex` content when embedded via iframe/similar | Support embedded widgets/media under specific conditions |
 
+## About `robots.txt` (distinct from these meta directives)
+
+- **Per-host:** `robots.txt` applies only to the host that serves it — each
+  subdomain (and the `www`/non-`www` and HTTP/HTTPS variants) needs its own.
+- **Not a security control:** a `Disallow`'d URL can still appear in results as a
+  bare URL (no title/snippet) if it's linked elsewhere. To truly hide content, use
+  authentication/encryption or `noindex` (with crawl allowed) — not `robots.txt`.
+
 ## Audit checklist
 
 - [ ] No page meant to rank carries `noindex` (meta **or** `X-Robots-Tag`) — the

@@ -44,6 +44,16 @@ Perplexity, AI Overviews).
 - Build the brand's **AI footprint**: consistent presence across the web so LLMs
   encounter and trust the entity repeatedly.
 
+## Trust signals & brand-SERP reputation
+
+- **Verifiable business identity (E-E-A-T):** show a **full physical address and a
+  live phone number** (answered), not just a contact form. A PO-box-only address or
+  a form-only contact reads as evasive and weakens trust for users and engines.
+- **Own your brand SERP:** the first page of results for your brand name is part of
+  your authority footprint — publish and control positive owned/third-party
+  results, and monitor it. For the full reputation-management playbook (including
+  the rebuttal rule) see `off-page-seo.md`.
+
 ## How to apply in an audit
 
 1. Assess topical coverage vs competitors — flag thin clusters and orphan

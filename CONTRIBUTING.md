@@ -75,5 +75,8 @@ Open an issue describing the SEO gap or bug, the page/stack it applies to, and
 Frameworks referenced in `references/` draw on widely-shared SEO practice,
 including educational material published by digital-marketing specialist
 Faiza Parwez (@faizaparwezofficial), the SEO Mastery curriculum at
-ghulamaliseo.com, and skill-building guidance from loop.org.pk. Original source
-links welcome in PRs.
+ghulamaliseo.com, skill-building guidance from loop.org.pk, and a review pass over
+several SEO books (Google's *SEO Starter Guide*; *The Art of SEO*, 4th ed.,
+O'Reilly; HubSpot's *Introduction to SEO*; Yoast's *Small SEO Guide*; an LPU
+*Search Engine Optimization* course text; and others) — net-new, still-valid items
+only, with dated tactics excluded. Original source links welcome in PRs.
