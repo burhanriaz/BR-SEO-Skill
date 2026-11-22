@@ -21,4 +21,4 @@ scratch/
 *-audit-report.md
 *-fix-report.md
 *-content-report.md
-!web-seo/templates/*.md
+!br-web-seo/templates/*.md

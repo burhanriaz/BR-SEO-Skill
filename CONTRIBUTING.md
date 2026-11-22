@@ -1,6 +1,6 @@
 # Contributing
 
-Thanks for helping improve the **web-seo** skill.
+Thanks for helping improve the **br-web-seo** skill.
 
 ## What this is
 
@@ -11,7 +11,7 @@ A Claude Code / Claude skill that audits and optimizes websites for search
 ## How to contribute
 
 1. **Fork** and create a branch: `git checkout -b feat/<short-name>`.
-2. Keep changes focused. For the skill itself, edit files under `web-seo/`:
+2. Keep changes focused. For the skill itself, edit files under `br-web-seo/`:
    - `SKILL.md` — the workflow/orchestrator. Keep it concise; push detail into
      `references/`.
    - `references/*.md` — deep-dive modules. One topic per file.
@@ -28,7 +28,7 @@ A Claude Code / Claude skill that audits and optimizes websites for search
 These keep the skill effective as it grows (adapted from established
 skill-building guidance):
 
-- **One clear purpose per skill.** `web-seo` audits/optimizes websites for search
+- **One clear purpose per skill.** `br-web-seo` audits/optimizes websites for search
   and produces fix reports — nothing else. Resist bolting on unrelated jobs.
 - **Specialized over monolithic.** When a concern grows large and self-contained
   (e.g. a dedicated local-SEO or GEO skill), prefer splitting it out over

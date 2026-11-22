@@ -1,5 +1,5 @@
 ---
-name: web-seo
+name: br-web-seo
 description: >-
   Audit, optimize, and future-proof a website or web app for search — classic
   SEO plus AEO, AIO and GEO (AI/generative search). Use when the user wants an

@@ -13,11 +13,11 @@ AI-SEO landing-page anatomy, and a ranking-drop diagnosis framework.
 
 ## Deliverables in this package
 
-1. **SEO skill** — `web-seo/SKILL.md`: the invokable workflow with operating
+1. **SEO skill** — `br-web-seo/SKILL.md`: the invokable workflow with operating
    modes (technical audit, content, GEO/AI-search, internal linking, local,
    diagnosis, pre-deploy gate).
-2. **Audit methodology** — `web-seo/references/audit-methodology.md`.
-3. **Pre-deployment checklist** — `web-seo/references/pre-deployment-checklist.md`.
+2. **Audit methodology** — `br-web-seo/references/audit-methodology.md`.
+3. **Pre-deployment checklist** — `br-web-seo/references/pre-deployment-checklist.md`.
 4. **Report templates** — audit (diagnosis), fix/hotfix (prescription for another
    session), and content optimization.
 
@@ -26,7 +26,7 @@ AI-SEO landing-page anatomy, and a ranking-drop diagnosis framework.
 ```
 SEO Skill/
 ├── README.md · LICENSE · CONTRIBUTING.md · .gitignore
-└── web-seo/
+└── br-web-seo/
     ├── SKILL.md                         the orchestrator (modes + workflow + scoring)
     ├── references/
     │   ├── audit-methodology.md         technical + on-page checks
@@ -71,7 +71,7 @@ give it *real evidence* instead of assumptions — which is the whole point of t
 
 ## Install (commands)
 
-Copy the `web-seo/` folder into a skills directory Claude Code loads. Pick
+Copy the `br-web-seo/` folder into a skills directory Claude Code loads. Pick
 **personal** (all projects) or **project-scoped** (one repo).
 
 **Windows — PowerShell** (run from inside this repo folder):
@@ -79,11 +79,11 @@ Copy the `web-seo/` folder into a skills directory Claude Code loads. Pick
 ```powershell
 # Personal — available in every project
 New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
-Copy-Item -Recurse -Force ".\web-seo" "$env:USERPROFILE\.claude\skills\web-seo"
+Copy-Item -Recurse -Force ".\br-web-seo" "$env:USERPROFILE\.claude\skills\br-web-seo"
 
 # …or Project-scoped — only inside one project
 New-Item -ItemType Directory -Force "C:\path\to\your-project\.claude\skills" | Out-Null
-Copy-Item -Recurse -Force ".\web-seo" "C:\path\to\your-project\.claude\skills\web-seo"
+Copy-Item -Recurse -Force ".\br-web-seo" "C:\path\to\your-project\.claude\skills\br-web-seo"
 ```
 
 **macOS / Linux — bash** (run from inside this repo folder):
@@ -91,11 +91,11 @@ Copy-Item -Recurse -Force ".\web-seo" "C:\path\to\your-project\.claude\skills\we
 ```bash
 # Personal — available in every project
 mkdir -p ~/.claude/skills
-cp -R ./web-seo ~/.claude/skills/web-seo
+cp -R ./br-web-seo ~/.claude/skills/br-web-seo
 
 # …or Project-scoped — only inside one project
 mkdir -p /path/to/your-project/.claude/skills
-cp -R ./web-seo /path/to/your-project/.claude/skills/web-seo
+cp -R ./br-web-seo /path/to/your-project/.claude/skills/br-web-seo
 ```
 
 **Verify it loaded** — open Claude Code in a project and run:
@@ -104,54 +104,54 @@ cp -R ./web-seo /path/to/your-project/.claude/skills/web-seo
 /skills
 ```
 
-`web-seo` should appear in the list (or ask Claude: *"list your available skills"*).
+`br-web-seo` should appear in the list (or ask Claude: *"list your available skills"*).
 
 ## Using it (commands / prompts)
 
-A skill is invoked by **prompting Claude** (or with `/web-seo` if your setup
+A skill is invoked by **prompting Claude** (or with `/br-web-seo` if your setup
 exposes skills as slash commands) — there is no separate shell command to "run"
 it. Give it the target, then ask for the mode you want:
 
 ```
 # Full technical SEO audit of a live site
-Use the web-seo skill to audit https://example.com — scope it, score it 0–100,
+Use the br-web-seo skill to audit https://example.com — scope it, score it 0–100,
 and write the audit report and a fix report.
 
 # Audit a local codebase (point it at the repo + stack)
-Run a web-seo technical audit on this Next.js repo; confirm content exists in the
+Run a br-web-seo technical audit on this Next.js repo; confirm content exists in the
 rendered DOM, then produce an audit report + fix report.
 
 # Content optimization for a target keyword (analyze before rewriting)
-web-seo content mode: optimize /blog/my-post for "best running shoes" — analyze
+br-web-seo content mode: optimize /blog/my-post for "best running shoes" — analyze
 intent, keyword placement, headings, E-E-A-T and AI-citability, then recommend.
 
 # GEO / AI-search visibility (ChatGPT, Perplexity, AI Overviews)
-web-seo GEO check on https://example.com — is it structured to be cited by AI
+br-web-seo GEO check on https://example.com — is it structured to be cited by AI
 engines? List fixes.
 
 # Internal linking / topic clusters
-web-seo internal-linking review of this site — find orphan pages and propose a
+br-web-seo internal-linking review of this site — find orphan pages and propose a
 hub-and-spoke structure.
 
 # Local SEO (Google Business Profile)
-web-seo local mode — audit our Google Business Profile and local signals for
+br-web-seo local mode — audit our Google Business Profile and local signals for
 "<city> <service>".
 
 # Ranking-drop diagnosis after a Google update
-web-seo diagnosis: organic traffic dropped ~30% after the <date> update — walk
+br-web-seo diagnosis: organic traffic dropped ~30% after the <date> update — walk
 the diagnostic framework and give an evidence matrix.
 
 # Pre-deployment go/no-go gate (before a release)
-Run the web-seo pre-deployment checklist against the staging build and give me a
+Run the br-web-seo pre-deployment checklist against the staging build and give me a
 go/no-go.
 
 # Apply a fix report produced earlier (hand the report to a fresh session)
-Here is a web-seo fix report. Apply the changes to this repo, file by file, and
+Here is a br-web-seo fix report. Apply the changes to this repo, file by file, and
 report what you changed.
 ```
 
 **Outputs are files, not just chat.** Each mode writes a Markdown deliverable from
-`web-seo/templates/` (audit report → fix report → optional pre-deploy gate), so
+`br-web-seo/templates/` (audit report → fix report → optional pre-deploy gate), so
 teams can diff runs over time.
 
 ## Flow
