@@ -74,28 +74,49 @@ give it *real evidence* instead of assumptions — which is the whole point of t
 Copy the `br-web-seo/` folder into a skills directory Claude Code loads. Pick
 **personal** (all projects) or **project-scoped** (one repo).
 
-**Windows — PowerShell** (run from inside this repo folder):
+### Quickest: one command, straight from GitHub
+
+Run this **from inside the project** you want the skill in. It clones the repo to
+a temp folder, copies just the `br-web-seo` skill into the project's
+`.claude/skills/`, and cleans up. No manual download.
+
+**Windows — PowerShell** (run from the project root):
 
 ```powershell
-# Personal — available in every project
-New-Item -ItemType Directory -Force "$env:USERPROFILE\.claude\skills" | Out-Null
-Copy-Item -Recurse -Force ".\br-web-seo" "$env:USERPROFILE\.claude\skills\br-web-seo"
-
-# …or Project-scoped — only inside one project
-New-Item -ItemType Directory -Force "C:\path\to\your-project\.claude\skills" | Out-Null
-Copy-Item -Recurse -Force ".\br-web-seo" "C:\path\to\your-project\.claude\skills\br-web-seo"
+git clone --depth 1 https://github.com/burhanriaz/br-seo-skill.git "$env:TEMP\br-seo-skill"; `
+New-Item -ItemType Directory -Force ".\.claude\skills" | Out-Null; `
+Copy-Item -Recurse -Force "$env:TEMP\br-seo-skill\br-web-seo" ".\.claude\skills\br-web-seo"; `
+Remove-Item -Recurse -Force "$env:TEMP\br-seo-skill"
 ```
 
-**macOS / Linux — bash** (run from inside this repo folder):
+**macOS / Linux — bash** (run from the project root):
 
 ```bash
-# Personal — available in every project
-mkdir -p ~/.claude/skills
-cp -R ./br-web-seo ~/.claude/skills/br-web-seo
+git clone --depth 1 https://github.com/burhanriaz/br-seo-skill.git /tmp/br-seo-skill && \
+mkdir -p .claude/skills && \
+cp -R /tmp/br-seo-skill/br-web-seo .claude/skills/br-web-seo && \
+rm -rf /tmp/br-seo-skill
+```
 
-# …or Project-scoped — only inside one project
-mkdir -p /path/to/your-project/.claude/skills
-cp -R ./br-web-seo /path/to/your-project/.claude/skills/br-web-seo
+**Install for *every* project (personal scope)** — same commands, but point at your
+home skills folder instead of the project: replace `.\.claude\skills` with
+`"$env:USERPROFILE\.claude\skills"` (PowerShell) or `.claude/skills` with
+`~/.claude/skills` (bash).
+
+### Alternative: manual copy
+
+If you already have the repo cloned locally, just copy the folder:
+
+```powershell
+# Windows PowerShell — project-scoped
+New-Item -ItemType Directory -Force ".\.claude\skills" | Out-Null
+Copy-Item -Recurse -Force "path\to\br-seo-skill\br-web-seo" ".\.claude\skills\br-web-seo"
+```
+
+```bash
+# macOS / Linux — project-scoped
+mkdir -p .claude/skills
+cp -R path/to/br-seo-skill/br-web-seo .claude/skills/br-web-seo
 ```
 
 **Verify it loaded** — open Claude Code in a project and run:
