@@ -117,6 +117,7 @@ Bands: **90–100** excellent · **70–89** good · **50–69** needs work ·
 ## Reference map
 
 - `references/audit-methodology.md` — full technical + on-page check list, "good" states, how to verify each.
+- `references/seo-program-roadmap.md` — the 9-phase end-to-end program (foundations → research → structure → content → technical → off-page → GEO → AEO → measure/monetize); the top-level map that orders every other reference.
 - `references/complete-seo-checklist.md` — full-coverage program checklist (basics, technical, keyword, on-page, content, off-page, local).
 - `references/search-landscape.md` — SEO vs AEO vs AIO vs GEO: goals, focus, tactics, mistakes. Decide what to optimize for.
 - `references/search-intent.md` — the 6 practical intent levels and the content format each needs.
