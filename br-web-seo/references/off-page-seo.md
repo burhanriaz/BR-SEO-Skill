@@ -70,6 +70,26 @@ footprint — own it.
   doing so only helps that negative page rank better for those terms. Address it on
   properties you control instead.
 
+## Recovering from a link penalty
+
+If a site has a toxic backlink profile (bought links, PBNs, spam from a prior
+agency) or a **manual action** for unnatural links:
+
+1. **Audit the backlink profile** — export links (Search Console + a backlink
+   tool) and flag the spammy/manipulative/irrelevant domains.
+2. **Remove what you can** — request removal from the linking sites first
+   (genuine, if slow).
+3. **Disavow the rest** — submit a `disavow.txt` (domain-level where possible) via
+   Google's Disavow Tool. Use sparingly and deliberately — disavowing good links
+   hurts you. It's a last resort, not routine hygiene.
+4. **Reconsideration** — for a *manual* action, file a reconsideration request
+   documenting what you removed/disavowed and the process changes made.
+5. **Prevent recurrence** — stop whatever created the bad links; shift to earning
+   editorial links (above).
+
+> Most sites never need to disavow — Google ignores most spam links automatically.
+> Reach for it only for a real toxic profile or a manual action.
+
 ## Anti-patterns (never do these — link schemes)
 
 Buying links without `rel="sponsored"`/nofollow · advertorials/press releases built

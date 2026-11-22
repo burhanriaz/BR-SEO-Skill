@@ -44,6 +44,7 @@ SEO Skill/
     │   ├── robots-directives.md         12 robots meta directives
     │   ├── redirects.md                 10 redirect types
     │   ├── schema-types.md              10 JSON-LD schema types
+    │   ├── image-seo.md                 image relevance, formats/compression, CWV, rich results
     │   ├── common-seo-mistakes.md       8 costly mistakes + 27 AI/GEO anti-patterns
     │   ├── local-seo.md                 Google Business Profile + local
     │   ├── diagnostics.md               GSC reports + ranking-drop + drift

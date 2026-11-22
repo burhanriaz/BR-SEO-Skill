@@ -131,6 +131,7 @@ Bands: **90–100** excellent · **70–89** good · **50–69** needs work ·
 - `references/robots-directives.md` — the 12 robots meta directives and when to use each.
 - `references/redirects.md` — the 10 redirect types and when to use each.
 - `references/schema-types.md` — 10 structured-data types for AI-ready sites.
+- `references/image-seo.md` — image relevance/indexing, formats & compression, CWV, and rich-result images.
 - `references/common-seo-mistakes.md` — the 8 most expensive mistakes, their cost, and the fix.
 - `references/local-seo.md` — Google Business Profile + local-SEO workflow (NAP, citations, reviews).
 - `references/diagnostics.md` — Search Console's 10 essential reports, ranking-drop / Google-update diagnosis, and baseline-and-diff ("Git for SEO") drift monitoring.
