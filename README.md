@@ -83,7 +83,7 @@ a temp folder, copies just the `br-web-seo` skill into the project's
 **Windows — PowerShell** (run from the project root):
 
 ```powershell
-git clone --depth 1 https://github.com/burhanriaz/br-seo-skill.git "$env:TEMP\br-seo-skill"; `
+git clone --depth 1 https://github.com/burhanriaz/BR-SEO-Skill.git "$env:TEMP\br-seo-skill"; `
 New-Item -ItemType Directory -Force ".\.claude\skills" | Out-Null; `
 Copy-Item -Recurse -Force "$env:TEMP\br-seo-skill\br-web-seo" ".\.claude\skills\br-web-seo"; `
 Remove-Item -Recurse -Force "$env:TEMP\br-seo-skill"
@@ -92,7 +92,7 @@ Remove-Item -Recurse -Force "$env:TEMP\br-seo-skill"
 **macOS / Linux — bash** (run from the project root):
 
 ```bash
-git clone --depth 1 https://github.com/burhanriaz/br-seo-skill.git /tmp/br-seo-skill && \
+git clone --depth 1 https://github.com/burhanriaz/BR-SEO-Skill.git /tmp/br-seo-skill && \
 mkdir -p .claude/skills && \
 cp -R /tmp/br-seo-skill/br-web-seo .claude/skills/br-web-seo && \
 rm -rf /tmp/br-seo-skill
