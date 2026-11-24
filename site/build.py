@@ -398,7 +398,7 @@ def build(out, today, drafts=False):
     body = """<div class="wrap"><div class="post-hero">
   <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>Blog</span></nav>
   <h1>The <em>SEO, AEO &amp; GEO</em> blog</h1>
-  <p class="lead">{desc} {n} articles so far, new ones twice a day.</p></div>
+  <p class="lead">{desc} {n} articles so far, with new ones every day.</p></div>
   <h2 style="font-size:26px;margin:8px 0 16px">Browse by topic</h2>
   <ul class="topics">{topics}</ul>
   <h2 style="font-size:26px;margin:34px 0 16px">All articles</h2>

@@ -9,7 +9,7 @@ on:
     paths: ["site/**", "skills/**", "install.sh", "install.ps1", ".github/workflows/pages.yml"]
   workflow_dispatch:
   schedule:
-    - cron: "0 5 * * *"   # daily rebuild publishes posts whose date has arrived
+    - cron: "0 5 * * *"   # backup daily rebuild; new posts arrive by push from the private queue repo
 
 permissions:
   contents: read
@@ -67,9 +67,11 @@ jobs:
           key = next(os.path.basename(f)[:-4] for f in glob.glob("site/*.txt")
                      if re.fullmatch(r"[0-9a-f]{32}\.txt", os.path.basename(f)))
           today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
-          plan = json.load(open("site/blog/plan.json"))
-          urls = [base + "/", base + "/blog/"] + [
-              "%s/blog/%s/" % (base, p["slug"]) for p in plan if p["date"] == today]
+          urls = [base + "/", base + "/blog/"]
+          for f in sorted(glob.glob("site/blog/posts/*.md")):
+              m = re.search(r"^date:\s*(\S+)", open(f, encoding="utf-8").read(2000), re.M)
+              if m and m.group(1) == today:
+                  urls.append("%s/blog/%s/" % (base, os.path.basename(f)[:-3]))
           body = json.dumps({"host": "burhanriaz.github.io", "key": key,
                              "keyLocation": "%s/%s.txt" % (base, key), "urlList": urls}).encode()
           req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,

@@ -7,6 +7,9 @@ All notable changes to this project are documented here. The format follows
 ## [Unreleased]
 
 ### Added
+- Blog: unpublished posts now live in a private queue repo; a daily job
+  there copies each day's posts (three a day) into this repo, so future
+  articles are no longer public before their date.
 - Blog: a public-domain (CC0 / PDM) cover photo for every post, from Openverse,
   with credit and licence link; WebP + JPEG at 600 and 1200 px via `<picture>`,
   per-post Open Graph image, `image` in BlogPosting JSON-LD and image sitemap
