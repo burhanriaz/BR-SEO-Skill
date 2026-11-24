@@ -14,11 +14,11 @@ AI-SEO landing-page anatomy, and a ranking-drop diagnosis framework.
 
 ## Deliverables in this package
 
-1. **SEO skill** — `br-web-seo/SKILL.md`: the invokable workflow with operating
+1. **SEO skill** — `skills/br-web-seo/SKILL.md`: the invokable workflow with operating
    modes (technical audit, content, GEO/AI-search, internal linking, local,
    diagnosis, pre-deploy gate).
-2. **Audit methodology** — `br-web-seo/references/audit-methodology.md`.
-3. **Pre-deployment checklist** — `br-web-seo/references/pre-deployment-checklist.md`.
+2. **Audit methodology** — `skills/br-web-seo/references/audit-methodology.md`.
+3. **Pre-deployment checklist** — `skills/br-web-seo/references/pre-deployment-checklist.md`.
 4. **Report templates** — audit (diagnosis), fix/hotfix (prescription for another
    session), and content optimization.
 
@@ -29,7 +29,7 @@ SEO Skill/
 ├── README.md · LICENSE · CONTRIBUTING.md · .gitignore
 ├── install.sh · install.ps1             installers (any agent, project/user scope, chat-app packages)
 ├── .github/workflows/release.yml        builds br-web-seo.zip + br-web-seo-bundle.md on each release
-└── br-web-seo/
+└── skills/br-web-seo/
     ├── SKILL.md                         the orchestrator (modes + workflow + scoring)
     ├── references/
     │   ├── audit-methodology.md         technical + on-page checks
@@ -86,7 +86,7 @@ its skills folder, and chat apps can take it as an upload. Pick your tool below.
 | Claude Code · Codex · Gemini CLI · Copilot · Cursor (terminal / IDE agents) | One-line installer | [A](#a-coding-agents-one-command) |
 | Claude.ai (web / desktop / mobile) | Upload `br-web-seo.zip` as a skill | [B](#b-chat-apps-chatgpt--claudeai--gemini) |
 | ChatGPT · Gemini · Claude Projects | Upload `br-web-seo-bundle.md` as a knowledge file | [B](#b-chat-apps-chatgpt--claudeai--gemini) |
-| Anything else | Copy the `br-web-seo/` folder wherever it reads skills or instructions | [C](#c-manual-install--any-other-tool) |
+| Anything else | Copy the `skills/br-web-seo/` folder wherever it reads skills or instructions | [C](#c-manual-install--any-other-tool) |
 
 ### A. Coding agents: one command
 
@@ -183,7 +183,7 @@ headers, robots.txt and sitemap, and mark anything unverified as unverified.
 
 ### C. Manual install / any other tool
 
-Copy the `br-web-seo/` folder (keep `SKILL.md`, `references/`, `templates/`
+Copy the `skills/br-web-seo/` folder (keep `SKILL.md`, `references/`, `templates/`
 together) into the tool's skills folder:
 
 ```bash
@@ -248,7 +248,7 @@ report what you changed.
 ```
 
 **Outputs are files, not just chat.** Each mode writes a Markdown deliverable from
-`br-web-seo/templates/` (audit report → fix report → optional pre-deploy gate), so
+`skills/br-web-seo/templates/` (audit report → fix report → optional pre-deploy gate), so
 teams can diff runs over time.
 
 ## Flow

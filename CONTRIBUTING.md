@@ -11,7 +11,7 @@ A Claude Code / Claude skill that audits and optimizes websites for search
 ## How to contribute
 
 1. **Fork** and create a branch: `git checkout -b feat/<short-name>`.
-2. Keep changes focused. For the skill itself, edit files under `br-web-seo/`:
+2. Keep changes focused. For the skill itself, edit files under `skills/br-web-seo/`:
    - `SKILL.md` — the workflow/orchestrator. Keep it concise; push detail into
      `references/`.
    - `references/*.md` — deep-dive modules. One topic per file.

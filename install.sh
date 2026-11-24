@@ -73,8 +73,8 @@ SCRIPT_DIR=""
 if [ -n "${BASH_SOURCE[0]:-}" ] && [ -f "${BASH_SOURCE[0]}" ]; then
   SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 fi
-if [ -n "$SCRIPT_DIR" ] && [ -f "$SCRIPT_DIR/$SKILL/SKILL.md" ]; then
-  SRC="$SCRIPT_DIR/$SKILL"
+if [ -n "$SCRIPT_DIR" ] && [ -f "$SCRIPT_DIR/skills/$SKILL/SKILL.md" ]; then
+  SRC="$SCRIPT_DIR/skills/$SKILL"
 elif [ "$UNINSTALL" -eq 0 ]; then
   TMP="$(mktemp -d)"
   echo "Downloading $SKILL from $REPO_URL ..."
@@ -84,7 +84,7 @@ elif [ "$UNINSTALL" -eq 0 ]; then
     curl -fsSL "$REPO_URL/archive/refs/heads/main.tar.gz" | tar -xz -C "$TMP"
     mv "$TMP"/BR-SEO-Skill-main "$TMP/repo"
   fi
-  SRC="$TMP/repo/$SKILL"
+  SRC="$TMP/repo/skills/$SKILL"
   [ -f "$SRC/SKILL.md" ] || { echo "Download failed: $SRC/SKILL.md not found" >&2; exit 1; }
 fi
 
@@ -96,9 +96,9 @@ if [ "$PACKAGE" -eq 1 ]; then
   ( cd "$(dirname "$SRC")" &&
     if command -v zip >/dev/null 2>&1; then zip -qr "$OUT/$SKILL.zip" "$SKILL" -x '*.DS_Store'
     elif python3 -c "pass" >/dev/null 2>&1; then python3 -c "import shutil,sys; shutil.make_archive(sys.argv[1], 'zip', '.', sys.argv[2])" "$OUT/$SKILL" "$SKILL"
-    elif [ -f "$(dirname "$SRC")/install.ps1" ] && command -v powershell.exe >/dev/null 2>&1; then
+    elif [ -f "$(dirname "$(dirname "$SRC")")/install.ps1" ] && command -v powershell.exe >/dev/null 2>&1; then
       # Windows Git Bash without zip/python: reuse the PowerShell packager, which writes '/' entry paths
-      ( cd "$OUT" && powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(cygpath -w "$(dirname "$SRC")/install.ps1")" -Package >/dev/null )
+      ( cd "$OUT" && powershell.exe -NoProfile -ExecutionPolicy Bypass -File "$(cygpath -w "$(dirname "$(dirname "$SRC")")/install.ps1")" -Package >/dev/null )
     else exit 1; fi ) || ZIP_OK=0
   [ -f "$OUT/$SKILL.zip" ] || ZIP_OK=0
   {

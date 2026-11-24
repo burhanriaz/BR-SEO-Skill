@@ -51,8 +51,8 @@ $Skill = "br-web-seo"
 # ---------- locate the skill source (local checkout, or download) ----------
 $tmp = $null
 $src = $null
-if ($PSScriptRoot -and (Test-Path (Join-Path $PSScriptRoot "$Skill\SKILL.md"))) {
-  $src = Join-Path $PSScriptRoot $Skill
+if ($PSScriptRoot -and (Test-Path (Join-Path $PSScriptRoot "skills\$Skill\SKILL.md"))) {
+  $src = Join-Path $PSScriptRoot "skills\$Skill"
 }
 elseif (-not $Uninstall) {
   $tmp = Join-Path ([IO.Path]::GetTempPath()) ("br-seo-skill-" + [guid]::NewGuid().ToString("N"))
@@ -69,7 +69,7 @@ elseif (-not $Uninstall) {
     Expand-Archive -Path $zip -DestinationPath $tmp -Force
     Rename-Item (Join-Path $tmp "BR-SEO-Skill-main") "repo"
   }
-  $src = Join-Path $tmp "repo\$Skill"
+  $src = Join-Path $tmp "repo\skills\$Skill"
   if (-not (Test-Path (Join-Path $src "SKILL.md"))) { throw "Download failed: SKILL.md not found" }
 }
 

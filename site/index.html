@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>br-web-seo: SEO, AEO &amp; GEO audits for any AI agent</title>
+<meta name="description" content="An open-source Agent Skill that audits websites for classic SEO and AI search (AEO, GEO), scores them 0–100, and writes fix reports in PDF, Word, Excel, CSV or Markdown. Works with Claude, ChatGPT, Codex, Gemini, Copilot and Cursor.">
+<link rel="canonical" href="https://burhanriaz.github.io/BR-SEO-Skill/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="br-web-seo: SEO, AEO & GEO audits for any AI agent">
+<meta property="og:description" content="Audit → score → fix report. Classic SEO plus AI-search visibility, for Claude, ChatGPT, Codex, Gemini, Copilot and Cursor.">
+<meta property="og:url" content="https://burhanriaz.github.io/BR-SEO-Skill/">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%232457d6'/%3E%3Ccircle cx='28' cy='28' r='13' fill='none' stroke='white' stroke-width='6'/%3E%3Cpath d='M38 38l12 12' stroke='white' stroke-width='7' stroke-linecap='round'/%3E%3C/svg%3E">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "br-web-seo",
+  "applicationCategory": "DeveloperApplication",
+  "operatingSystem": "Windows, macOS, Linux",
+  "description": "Agent Skill that audits websites for SEO, AEO and GEO, scores them 0-100 and writes implementable fix reports.",
+  "url": "https://burhanriaz.github.io/BR-SEO-Skill/",
+  "codeRepository": "https://github.com/burhanriaz/BR-SEO-Skill",
+  "license": "https://opensource.org/licenses/MIT",
+  "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+  "author": {"@type": "Person", "name": "Burhan Riaz", "url": "https://github.com/burhanriaz"}
+}
+</script>
+<style>
+:root{
+  --ink:#0f172a;--ink-2:#334155;--muted:#64748b;--line:#e2e8f0;--soft:#f8fafc;--card:#ffffff;
+  --accent:#2457d6;--accent-2:#1d46b0;--accent-soft:#eaf0fd;--ok:#16a34a;--warn:#d97706;--bad:#dc2626;
+  --radius:14px;--shadow:0 1px 2px rgba(15,23,42,.06),0 8px 24px rgba(15,23,42,.06);
+  --mono:ui-monospace,SFMono-Regular,Consolas,"Liberation Mono",monospace;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:72px}
+body{margin:0;font:16px/1.65 -apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;color:var(--ink);background:#fff}
+a{color:var(--accent)}
+code,kbd{font-family:var(--mono);font-size:.9em}
+:not(pre)>code{background:var(--accent-soft);color:var(--accent-2);padding:1px 6px;border-radius:5px}
+.wrap{max-width:1120px;margin:0 auto;padding:0 24px}
+.skip{position:absolute;left:-999px}.skip:focus{left:12px;top:12px;background:#fff;padding:8px 12px;z-index:99}
+
+/* nav */
+header.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.88);backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line)}
+header.nav .wrap{display:flex;align-items:center;gap:20px;height:60px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink);text-decoration:none;letter-spacing:-.01em}
+.brand svg{width:28px;height:28px}
+nav.links{display:flex;gap:18px;margin-left:auto;flex-wrap:wrap}
+nav.links a{color:var(--ink-2);text-decoration:none;font-size:14.5px}
+nav.links a:hover{color:var(--accent)}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;font-weight:600;font-size:15px;text-decoration:none;border:1px solid transparent;cursor:pointer;transition:.15s}
+.btn-primary{background:var(--accent);color:#fff}.btn-primary:hover{background:var(--accent-2)}
+.btn-ghost{background:#fff;color:var(--ink);border-color:var(--line)}.btn-ghost:hover{border-color:var(--accent);color:var(--accent)}
+.btn-sm{padding:6px 11px;font-size:13.5px;border-radius:8px}
+
+/* hero */
+.hero{background:radial-gradient(1100px 500px at 85% -10%,#dfe8ff 0,transparent 60%),radial-gradient(800px 400px at -10% 10%,#eef7f1 0,transparent 55%);padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.hero .grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.eyebrow{display:inline-flex;gap:8px;align-items:center;font-size:13px;font-weight:600;color:var(--accent-2);background:var(--accent-soft);padding:5px 11px;border-radius:999px}
+h1{font-size:clamp(34px,4.6vw,52px);line-height:1.08;letter-spacing:-.025em;margin:16px 0 16px}
+h1 em{font-style:normal;color:var(--accent)}
+.lead{font-size:18.5px;color:var(--ink-2);max-width:40em;margin:0 0 26px}
+.cta{display:flex;gap:12px;flex-wrap:wrap}
+.agents{display:flex;flex-wrap:wrap;gap:8px;margin-top:26px}
+.chip{font-size:13px;padding:5px 10px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--ink-2)}
+
+/* terminal */
+.term{background:#0b1222;color:#dbe4f3;border-radius:var(--radius);box-shadow:0 20px 50px rgba(15,23,42,.25);overflow:hidden}
+.term .bar{display:flex;align-items:center;gap:6px;padding:10px 12px;background:#0f1a30;border-bottom:1px solid #1c2a47}
+.term .dot{width:11px;height:11px;border-radius:50%;background:#33415c}
+.term .tabs{margin-left:10px;display:flex;gap:4px}
+.term .tabs button{background:none;border:0;color:#93a4c3;font:600 12.5px/1 inherit;padding:6px 9px;border-radius:6px;cursor:pointer}
+.term .tabs button[aria-selected="true"]{background:#1c2a47;color:#fff}
+.term pre{margin:0;padding:18px 18px 8px;font:13.5px/1.7 var(--mono);white-space:pre-wrap;word-break:break-all}
+.term .c{color:#6b7fa6}.term .p{color:#7dd3a8}.term .o{color:#a9b8d4}
+.term .foot{display:flex;justify-content:flex-end;padding:0 12px 12px}
+.copy{background:#1c2a47;color:#dbe4f3;border:1px solid #2b3b5e;border-radius:7px;font:600 12.5px/1 inherit;padding:7px 10px;cursor:pointer}
+.copy:hover{background:#25365a}
+
+/* sections */
+section{padding:76px 0}
+section.alt{background:var(--soft);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+h2{font-size:clamp(26px,3vw,34px);letter-spacing:-.02em;line-height:1.15;margin:0 0 10px}
+.sub{color:var(--muted);font-size:17px;max-width:46em;margin:0 0 36px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card h3{font-size:16.5px;margin:10px 0 6px;letter-spacing:-.01em}
+.card p{margin:0;color:var(--ink-2);font-size:14.8px}
+.icon{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;background:var(--accent-soft);color:var(--accent)}
+.icon svg{width:20px;height:20px}
+.tag{display:inline-block;font-size:12px;font-weight:600;color:var(--muted);margin-top:10px}
+
+/* flow */
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;counter-reset:step}
+.step{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px 16px}
+.step::before{counter-increment:step;content:counter(step);display:grid;place-items:center;width:28px;height:28px;border-radius:50%;background:var(--accent);color:#fff;font-weight:700;font-size:14px;margin-bottom:10px}
+.step h3{margin:0 0 4px;font-size:15.5px}.step p{margin:0;font-size:14px;color:var(--ink-2)}
+
+/* benefits */
+.benefits{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 28px}
+.benefit{display:flex;gap:14px;align-items:flex-start;padding:6px 0}
+.benefit svg{flex:none;width:22px;height:22px;color:var(--ok);margin-top:3px}
+.benefit b{display:block;font-size:16px}.benefit span{color:var(--ink-2);font-size:15px}
+
+/* tabs */
+.tablist{display:flex;gap:6px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:22px}
+.tablist button{background:none;border:0;border-bottom:2px solid transparent;margin-bottom:-1px;padding:10px 14px;font:600 15px/1 inherit;color:var(--muted);cursor:pointer}
+.tablist button[aria-selected="true"]{color:var(--accent);border-color:var(--accent)}
+.panel[hidden]{display:none}
+pre.code{background:#0b1222;color:#dbe4f3;border-radius:12px;padding:16px 18px;font:13.5px/1.65 var(--mono);overflow:auto;margin:10px 0 18px;position:relative}
+pre.code .c{color:#6b7fa6}
+.codewrap{position:relative}.codewrap .copy{position:absolute;top:10px;right:10px}
+table.t{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table.t th,table.t td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+table.t th{background:var(--soft);font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+table.t tr:last-child td{border-bottom:0}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.note{font-size:14px;color:var(--muted)}
+
+/* prompts */
+.prompts{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.prompt{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;display:flex;flex-direction:column;gap:8px}
+.prompt small{font-weight:700;color:var(--accent-2);text-transform:uppercase;letter-spacing:.05em;font-size:11.5px}
+.prompt q{quotes:none;font-family:var(--mono);font-size:13.5px;color:var(--ink);line-height:1.55}
+.prompt .copy{align-self:flex-start;background:var(--soft);color:var(--ink-2);border-color:var(--line)}
+
+/* reports */
+.viewer{display:grid;grid-template-columns:280px 1fr;gap:20px;align-items:start}
+.rlist{display:flex;flex-direction:column;gap:8px}
+.rlist button{text-align:left;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;font:inherit}
+.rlist button b{display:block;font-size:15px}.rlist button span{font-size:13.5px;color:var(--muted)}
+.rlist button[aria-selected="true"]{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.frame{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:#fff;box-shadow:var(--shadow)}
+.frame .fbar{display:flex;gap:8px;align-items:center;flex-wrap:wrap;padding:10px 12px;border-bottom:1px solid var(--line);background:var(--soft)}
+.frame .fbar strong{font-size:14px;margin-right:auto}
+.frame iframe{display:block;width:100%;height:640px;border:0;background:#fff}
+.dl{font-size:13px;font-weight:600;text-decoration:none;padding:5px 9px;border-radius:7px;border:1px solid var(--line);background:#fff;color:var(--ink-2)}
+.dl:hover{border-color:var(--accent);color:var(--accent)}
+
+/* scoring */
+.bars{display:flex;flex-direction:column;gap:10px}
+.barrow{display:grid;grid-template-columns:230px 1fr 48px;gap:12px;align-items:center;font-size:14.5px}
+.track{height:12px;background:#e9eef8;border-radius:99px;overflow:hidden}
+.fill{height:100%;background:var(--accent);border-radius:99px}
+.bands{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:22px}
+.band{border-radius:12px;padding:12px 14px;font-size:14px;border:1px solid var(--line);background:#fff}
+.band b{display:block;font-size:18px}
+.band.g b{color:var(--ok)}.band.y b{color:#2563eb}.band.o b{color:var(--warn)}.band.r b{color:var(--bad)}
+
+/* faq */
+details{background:#fff;border:1px solid var(--line);border-radius:12px;padding:14px 18px;margin-bottom:10px}
+summary{cursor:pointer;font-weight:600}
+details p{margin:10px 0 0;color:var(--ink-2)}
+
+footer{border-top:1px solid var(--line);padding:36px 0 48px;color:var(--muted);font-size:14px}
+footer .wrap{display:flex;gap:24px;flex-wrap:wrap;justify-content:space-between}
+footer a{color:var(--ink-2)}
+
+@media (max-width:900px){
+  .hero .grid,.two,.viewer{grid-template-columns:1fr}
+  .flow{grid-template-columns:1fr 1fr}
+  .benefits,.prompts{grid-template-columns:1fr}
+  nav.links{display:none}
+  .barrow{grid-template-columns:150px 1fr 40px}
+  .bands{grid-template-columns:1fr 1fr}
+  .frame iframe{height:520px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="br-web-seo home">
+      <svg viewBox="0 0 64 64" aria-hidden="true"><rect width="64" height="64" rx="14" fill="#2457d6"/><circle cx="28" cy="28" r="13" fill="none" stroke="#fff" stroke-width="6"/><path d="M38 38l12 12" stroke="#fff" stroke-width="7" stroke-linecap="round"/></svg>
+      br-web-seo
+    </a>
+    <nav class="links" aria-label="Sections">
+      <a href="#what">What it does</a><a href="#benefits">Benefits</a><a href="#install">Install</a>
+      <a href="#use">Use</a><a href="#reports">Reports</a><a href="#faq">FAQ</a>
+    </nav>
+    <a class="btn btn-ghost btn-sm" href="https://github.com/burhanriaz/BR-SEO-Skill">GitHub</a>
+  </div>
+</header>
+
+<main id="main">
+<div class="hero" id="top">
+  <div class="wrap grid">
+    <div>
+      <span class="eyebrow">Open-source Agent Skill · MIT</span>
+      <h1>Turn your AI assistant into an <em>SEO, AEO &amp; GEO</em> auditor.</h1>
+      <p class="lead">br-web-seo audits a website or codebase for classic search <i>and</i> AI search
+        (ChatGPT, Perplexity, Google AI Overviews). It scores the site 0–100, then writes a fix report
+        precise enough for another AI session or a developer to apply, as PDF, Word, Excel, CSV or Markdown.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="#install">Install in one command</a>
+        <a class="btn btn-ghost" href="#reports">See the reports</a>
+      </div>
+      <div class="agents" aria-label="Works with">
+        <span class="chip">Claude Code</span><span class="chip">Claude.ai</span><span class="chip">ChatGPT</span>
+        <span class="chip">Codex</span><span class="chip">Gemini CLI</span><span class="chip">Gemini</span>
+        <span class="chip">GitHub Copilot</span><span class="chip">Cursor</span>
+      </div>
+    </div>
+    <div class="term" role="region" aria-label="Install command">
+      <div class="bar">
+        <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+        <div class="tabs" role="tablist" data-group="hero">
+          <button role="tab" aria-selected="true" data-target="h-unix">macOS / Linux</button>
+          <button role="tab" aria-selected="false" data-target="h-win">Windows</button>
+        </div>
+      </div>
+      <div class="panel" id="h-unix"><pre><span class="c"># install into this project (Claude Code, Codex, Gemini CLI)</span>
+<span class="p">$</span> curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash
+<span class="o">Installed .claude/skills/br-web-seo
+Installed .agents/skills/br-web-seo</span>
+
+<span class="c"># then ask your agent</span>
+<span class="p">›</span> Use the br-web-seo skill to audit https://example.com
+  and give me the report as PDF and Excel.</pre>
+        <div class="foot"><button class="copy" data-copy="curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash">Copy command</button></div>
+      </div>
+      <div class="panel" id="h-win" hidden><pre><span class="c"># PowerShell: install into this project</span>
+<span class="p">PS&gt;</span> irm https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.ps1 | iex
+<span class="o">Installed .claude\skills\br-web-seo
+Installed .agents\skills\br-web-seo</span>
+
+<span class="c"># then ask your agent</span>
+<span class="p">›</span> Use the br-web-seo skill to audit https://example.com
+  and give me the report as PDF and Excel.</pre>
+        <div class="foot"><button class="copy" data-copy="irm https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.ps1 | iex">Copy command</button></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="what">
+  <div class="wrap">
+    <h2>What it does</h2>
+    <p class="sub">One skill with focused modes. Ask in plain language and your agent picks the mode,
+      follows a checklist, collects evidence, and writes the deliverable.</p>
+    <div class="cards">
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
+        <h3>Technical audit</h3><p>Crawlability, indexing, canonicals, redirects, robots, sitemaps, rendering (SSR vs SPA), Core Web Vitals, security headers.</p><span class="tag">→ audit + fix report</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg></div>
+        <h3>Content optimization</h3><p>Search intent, keyword placement, headings, missing subtopics, E-E-A-T. It analyzes first and rewrites only when you ask.</p><span class="tag">→ content report</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 12l3 3 5-6"/></svg></div>
+        <h3>GEO / AI search</h3><p>Is the site quotable by ChatGPT, Perplexity and AI Overviews? Checks AI-crawler access, llms.txt, answer-first structure and entities.</p><span class="tag">→ audit + fix report</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="6" r="3"/><circle cx="12" cy="18" r="3"/><path d="M8 8l3 7M16 8l-3 7"/></svg></div>
+        <h3>Internal linking</h3><p>Orphan pages, hub-and-spoke clusters, anchor text, authority flow, and silos.</p><span class="tag">→ fix report</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.5-7-12a7 7 0 0114 0c0 5.5-7 12-7 12z"/><circle cx="12" cy="9" r="2.5"/></svg></div>
+        <h3>Local SEO</h3><p>Google Business Profile, NAP consistency, citations, reviews and local landing pages.</p><span class="tag">→ audit + fix report</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 17l6-6 4 4 8-8"/><path d="M14 7h7v7"/></svg></div>
+        <h3>Ranking-drop diagnosis</h3><p>Traffic fell after a Google update? It works through an evidence matrix built from Search Console reports.</p><span class="tag">→ diagnosis report</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg></div>
+        <h3>Pre-deploy gate</h3><p>A go/no-go checklist before release, so a stray <code>noindex</code> or broken canonical never ships.</p><span class="tag">→ go / no-go</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div>
+        <h3>Reports in any format</h3><p>Every deliverable is Markdown first, then exported to PDF, Word, Excel, CSV or HTML with the bundled zero-dependency exporter.</p><span class="tag">→ .pdf · .docx · .xlsx · .csv</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="how">
+  <div class="wrap">
+    <h2>How it works</h2>
+    <p class="sub">The same five steps every time, so two runs a month apart can be compared line by line.</p>
+    <div class="flow">
+      <div class="step"><h3>Scope</h3><p>Target URL or repo, rendering mode, representative templates, goal, output format.</p></div>
+      <div class="step"><h3>Audit</h3><p>Every check records status, where it looked, and the actual evidence. Nothing is assumed.</p></div>
+      <div class="step"><h3>Score</h3><p>A weighted 0–100 health score. Any live blocker caps the score at 49.</p></div>
+      <div class="step"><h3>Report</h3><p>An audit report (the diagnosis) plus a fix report (the prescription) with code and acceptance criteria.</p></div>
+      <div class="step"><h3>Gate &amp; export</h3><p>Pre-deploy go/no-go, then export to PDF, Word, Excel or CSV for your team.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="benefits">
+  <div class="wrap">
+    <h2>Why use it</h2>
+    <p class="sub">Generic "check my SEO" prompts give generic answers. A skill gives your agent a method.</p>
+    <div class="benefits">
+      <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Evidence, not guesses</b><span>Each finding cites the tag, header, score or <code>file:line</code> it came from. SPAs are checked in the rendered DOM.</span></div></div>
+      <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Fixes another session can apply</b><span>The fix report is self-contained: location, current state, change, code and acceptance criteria.</span></div></div>
+      <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Ready for AI search</b><span>Covers AEO and GEO alongside classic SEO: citability, entities, AI crawlers, llms.txt.</span></div></div>
+      <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Works in the AI you already use</b><span>Claude, ChatGPT, Codex, Gemini, Copilot or Cursor, in a terminal, an IDE or a chat app.</span></div></div>
+      <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Client-ready output</b><span>Send a PDF to the client, an Excel tracker to the team, and the Markdown to Git.</span></div></div>
+      <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Free, private, no API keys</b><span>MIT-licensed Markdown and one standard-library Python script. Nothing is sent anywhere by the skill.</span></div></div>
+      <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Comparable over time</b><span>Fixed templates and a weighted score turn "it feels better" into a before/after number.</span></div></div>
+      <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Stops regressions at release</b><span>The pre-deploy gate catches the classic production disasters before they ship.</span></div></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="install">
+  <div class="wrap">
+    <h2>Install</h2>
+    <p class="sub">Install it for one project (commit it so your team gets it too) or for your user,
+      so it's available in every project.</p>
+    <div class="tablist" role="tablist" data-group="install">
+      <button role="tab" aria-selected="true" data-target="i-agents">Coding agents</button>
+      <button role="tab" aria-selected="false" data-target="i-chat">Chat apps</button>
+      <button role="tab" aria-selected="false" data-target="i-manual">Manual</button>
+    </div>
+
+    <div class="panel" id="i-agents">
+      <div class="two">
+        <div>
+          <h3>macOS · Linux · WSL · Git Bash</h3>
+          <div class="codewrap"><pre class="code"><span class="c"># this project</span>
+curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash
+
+<span class="c"># every project (user / global)</span>
+curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash -s -- --scope user
+
+<span class="c"># choose agents</span>
+curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash -s -- --agent claude,copilot,cursor</pre></div>
+          <h3>Windows PowerShell</h3>
+          <div class="codewrap"><pre class="code"><span class="c"># this project</span>
+irm https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.ps1 | iex
+
+<span class="c"># every project (user / global)</span>
+&amp; ([scriptblock]::Create((irm https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.ps1))) -Scope user</pre></div>
+        </div>
+        <div>
+          <h3>Where each agent looks</h3>
+          <table class="t">
+            <thead><tr><th>Agent</th><th>Project</th><th>User</th></tr></thead>
+            <tbody>
+              <tr><td>Claude Code</td><td><code>.claude/skills</code></td><td><code>~/.claude/skills</code></td></tr>
+              <tr><td>Codex</td><td><code>.agents/skills</code></td><td><code>~/.agents/skills</code></td></tr>
+              <tr><td>Gemini CLI</td><td><code>.gemini/skills</code> or <code>.agents/skills</code></td><td><code>~/.gemini/skills</code></td></tr>
+              <tr><td>GitHub Copilot</td><td><code>.github/skills</code></td><td><code>~/.copilot/skills</code></td></tr>
+              <tr><td>Cursor</td><td><code>.cursor/skills</code></td><td><code>~/.cursor/skills</code></td></tr>
+            </tbody>
+          </table>
+          <p class="note">The default (<code>all</code>) installs to <code>.claude/skills</code> and <code>.agents/skills</code>,
+            which covers Claude Code, Codex and Gemini CLI. Other options: <code>--dir</code> for any folder,
+            <code>--uninstall</code> and <code>--force</code>. Restart the agent afterwards.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="i-chat" hidden>
+      <div class="two">
+        <div>
+          <h3>Download the package</h3>
+          <p><a class="btn btn-primary btn-sm" href="downloads/br-web-seo.zip">br-web-seo.zip</a>
+             <a class="btn btn-ghost btn-sm" href="downloads/br-web-seo-bundle.md">br-web-seo-bundle.md</a></p>
+          <table class="t">
+            <thead><tr><th>App</th><th>Steps</th></tr></thead>
+            <tbody>
+              <tr><td>Claude.ai</td><td>Settings → Capabilities → Skills → Upload skill → <code>br-web-seo.zip</code></td></tr>
+              <tr><td>ChatGPT Project</td><td>New Project → Add files → <code>br-web-seo-bundle.md</code>, and paste the instructions below</td></tr>
+              <tr><td>Custom GPT</td><td>Create → Configure → Knowledge: the bundle · Instructions: below · enable Web Search and Code Interpreter</td></tr>
+              <tr><td>Gemini Gem</td><td>New Gem → Knowledge: the bundle · Instructions: below</td></tr>
+              <tr><td>Claude Projects</td><td>Project knowledge: the bundle · Project instructions: below</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <h3>Instructions to paste</h3>
+          <div class="codewrap"><pre class="code" id="chat-prompt">You are an SEO, AEO and GEO specialist. Follow the br-web-seo skill in the attached
+file br-web-seo-bundle.md exactly: start with its SKILL.md section, choose the
+operating mode, and open the "FILE: references/..." and "FILE: templates/..."
+sections it points to. Score sites 0-100 as it describes and write deliverables
+in its templates. If you cannot fetch a page yourself, ask me to paste the HTML,
+headers, robots.txt and sitemap, and mark anything unverified as unverified.</pre><button class="copy" data-copy-from="chat-prompt">Copy</button></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel" id="i-manual" hidden>
+      <div class="codewrap"><pre class="code">git clone --depth 1 https://github.com/burhanriaz/BR-SEO-Skill.git
+cp -R BR-SEO-Skill/br-web-seo  your-project/.agents/skills/   <span class="c"># or .claude/skills, ~/.claude/skills …</span></pre></div>
+      <p>For a tool without skills support, copy the folder into the repo and add one line to its
+        instructions file (<code>AGENTS.md</code>, <code>GEMINI.md</code>, <code>.github/copilot-instructions.md</code>):</p>
+      <div class="codewrap"><pre class="code">For SEO, AEO or GEO work, follow `.agents/skills/br-web-seo/SKILL.md` and the references and templates it links to.</pre></div>
+    </div>
+  </div>
+</section>
+
+<section id="use">
+  <div class="wrap">
+    <h2>How to use it</h2>
+    <p class="sub">Just ask. These prompts work the same in every agent (Claude Code also accepts <code>/br-web-seo</code>).</p>
+    <div class="prompts">
+      <div class="prompt"><small>Full audit</small><q>Use the br-web-seo skill to audit https://example.com, score it 0–100, and write the audit report and a fix report as PDF and Excel.</q><button class="copy">Copy</button></div>
+      <div class="prompt"><small>Audit a codebase</small><q>Run a br-web-seo technical audit on this Next.js repo. Confirm content exists in the rendered DOM, then produce an audit report and a fix report.</q><button class="copy">Copy</button></div>
+      <div class="prompt"><small>Content</small><q>br-web-seo content mode: optimize /blog/my-post for "best running shoes". Analyze intent, headings, E-E-A-T and AI citability before changing anything.</q><button class="copy">Copy</button></div>
+      <div class="prompt"><small>AI search / GEO</small><q>br-web-seo GEO check on https://example.com: is it structured to be cited by ChatGPT, Perplexity and AI Overviews? List the fixes.</q><button class="copy">Copy</button></div>
+      <div class="prompt"><small>Ranking drop</small><q>br-web-seo diagnosis: organic traffic dropped ~30% after the last core update. Walk the diagnostic framework and give an evidence matrix.</q><button class="copy">Copy</button></div>
+      <div class="prompt"><small>Before release</small><q>Run the br-web-seo pre-deployment checklist against the staging build and give me a go/no-go.</q><button class="copy">Copy</button></div>
+      <div class="prompt"><small>Apply fixes</small><q>Here is a br-web-seo fix report. Apply the changes to this repo item by item, verify each acceptance criterion, and report what changed.</q><button class="copy">Copy</button></div>
+      <div class="prompt"><small>Export</small><q>Export reports/example-audit-report.md to PDF, Word and CSV with the br-web-seo exporter.</q><button class="copy">Copy</button></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="reports">
+  <div class="wrap">
+    <h2>The report templates</h2>
+    <p class="sub">These are the actual templates the skill fills in, plus a filled sample. Preview them
+      here or download each one in any format. The files were generated by the same exporter the skill uses.</p>
+    <div class="viewer">
+      <div class="rlist" role="tablist" aria-label="Report templates">
+        <button role="tab" aria-selected="true" data-report="sample-audit-report" data-title="Sample: filled audit report"><b>Sample audit report</b><span>A filled example (fictional site): score, findings, evidence.</span></button>
+        <button role="tab" aria-selected="false" data-report="audit-report-template" data-title="Audit report template"><b>Audit report</b><span>The diagnosis: what's wrong, why it matters, severity, scorecard.</span></button>
+        <button role="tab" aria-selected="false" data-report="fix-report-template" data-title="Fix / hotfix report template"><b>Fix / hotfix report</b><span>The prescription: exact changes, code and acceptance criteria.</span></button>
+        <button role="tab" aria-selected="false" data-report="content-report-template" data-title="Content optimization report template"><b>Content report</b><span>Intent, keyword placement, content gaps, E-E-A-T, AI citability.</span></button>
+      </div>
+      <div class="frame">
+        <div class="fbar">
+          <strong id="rtitle">Sample: filled audit report</strong>
+          <a class="dl" data-ext="pdf" href="#">PDF</a>
+          <a class="dl" data-ext="docx" href="#">Word</a>
+          <a class="dl" data-ext="xlsx" href="#">Excel</a>
+          <a class="dl" data-ext="csv" href="#">CSV</a>
+          <a class="dl" data-ext="md" href="#">Markdown</a>
+        </div>
+        <iframe id="rframe" title="Report preview" loading="lazy" src="reports/sample-audit-report.html"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="scoring">
+  <div class="wrap two">
+    <div>
+      <h2>A score you can track</h2>
+      <p class="sub" style="margin-bottom:20px">Each category is scored out of 10 and weighted. A single live blocker,
+        such as a production <code>noindex</code>, caps the total at 49 however good the rest is.</p>
+      <div class="bands">
+        <div class="band g"><b>90–100</b>Excellent</div>
+        <div class="band y"><b>70–89</b>Good</div>
+        <div class="band o"><b>50–69</b>Needs work</div>
+        <div class="band r"><b>0–49</b>Unhealthy</div>
+      </div>
+    </div>
+    <div class="bars" aria-label="Score weights">
+      <div class="barrow"><span>Crawlability &amp; indexability</span><div class="track"><div class="fill" style="width:100%"></div></div><b>20%</b></div>
+      <div class="barrow"><span>Performance / Core Web Vitals</span><div class="track"><div class="fill" style="width:100%"></div></div><b>20%</b></div>
+      <div class="barrow"><span>On-page content &amp; HTML</span><div class="track"><div class="fill" style="width:75%"></div></div><b>15%</b></div>
+      <div class="barrow"><span>Structured data &amp; social</span><div class="track"><div class="fill" style="width:50%"></div></div><b>10%</b></div>
+      <div class="barrow"><span>Internal linking</span><div class="track"><div class="fill" style="width:50%"></div></div><b>10%</b></div>
+      <div class="barrow"><span>GEO / AI-search readiness</span><div class="track"><div class="fill" style="width:50%"></div></div><b>10%</b></div>
+      <div class="barrow"><span>Mobile &amp; accessibility</span><div class="track"><div class="fill" style="width:50%"></div></div><b>10%</b></div>
+      <div class="barrow"><span>Analytics &amp; monitoring</span><div class="track"><div class="fill" style="width:25%"></div></div><b>5%</b></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt" id="faq">
+  <div class="wrap">
+    <h2>FAQ</h2>
+    <details><summary>Do I need any API keys or paid SEO tools?</summary><p>No. The skill works with just an agent and a target. If you have Search Console, PageSpeed Insights or an SEO-tool export, give it to the agent for stronger evidence.</p></details>
+    <details><summary>Can it change my code?</summary><p>Audits are read-only. Fixes are written as a report. Your agent applies them only when you ask, and checks each acceptance criterion as it goes.</p></details>
+    <details><summary>Does it work if my AI can't browse the web?</summary><p>Yes. It asks you to paste the rendered HTML, headers, robots.txt and sitemap, and marks anything it couldn't verify as unverified rather than passing it.</p></details>
+    <details><summary>How do I get a PDF or Excel file?</summary><p>Ask for it, or say which formats you want when you start. Coding agents run the bundled exporter (Python standard library only). Chat apps with code execution can run the same script from the bundle, and without it you get Markdown plus CSV you can import.</p></details>
+    <details><summary>How do I update or remove it?</summary><p>Run the install command again to update. Add <code>--uninstall</code> (or <code>-Uninstall</code>) with the same agent and scope to remove it.</p></details>
+    <details><summary>Is it safe to point at any site?</summary><p>The skill treats page content as data and never follows instructions found in it. See the <a href="https://github.com/burhanriaz/BR-SEO-Skill/security/policy">security policy</a> for scope and how to report issues.</p></details>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div>© br-web-seo contributors · <a href="https://github.com/burhanriaz/BR-SEO-Skill/blob/main/LICENSE">MIT License</a></div>
+    <div><a href="https://github.com/burhanriaz/BR-SEO-Skill">GitHub</a> · <a href="https://github.com/burhanriaz/BR-SEO-Skill/blob/main/CHANGELOG.md">Changelog</a> · <a href="https://github.com/burhanriaz/BR-SEO-Skill/security/policy">Security</a> · <a href="https://github.com/burhanriaz/BR-SEO-Skill/issues">Issues</a></div>
+  </div>
+</footer>
+
+<script>
+(function () {
+  // tabs (hero + install)
+  document.querySelectorAll('[role="tablist"][data-group]').forEach(function (list) {
+    var tabs = list.querySelectorAll('[role="tab"]');
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        tabs.forEach(function (t) {
+          var on = t === tab;
+          t.setAttribute('aria-selected', on);
+          document.getElementById(t.dataset.target).hidden = !on;
+        });
+      });
+    });
+  });
+
+  // copy buttons
+  function copy(text, btn) {
+    var done = function () { var o = btn.textContent; btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = o; }, 1400); };
+    if (navigator.clipboard) navigator.clipboard.writeText(text).then(done, done);
+    else { var ta = document.createElement('textarea'); ta.value = text; document.body.appendChild(ta); ta.select(); try { document.execCommand('copy'); } catch (e) {} ta.remove(); done(); }
+  }
+  document.querySelectorAll('.copy').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var text = btn.dataset.copy;
+      if (!text && btn.dataset.copyFrom) text = document.getElementById(btn.dataset.copyFrom).textContent;
+      if (!text) { var q = btn.parentElement.querySelector('q'); if (q) text = q.textContent; }
+      if (!text) { var pre = btn.parentElement.querySelector('pre'); if (pre) text = pre.textContent.replace(/^#.*$/gm, '').replace(/\n{2,}/g, '\n').trim(); }
+      copy(text || '', btn);
+    });
+  });
+
+  // report viewer
+  var frame = document.getElementById('rframe'), title = document.getElementById('rtitle');
+  var dls = document.querySelectorAll('.dl');
+  function show(name, label) {
+    frame.src = 'reports/' + name + '.html';
+    title.textContent = label;
+    dls.forEach(function (a) { a.href = 'reports/' + name + '.' + a.dataset.ext; a.setAttribute('download', name + '.' + a.dataset.ext); });
+  }
+  var rtabs = document.querySelectorAll('[data-report]');
+  rtabs.forEach(function (b) {
+    b.addEventListener('click', function () {
+      rtabs.forEach(function (x) { x.setAttribute('aria-selected', x === b); });
+      show(b.dataset.report, b.dataset.title);
+    });
+  });
+  show('sample-audit-report', 'Sample: filled audit report');
+})();
+</script>
+</body>
+</html>

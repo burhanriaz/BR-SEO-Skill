@@ -1,0 +1,22 @@
+name: Feature or SEO check request
+description: Suggest a new check, mode, reference or improvement
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What should the skill do?
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why does it matter for SEO, AEO or GEO?
+      description: Link a source (Google Search Central docs, a study, a named framework) for anything non-obvious.
+    validations:
+      required: true
+  - type: textarea
+    id: verify
+    attributes:
+      label: How would an agent verify it?
+      description: Where to look (rendered DOM, header, file), and what pass or fail looks like.
