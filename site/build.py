@@ -268,9 +268,9 @@ def picture(im, prefix, cls="", sizes="100vw", lazy=True):
             ).format(b=b, sz=sizes, c=(' class="%s"' % cls) if cls else "", a=html.escape(im["alt"]), l=load)
 
 
-def card(p, prefix):
+def card(p, prefix, eager=False):
     im = p.get("image")
-    thumb = picture(im, prefix, "thumb", "(max-width: 700px) 100vw, 380px") if im else ""
+    thumb = picture(im, prefix, "thumb", "(max-width: 700px) 100vw, 380px", lazy=not eager) if im else ""
     return (('<a class="post-card card" href="%sblog/%s/" data-tags="%s">%s<span class="pill">%s</span>'
             '<h3>%s</h3><p>%s</p><div class="meta-row"><time datetime="%s">%s</time><span>·</span><span>%d min read</span></div></a>'
             % (prefix, p["slug"], html.escape("|".join([p["cluster"]] + p["tags"])), thumb, html.escape(p["cluster"]),
@@ -403,7 +403,7 @@ def build(out, today, drafts=False):
   <ul class="topics">{topics}</ul>
   <h2 style="font-size:26px;margin:34px 0 16px">All articles</h2>
   {filters}<div class="post-list" style="padding-bottom:90px">{cards}</div></div>""".format(topics="".join('<li><b>%s</b> %s</li>' % (html.escape(c), html.escape(TOPICS.get(c, ""))) for c in clusters),
-        desc=desc, n=len(posts), filters=filters, cards="".join(card(p, prefix) for p in posts) or "<p>First articles coming soon.</p>")
+        desc=desc, n=len(posts), filters=filters, cards="".join(card(p, prefix, eager=i < 3) for i, p in enumerate(posts)) or "<p>First articles coming soon.</p>")
     os.makedirs(os.path.join(out, "blog"), exist_ok=True)
     with open(os.path.join(out, "blog", "index.html"), "w", encoding="utf-8") as f:
         f.write(shell(head("SEO, AEO & GEO blog | %s" % SITE_NAME, desc, BASE + "/blog/", style, jsonld=blog_ld),
