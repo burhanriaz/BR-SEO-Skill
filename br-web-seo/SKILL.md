@@ -9,7 +9,7 @@ description: >-
   a diagnosis of a ranking drop after a Google update, or a report of SEO
   changes to apply. Produces a scored audit report, an implementable fix/hotfix
   report another AI agent session can execute, a content-optimization report, and
-  a pre-deployment checklist.
+  a pre-deployment checklist, exported as Markdown, PDF, Word, Excel, CSV or HTML.
 ---
 
 # Web SEO: Audit → Report → Fix (SEO · AEO · AIO · GEO)
@@ -52,6 +52,8 @@ Write down before auditing:
   indexation, local visibility, or performance.
 - **Stack** (if a repo): Next.js, Astro, plain HTML, React/Vite SPA, WordPress…
   — fix locations depend on it.
+- **Report format(s):** ask which the user wants: Markdown (default), PDF,
+  Word (.docx), Excel (.xlsx), CSV or HTML. Any combination is fine.
 
 ### 2. Audit
 
@@ -84,6 +86,14 @@ code snippet, and acceptance criteria. Written **for another session to execute*
 
 Run `references/pre-deployment-checklist.md` as a go/no-go gate. A failing
 **blocker** stops the deploy.
+
+### 7. Export to the formats the user asked for
+
+Keep the Markdown report, then convert it with the bundled zero-dependency
+exporter: `python scripts/export_report.py <report.md> -f pdf,docx,xlsx,csv`.
+It writes PDF, Word, Excel, CSV and HTML with the same content. In chat apps, or
+when Python isn't available, follow the fallbacks in
+`references/report-formats.md`.
 
 ## Content optimization: analyze before rewriting
 
@@ -137,7 +147,9 @@ Bands: **90–100** excellent · **70–89** good · **50–69** needs work ·
 - `references/diagnostics.md` — Search Console's 10 essential reports, ranking-drop / Google-update diagnosis, and baseline-and-diff ("Git for SEO") drift monitoring.
 - `references/instagram-frameworks-log.md` — running index of the @faizaparwezofficial posts the skill draws on.
 - `references/pre-deployment-checklist.md` — go/no-go release gate.
-- `templates/audit-report-template.md` · `templates/fix-report-template.md` · `templates/content-report-template.md` — fill-in deliverables.
+- `references/report-formats.md` — exporting reports to PDF, Word, Excel, CSV and HTML, in any agent or chat app.
+- `templates/audit-report-template.md` · `templates/fix-report-template.md` · `templates/content-report-template.md` — fill-in deliverables; `templates/examples/sample-audit-report.md` shows a filled one.
+- `scripts/export_report.py` — Markdown report → PDF / .docx / .xlsx / .csv / .html (Python standard library only).
 
 ## Running in any agent or chat app
 

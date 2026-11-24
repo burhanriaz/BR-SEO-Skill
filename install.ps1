@@ -101,7 +101,9 @@ try {
     [void]$sb.AppendLine("> ``templates/x.md``, find the section headed ``FILE: references/x.md`` below.")
     $files = @(Get-Item (Join-Path $src "SKILL.md")) +
              @(Get-ChildItem (Join-Path $src "references") -Filter *.md | Sort-Object Name) +
-             @(Get-ChildItem (Join-Path $src "templates") -Filter *.md | Sort-Object Name)
+             @(Get-ChildItem (Join-Path $src "templates") -Filter *.md | Sort-Object Name) +
+             @(Get-ChildItem (Join-Path $src "templates\examples") -Filter *.md -ErrorAction SilentlyContinue | Sort-Object Name) +
+             @(Get-ChildItem (Join-Path $src "scripts") -Filter *.py -ErrorAction SilentlyContinue | Sort-Object Name)
     foreach ($f in $files) {
       $rel = $f.FullName.Substring($src.Length + 1).Replace("\", "/")
       [void]$sb.AppendLine("")
@@ -110,7 +112,15 @@ try {
       [void]$sb.AppendLine("<!-- ===================== FILE: $rel ===================== -->")
       [void]$sb.AppendLine("# FILE: $rel")
       [void]$sb.AppendLine("")
-      [void]$sb.AppendLine([IO.File]::ReadAllText($f.FullName, [Text.Encoding]::UTF8))
+      $content = [IO.File]::ReadAllText($f.FullName, [Text.Encoding]::UTF8)
+      if ($f.Extension -eq ".py") {
+        [void]$sb.AppendLine("Save this block as ``$rel`` to run it (Python 3.8+, no dependencies).")
+        [void]$sb.AppendLine("")
+        [void]$sb.AppendLine('```python')
+        [void]$sb.AppendLine($content.TrimEnd())
+        [void]$sb.AppendLine('```')
+      }
+      else { [void]$sb.AppendLine($content) }
     }
     $bundle = Join-Path $out "$Skill-bundle.md"
     [IO.File]::WriteAllText($bundle, $sb.ToString(), (New-Object System.Text.UTF8Encoding($false)))

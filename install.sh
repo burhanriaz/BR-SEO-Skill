@@ -109,7 +109,8 @@ if [ "$PACKAGE" -eq 1 ]; then
     echo "> Claude Projects). Wherever SKILL.md says \`references/x.md\` or"
     echo "> \`templates/x.md\`, find the section headed \`FILE: references/x.md\` below."
     echo
-    for f in "$SRC/SKILL.md" "$SRC"/references/*.md "$SRC"/templates/*.md; do
+    for f in "$SRC/SKILL.md" "$SRC"/references/*.md "$SRC"/templates/*.md "$SRC"/templates/examples/*.md "$SRC"/scripts/*.py; do
+      [ -f "$f" ] || continue
       rel="${f#"$SRC"/}"
       echo
       echo "---"
@@ -117,7 +118,10 @@ if [ "$PACKAGE" -eq 1 ]; then
       echo "<!-- ===================== FILE: $rel ===================== -->"
       echo "# FILE: $rel"
       echo
-      cat "$f"
+      case "$f" in
+        *.py) echo "Save this block as \`$rel\` to run it (Python 3.8+, no dependencies)."; echo; echo '```python'; cat "$f"; echo '```' ;;
+        *) cat "$f" ;;
+      esac
     done
   } > "$OUT/$SKILL-bundle.md"
   echo "Built:"

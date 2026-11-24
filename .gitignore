@@ -22,6 +22,7 @@ scratch/
 *-fix-report.md
 *-content-report.md
 !br-web-seo/templates/*.md
+!br-web-seo/templates/examples/*.md
 
 # Local reference books (copyrighted — do not publish)
 Books/
