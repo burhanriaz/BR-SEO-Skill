@@ -1,6 +1,6 @@
 # SEO Fix / Hotfix Report — <SITE / TARGET NAME>
 
-> **For the implementer (human or another Claude session):** This report is
+> **For the implementer (human or another AI agent session — Claude, Codex, Gemini, Copilot…):** This report is
 > self-contained. Apply the items in order; each is a discrete change with its
 > location, the current state, the required change, a code example, and
 > acceptance criteria. Do **not** re-run the audit — act on these items. After
@@ -13,7 +13,7 @@
 - **Framework / stack:** <Next.js / Astro / plain HTML / React SPA / … and version>
 - **Source audit:** <link or filename of the audit report>
 - **Date:** <YYYY-MM-DD>
-- **Prepared by:** <name / Claude session>
+- **Prepared by:** <name / AI agent + model>
 
 ---
 

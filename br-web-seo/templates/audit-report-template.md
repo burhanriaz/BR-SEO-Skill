@@ -4,7 +4,7 @@
 - **Rendering mode:** <static / SSR / CSR-SPA>
 - **Pages audited:** <home, listing, detail, … — list the representative URLs/templates>
 - **Date:** <YYYY-MM-DD>
-- **Auditor:** <name / Claude session>
+- **Auditor:** <name / AI agent + model>
 - **Tools used:** <browser, WebFetch, Lighthouse, repo read, …>
 
 > This report is the **diagnosis** (what is wrong and why). The matching

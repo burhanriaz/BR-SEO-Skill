@@ -1,0 +1,43 @@
+# Builds the upload packages (br-web-seo.zip for Claude.ai, br-web-seo-bundle.md
+# for ChatGPT / Gemini / Claude Projects) and publishes them on a GitHub Release.
+# Trigger: push a tag like v1.2.0, or run it by hand from the Actions tab.
+name: Release packages
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  package:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build packages
+        run: bash install.sh --package
+
+      - name: Smoke-test installers
+        run: |
+          mkdir -p /tmp/proj && cd /tmp/proj
+          bash "$GITHUB_WORKSPACE/install.sh" --agent all,gemini,copilot,cursor --force
+          for d in .claude .agents .gemini .github .cursor; do test -f "$d/skills/br-web-seo/SKILL.md"; done
+          HOME=/tmp/home bash "$GITHUB_WORKSPACE/install.sh" --scope user --force
+          test -f /tmp/home/.claude/skills/br-web-seo/SKILL.md
+
+      - name: Publish release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          TAG="${GITHUB_REF_NAME}"
+          if [ "${GITHUB_REF_TYPE}" != "tag" ]; then TAG="latest"; fi
+          if gh release view "$TAG" >/dev/null 2>&1; then
+            gh release upload "$TAG" br-web-seo.zip br-web-seo-bundle.md --clobber
+          else
+            gh release create "$TAG" br-web-seo.zip br-web-seo-bundle.md \
+              --title "br-web-seo $TAG" \
+              --notes "Upload br-web-seo.zip to Claude.ai (Settings > Capabilities > Skills). Upload br-web-seo-bundle.md as a knowledge file in ChatGPT, Gemini Gems or Claude Projects. For coding agents, use install.sh / install.ps1 (see README)."
+          fi

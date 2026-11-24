@@ -8,7 +8,7 @@ description: >-
   check, local-SEO (Google Business Profile) work, AI-search / GEO visibility,
   a diagnosis of a ranking drop after a Google update, or a report of SEO
   changes to apply. Produces a scored audit report, an implementable fix/hotfix
-  report another Claude session can execute, a content-optimization report, and
+  report another AI agent session can execute, a content-optimization report, and
   a pre-deployment checklist.
 ---
 
@@ -138,6 +138,21 @@ Bands: **90–100** excellent · **70–89** good · **50–69** needs work ·
 - `references/instagram-frameworks-log.md` — running index of the @faizaparwezofficial posts the skill draws on.
 - `references/pre-deployment-checklist.md` — go/no-go release gate.
 - `templates/audit-report-template.md` · `templates/fix-report-template.md` · `templates/content-report-template.md` — fill-in deliverables.
+
+## Running in any agent or chat app
+
+This skill is plain Markdown, so it works in any agent that supports Agent Skills
+(Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor…) and in chat apps that
+are given these files (ChatGPT, Claude.ai, Gemini). Adapt to what the host can do:
+
+- **Can't fetch URLs or run a browser?** Ask the user to paste the page's rendered
+  HTML (DevTools → Elements → copy `<html>`), the response headers, `robots.txt`,
+  the sitemap, and PageSpeed/GSC exports. Mark any check you could not verify as
+  **unverified**, never as pass.
+- **Can't write files?** Output each deliverable as one complete Markdown block
+  per template, so the user can save it as-is.
+- **Files given as one bundle?** A reference such as `references/x.md` is the
+  section headed `FILE: references/x.md` in the bundle.
 
 ## Guardrails
 

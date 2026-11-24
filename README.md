@@ -1,6 +1,7 @@
 # Web SEO Skill (SEO · AEO · AIO · GEO)
 
-A Claude Code skill that audits, optimizes, and future-proofs a website or web
+An [Agent Skill](https://agentskills.io) for **Claude Code, Codex, Gemini CLI,
+GitHub Copilot, Cursor**, and the **ChatGPT / Claude.ai / Gemini** chat apps. It audits, optimizes, and future-proofs a website or web
 app for search — classic SEO **and** AI/generative search (AEO, AIO, GEO) — then
 turns findings into changes precise enough for another session to apply.
 
@@ -26,6 +27,8 @@ AI-SEO landing-page anatomy, and a ranking-drop diagnosis framework.
 ```
 SEO Skill/
 ├── README.md · LICENSE · CONTRIBUTING.md · .gitignore
+├── install.sh · install.ps1             installers (any agent, project/user scope, chat-app packages)
+├── .github/workflows/release.yml        builds br-web-seo.zip + br-web-seo-bundle.md on each release
 └── br-web-seo/
     ├── SKILL.md                         the orchestrator (modes + workflow + scoring)
     ├── references/
@@ -60,7 +63,7 @@ SEO Skill/
 
 | Requirement | Why | Required? |
 |-------------|-----|:---------:|
-| **Claude Code** (CLI, desktop, web, or IDE extension) that loads skills from a skills directory | Hosts and invokes the skill | **Required** |
+| **An AI agent or chat app**: Claude Code, Codex, Gemini CLI, GitHub Copilot, Cursor, or ChatGPT / Claude.ai / Gemini (see [Install](#install)) | Hosts and runs the skill | **Required** |
 | **The audit target** — a live URL *and/or* a local repo/codebase | What the skill audits | **Required** |
 | `git` | Clone/version the skill | Recommended |
 | **Web/browser fetch** (Claude's WebFetch, or the Claude-in-Chrome extension) | Read the live/rendered DOM and HTTP headers; a SPA's content must be verified in the *rendered* DOM | Recommended |
@@ -68,73 +71,143 @@ SEO Skill/
 | **Google Search Console** access to the site | The diagnosis/`diagnostics.md` mode (coverage, queries, ranking-drop) | Optional (needed for diagnosis mode) |
 | A **structured-data / rich-results validator** and an XML-sitemap/robots fetch | Verify schema and crawl directives | Optional |
 
-The skill works with nothing but Claude Code + a target. The optional tools just
+The skill works with nothing but an agent (or chat app) + a target. The optional tools just
 give it *real evidence* instead of assumptions — which is the whole point of the
 "verify, don't assume" guardrail.
 
-## Install (commands)
+## Install
 
-Copy the `br-web-seo/` folder into a skills directory Claude Code loads. Pick
-**personal** (all projects) or **project-scoped** (one repo).
+`br-web-seo` is a standard **Agent Skill**: a folder with a `SKILL.md` plus
+`references/` and `templates/`. Any tool that supports Agent Skills loads it from
+its skills folder, and chat apps can take it as an upload. Pick your tool below.
 
-### Quickest: one command, straight from GitHub
+| Where you use AI | How to add it | Section |
+|------------------|---------------|---------|
+| Claude Code · Codex · Gemini CLI · Copilot · Cursor (terminal / IDE agents) | One-line installer | [A](#a-coding-agents-one-command) |
+| Claude.ai (web / desktop / mobile) | Upload `br-web-seo.zip` as a skill | [B](#b-chat-apps-chatgpt--claudeai--gemini) |
+| ChatGPT · Gemini · Claude Projects | Upload `br-web-seo-bundle.md` as a knowledge file | [B](#b-chat-apps-chatgpt--claudeai--gemini) |
+| Anything else | Copy the `br-web-seo/` folder wherever it reads skills or instructions | [C](#c-manual-install--any-other-tool) |
 
-Run this **from inside the project** you want the skill in. It clones the repo to
-a temp folder, copies just the `br-web-seo` skill into the project's
-`.claude/skills/`, and cleans up. No manual download.
+### A. Coding agents: one command
 
-**Windows — PowerShell** (run from the project root):
+Run it **from your project root** for a project install, or add the user-scope
+option to install it once for every project. The default (`all`) installs into
+`.claude/skills/` (Claude Code) and `.agents/skills/` (the shared path that Codex,
+Gemini CLI and other Agent-Skills tools read), so one run covers the common agents.
 
-```powershell
-git clone --depth 1 https://github.com/burhanriaz/BR-SEO-Skill.git "$env:TEMP\br-seo-skill"; `
-New-Item -ItemType Directory -Force ".\.claude\skills" | Out-Null; `
-Copy-Item -Recurse -Force "$env:TEMP\br-seo-skill\br-web-seo" ".\.claude\skills\br-web-seo"; `
-Remove-Item -Recurse -Force "$env:TEMP\br-seo-skill"
-```
-
-**macOS / Linux — bash** (run from the project root):
-
-```bash
-git clone --depth 1 https://github.com/burhanriaz/BR-SEO-Skill.git /tmp/br-seo-skill && \
-mkdir -p .claude/skills && \
-cp -R /tmp/br-seo-skill/br-web-seo .claude/skills/br-web-seo && \
-rm -rf /tmp/br-seo-skill
-```
-
-**Install for *every* project (personal scope)** — same commands, but point at your
-home skills folder instead of the project: replace `.\.claude\skills` with
-`"$env:USERPROFILE\.claude\skills"` (PowerShell) or `.claude/skills` with
-`~/.claude/skills` (bash).
-
-### Alternative: manual copy
-
-If you already have the repo cloned locally, just copy the folder:
-
-```powershell
-# Windows PowerShell — project-scoped
-New-Item -ItemType Directory -Force ".\.claude\skills" | Out-Null
-Copy-Item -Recurse -Force "path\to\br-seo-skill\br-web-seo" ".\.claude\skills\br-web-seo"
-```
+**macOS / Linux / WSL / Git Bash**
 
 ```bash
-# macOS / Linux — project-scoped
-mkdir -p .claude/skills
-cp -R path/to/br-seo-skill/br-web-seo .claude/skills/br-web-seo
+# Project install (this repo only): Claude Code + Codex + Gemini CLI
+curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash
+
+# Global / user install (every project)
+curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash -s -- --scope user
+
+# Pick agents explicitly
+curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash -s -- --agent claude,copilot,cursor
 ```
 
-**Verify it loaded** — open Claude Code in a project and run:
+**Windows (PowerShell)**
 
-```
-/skills
+```powershell
+# Project install (this repo only): Claude Code + Codex + Gemini CLI
+irm https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.ps1 | iex
+
+# Global / user install (every project)
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.ps1))) -Scope user
+
+# Pick agents explicitly
+& ([scriptblock]::Create((irm https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.ps1))) -Agent claude,copilot,cursor
 ```
 
-`br-web-seo` should appear in the list (or ask Claude: *"list your available skills"*).
+Already cloned the repo? Run it locally instead: `./install.sh --scope user` or
+`.\install.ps1 -Scope user`.
+
+**Options** (bash `--flag` / PowerShell `-Flag`)
+
+| Option | Values | Default |
+|--------|--------|---------|
+| `--agent` / `-Agent` | `claude`, `codex`, `gemini`, `copilot`, `cursor`, `agents`, `all` (comma-separated) | `all` |
+| `--scope` / `-Scope` | `project` (current folder) · `user` (home folder, every project) | `project` |
+| `--dir` / `-Dir` | an exact skills folder, for any other tool | — |
+| `--package` / `-Package` | build `br-web-seo.zip` + `br-web-seo-bundle.md` for chat apps | — |
+| `--uninstall` / `-Uninstall` | remove from the selected locations | — |
+| `--force` / `-Force` | overwrite without asking | — |
+
+**Where each agent looks**
+
+| Agent | Project scope | User (global) scope | Check it loaded |
+|-------|---------------|---------------------|-----------------|
+| Claude Code | `.claude/skills/` | `~/.claude/skills/` | `/skills` or `/br-web-seo` |
+| OpenAI Codex | `.agents/skills/` | `~/.agents/skills/` | `/skills` |
+| Gemini CLI | `.gemini/skills/` or `.agents/skills/` | `~/.gemini/skills/` or `~/.agents/skills/` | `/skills list` |
+| GitHub Copilot (VS Code / CLI) | `.github/skills/` (also reads `.claude/skills/`) | `~/.copilot/skills/` | ask *"what skills do you have?"* |
+| Cursor | `.cursor/skills/` | `~/.cursor/skills/` | ask *"what skills do you have?"* |
+
+> Tools change their paths now and then. If a tool doesn't see the skill, check
+> its docs for the current skills folder and install there with `--dir`.
+> Restart the agent, or start a new session, after installing.
+
+**Scope, in short.** *Project* puts the skill in the repo: commit it and everyone
+who clones the repo gets it. *User* (global) installs it once on your machine for
+all your projects. Use both if you like; the project copy is the one a team shares.
+
+### B. Chat apps: ChatGPT · Claude.ai · Gemini
+
+Get the two package files from the [latest Release](https://github.com/burhanriaz/BR-SEO-Skill/releases),
+or build them yourself with `./install.sh --package` (or `.\install.ps1 -Package`):
+
+- `br-web-seo.zip`: the skill folder, for Claude.ai.
+- `br-web-seo-bundle.md`: the whole skill in **one** Markdown file, for apps
+  that take knowledge files.
+
+| App | Steps |
+|-----|-------|
+| **Claude.ai** (web, desktop, mobile) | Settings → Capabilities → Skills → **Upload skill** → choose `br-web-seo.zip`. Turn it on; Claude uses it when you ask for SEO work. |
+| **ChatGPT**: Project | Create a Project → **Add files** → `br-web-seo-bundle.md`. In the Project instructions paste the prompt below. |
+| **ChatGPT**: Custom GPT | Explore GPTs → Create → Configure → **Knowledge**: upload `br-web-seo-bundle.md`; **Instructions**: paste the prompt below; enable Web Search. |
+| **Gemini**: Gem | Gems → New Gem → **Knowledge**: add `br-web-seo-bundle.md`; **Instructions**: paste the prompt below. |
+| **Claude Projects** | Create a Project → Project knowledge → add `br-web-seo-bundle.md`; paste the prompt below as the Project instructions. |
+
+Instructions prompt for ChatGPT / Gemini / Claude Projects:
+
+```text
+You are an SEO, AEO and GEO specialist. Follow the br-web-seo skill in the attached
+file br-web-seo-bundle.md exactly: start with its SKILL.md section, choose the
+operating mode, and open the "FILE: references/..." and "FILE: templates/..."
+sections it points to. Score sites 0-100 as it describes and write deliverables
+in its templates. If you cannot fetch a page yourself, ask me to paste the HTML,
+headers, robots.txt and sitemap, and mark anything unverified as unverified.
+```
+
+### C. Manual install / any other tool
+
+Copy the `br-web-seo/` folder (keep `SKILL.md`, `references/`, `templates/`
+together) into the tool's skills folder:
+
+```bash
+git clone --depth 1 https://github.com/burhanriaz/BR-SEO-Skill.git
+cp -R BR-SEO-Skill/br-web-seo <your-project>/.agents/skills/      # or .claude/skills, ~/.claude/skills, ...
+```
+
+For a tool with no skills support that reads an instructions file (`AGENTS.md`,
+`GEMINI.md`, `.github/copilot-instructions.md`, Cursor rules), copy the folder into
+the repo and add one line to that file:
+
+```markdown
+For SEO, AEO or GEO work, follow `.agents/skills/br-web-seo/SKILL.md` and the references and templates it links to.
+```
+
+**Uninstall:** run the installer again with `--uninstall` (and the same
+`--agent` / `--scope`), or delete the `br-web-seo` folder.
 
 ## Using it (commands / prompts)
 
-A skill is invoked by **prompting Claude** (or with `/br-web-seo` if your setup
-exposes skills as slash commands) — there is no separate shell command to "run"
-it. Give it the target, then ask for the mode you want:
+You run the skill by **prompting your agent or chat app** (Claude, Codex, Gemini,
+Copilot, Cursor, ChatGPT). Agents that support slash commands also accept
+`/br-web-seo`. There is no separate shell command to run it. Give it the target,
+then ask for the mode you want. The prompts below work the same in every tool:
 
 ```
 # Full technical SEO audit of a live site
