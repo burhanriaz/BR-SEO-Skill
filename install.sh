@@ -192,6 +192,7 @@ for base in "${UNIQUE[@]}"; do
   mkdir -p "$base"
   rm -rf "$dest"
   cp -R "$SRC" "$dest"
+  find "$dest" -name "__pycache__" -type d -prune -exec rm -rf {} + 2>/dev/null || true
   echo "Installed $dest"
 done
 

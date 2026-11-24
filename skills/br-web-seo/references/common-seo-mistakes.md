@@ -47,7 +47,7 @@ Anti-patterns to flag during an audit, grouped by area → the corrected practic
 **Technical**
 12. Over-indexing on keyword meta tags → proper titles, headings, structured data.
 13. Nofollow internal links "for sculpting" → link descriptively; let equity flow.
-14. Publishing without schema → add JSON-LD (Organization/FAQ, HowTo, Product).
+14. Publishing without schema → add JSON-LD for the page's real entity (Organization, Article, Product, LocalBusiness, BreadcrumbList). Don't add FAQPage/HowTo expecting rich results: Google retired both (see `schema-types.md`).
 15. One stale sitemap → maintain clean XML, fix canonicals, keep indexing healthy.
 16. Desktop-only UX → mobile-first, Core Web Vitals, lazy-loading, accessible markup.
 17. Ignoring accessibility (alt text, headings) → accessible content helps users and machines.

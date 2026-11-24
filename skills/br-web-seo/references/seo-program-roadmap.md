@@ -7,21 +7,18 @@ each phase. The organizing idea is the **Dual-Ranking Mindset** — every phase
 optimizes for *both* classic ranking and AI citation, never one at the expense of
 the other.
 
-> Derived from the SEO Mastery curriculum at **ghulamaliseo.com** (Ghulam Ali),
-> reconciled with this skill's other references. Concepts, not the course copy.
-
 ## The nine phases
 
 | # | Phase | Goal | Deep-dive reference |
 |---|-------|------|---------------------|
 | 1 | **Foundations & landscape** | Understand how search changed (Google + AI Overviews + ChatGPT/Gemini/Perplexity); adopt the dual-ranking mindset; pick the niche/scope | `search-landscape.md` |
-| 2 | **Keyword & query research** | Classic keyword + *AI prompt/question* research; map search intent for Google **and** AI; segment by site type (local, eCom, tools/SaaS) | `search-intent.md`, `complete-seo-checklist.md` |
-| 3 | **Site structure, topical authority & entities** | Content clustering, hub-and-spoke architecture, topical authority, entity SEO / knowledge-graph coverage | `authority-and-entities.md`, `internal-linking.md` |
-| 4 | **Content built to rank *and* be cited** | On-page SEO (basic→advanced), the semantic content method, answer-first writing, local/eCom copy | `content-and-geo.md`, `seo-article-checklist.md` |
-| 5 | **Technical SEO & machine readability** | Indexing/crawling, schema & structured-data, Core Web Vitals, fixing Search Console errors | `audit-methodology.md`, `schema-types.md`, `robots-directives.md`, `redirects.md` |
-| 6 | **Off-page: links, brand signals & digital PR** | Earn backlinks, brand mentions & unlinked citations, digital PR to *become a source AI quotes* | `authority-and-entities.md`, `common-seo-mistakes.md` |
-| 7 | **GEO — Generative Engine Optimization** | How LLMs choose sources; structure content for LLMs/AI Overviews; E-E-A-T trust signals; build the brand's AI footprint | `content-and-geo.md`, `search-landscape.md` |
-| 8 | **AEO — Answer Engine Optimization** | Zero-click/answer engines, featured snippets & "People Also Ask", FAQ/HowTo/Q&A schema, voice, measuring AI visibility | `content-and-geo.md`, `seo-kpis.md` |
+| 2 | **Keyword & query research** | Classic keyword + *AI prompt/question* research; map search intent for Google **and** AI; segment by site type (local, eCom, tools/SaaS) | `keyword-research.md`, `search-intent.md` |
+| 3 | **Site structure, topical authority & entities** | Content clustering, hub-and-spoke architecture, topical authority, entity SEO / knowledge-graph coverage | `authority-and-entities.md`, `internal-linking.md`, `programmatic-seo.md` (templated page sets) |
+| 4 | **Content built to rank *and* be cited** | On-page SEO (basic→advanced), the semantic content method, answer-first writing, local/eCom copy | `content-and-geo.md`, `content-strategy.md`, `seo-article-checklist.md` |
+| 5 | **Technical SEO & machine readability** | Indexing/crawling, schema & structured-data, Core Web Vitals, fixing Search Console errors | `audit-methodology.md`, `audit-checks.md`, `sitemaps.md`, `schema-types.md`, `robots-directives.md`, `redirects.md` |
+| 6 | **Off-page: links, brand signals & digital PR** | Earn backlinks, brand mentions & unlinked citations, digital PR to *become a source AI quotes* | `off-page-seo.md`, `authority-and-entities.md` |
+| 7 | **GEO — Generative Engine Optimization** | How LLMs choose sources; AI-crawler access; structure content for LLMs/AI Overviews; E-E-A-T trust signals; build the brand's AI footprint | `agent-readiness.md`, `content-and-geo.md` |
+| 8 | **AEO — Answer Engine Optimization** | Zero-click/answer engines, featured snippets & "People Also Ask", answer-first Q&A sections, voice, measuring AI visibility | `content-and-geo.md`, `seo-kpis.md` |
 | 9 | **Measure, monetize & maintain** | Track SEO + AI-visibility KPIs; diagnose drops; refresh on cadence; (for agencies) package & price the service | `seo-kpis.md`, `diagnostics.md` |
 
 ## How to use it
@@ -31,6 +28,13 @@ the other.
   to content/GEO; phase 6 to off-page.
 - **Building SEO into a new site from scratch?** Execute in order; don't jump to
   off-page (6) or GEO (7) before structure (3) and content (4) exist.
+- **Schema reality check (2026):** Google no longer shows HowTo rich results
+  (removed 2023) or FAQ rich results (removed May 2026), and says AI Overviews /
+  AI Mode need no special markup. Use structured data for the rich results that
+  still exist and for entity clarity (`schema-types.md`), not as an AEO shortcut.
+- **Exit criteria per phase:** a phase is done when its reference's checklist
+  passes (or each gap is a logged finding with a check ID from
+  `audit-checks.md`), not when the work "feels" complete.
 - **The thread through all nine:** every page should answer a real query
   *answer-first*, sit inside a topical cluster, expose clean structured data, and
   carry E-E-A-T signals — so the same page can rank in Google and be cited by AI.
@@ -56,12 +60,15 @@ SEO fails in handoff as often as in strategy. Build this into every engagement:
 - **Stay available after handoff.** Don't treat handed-off fixes as "someone
   else's problem"; verify they shipped correctly and re-test.
 
-## Note on the source page (CRO, not SEO technique)
+## Note on CRO tactics
 
-The source is a sales landing page. Its *conversion* tactics — countdown timers,
-seat-scarcity ("85% full"), struck-through pricing, exit pop-ups — are CRO
-patterns, not SEO. Adopt them cautiously: on that page several created trust
-inconsistencies (conflicting countdowns, "lifetime access" vs. "2-year
-recordings"). For honest conversion elements see the landing-page anatomy in
-`content-and-geo.md`. **Urgency that doesn't survive scrutiny damages trust —
-an E-E-A-T negative.**
+Countdown timers, seat-scarcity claims and struck-through prices are conversion
+tactics, not SEO. Use only ones that are true: urgency that doesn't survive
+scrutiny damages trust — an E-E-A-T negative. For honest conversion elements see
+the landing-page anatomy in `content-and-geo.md`.
+
+> Sources: phase structure derived from the SEO Mastery curriculum at
+> ghulamaliseo.com (concepts, not course copy). Schema status: Google Search
+> Central blog, "Changes to HowTo and FAQ rich results" (Aug 2023) and the FAQPage
+> documentation deprecation notice (May 2026); AI features and your website
+> (developers.google.com/search/docs/appearance/ai-features).

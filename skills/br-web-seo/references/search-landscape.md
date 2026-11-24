@@ -19,18 +19,21 @@ needs** before auditing — the tactics and success metrics differ.
 | **Primary goal** | Rank higher to drive organic traffic | Be chosen as the direct answer in snippets & voice | Leverage AI to create, scale, repurpose content | Be cited by search/AI engines in generated answers |
 | **Search focus** | Traditional engines (Google, Bing) | Engines + featured snippets + voice assistants | Supports SEO/AEO/GEO indirectly | Generative AI search (ChatGPT, Perplexity, AI Overviews) |
 | **Content style** | Keyword-driven, comprehensive, evergreen | Concise, factual, structured | Drafted/co-created with AI, refined by humans | Contextual, authoritative, conversational |
-| **Optimization focus** | Off-page, on-page, technical SEO | Schema markup, FAQs, structured data | Multi-format repurposing, AI-assisted scaling | Semantic SEO, credibility signals, brand authority |
+| **Optimization focus** | Off-page, on-page, technical SEO | Concise Q&A content, snippet-friendly formatting, entity structured data | Multi-format repurposing, AI-assisted scaling | Semantic SEO, credibility signals, brand authority |
 | **Users targeted** | People clicking results & browsing | People seeking instant answers | Teams needing scalable multi-channel content | People preferring AI summaries |
 | **Success metrics** | Rankings, traffic, conversions | Snippet presence, voice share, zero-click visibility | Content velocity, cost-per-asset efficiency | AI citations/mentions, referral traffic from AI engines |
 | **Top tactics** | Keyword research, in-depth content, backlinks, site speed | Target snippets & voice, add schema/structured data | Train AI on brand voice, keep AI content updated for accuracy | Authoritative/trustworthy content, E-E-A-T, earn brand mentions & citations |
-| **Common mistakes** | Over-optimization, keyword stuffing, thin content, ignoring technical SEO | Ignoring schema, being vague, no Q&A structure | Publishing unedited AI output, over-reliance, losing brand voice | Treating GEO like SEO, ignoring credibility, weak E-E-A-T |
+| **Common mistakes** | Over-optimization, keyword stuffing, thin content, ignoring technical SEO | Being vague, no Q&A structure, chasing retired rich results (FAQ/HowTo) | Publishing unedited AI output, over-reliance, losing brand voice | Treating GEO like SEO, ignoring credibility, weak E-E-A-T |
 | **Benefits** | Long-term organic growth, stable traffic, brand authority | Visibility in zero-click, trust from direct answers | Faster creation & repurposing, less manual effort | Strong presence in AI-driven search, durable authority |
 
 ## How to apply in an audit
 
 1. **Classify the goal mix** for the target (most sites need SEO + AEO + GEO).
 2. For **AEO**, check: FAQ/Q&A structure, concise answer paragraphs near the top,
-   `FAQPage`/`HowTo` schema, table/list formatting that snippets reward.
+   table/list formatting that snippets reward, and structured data for the
+   page's main entity. FAQ and HowTo rich results are gone from Google (HowTo
+   2023, FAQ 2026-05-07), so judge the visible Q&A text, not `FAQPage`/`HowTo`
+   markup (see `schema-types.md`).
 3. For **GEO**, check: E-E-A-T signals (named authors, credentials, citations,
    original data), AI-crawler access (don't block `GPTBot`, `PerplexityBot`,
    `Google-Extended` unless intended), `llms.txt`, and passage-level

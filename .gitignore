@@ -30,3 +30,7 @@ Books/
 # Packaged outputs of install --package (build locally or download from Releases)
 /br-web-seo.zip
 /br-web-seo-bundle.md
+
+# Python bytecode
+__pycache__/
+*.pyc

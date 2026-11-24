@@ -12,6 +12,7 @@
 - **Target / repo:** <production URL(s) and/or repo path>
 - **Framework / stack:** <Next.js / Astro / plain HTML / React SPA / … and version>
 - **Source audit:** <link or filename of the audit report>
+- **Baseline snapshot:** <seo_check.py JSON file from the audit, for the post-fix compare>
 - **Date:** <YYYY-MM-DD>
 - **Prepared by:** <name / AI agent + model>
 
@@ -20,17 +21,24 @@
 ## How to work this report
 
 1. Apply **🔴 Blockers** first, then 🟠 High, then 🟡 Medium, then 🟢 Low.
-2. Make one focused commit per fix (or per tightly related group).
+   Within a severity, do high-impact / small-effort items first.
+2. Make one focused commit per fix (or per tightly related group); put the
+   FIX ID and check ID in the commit message.
 3. Tick the checkbox and fill **Outcome** when done.
 4. Run the **Verification pass** at the end before deploying.
 
+**Effort:** S = under an hour, one file/setting · M = up to a day, a template or
+several files · L = multi-day, cross-team, or a migration.
+**Expected impact:** High = unblocks indexing/ranking or a key template · Medium
+= improves a ranking/CTR/CWV signal on many pages · Low = hygiene, few pages.
+
 ## Fix summary
 
-| ID | Severity | Fix | File(s) / location | Audit ref | Done |
-|----|----------|-----|--------------------|-----------|:----:|
-| FIX-1 | 🔴 | <one line> | <path> | F1 | ☐ |
-| FIX-2 | 🟠 | | | F2 | ☐ |
-| … | | | | | ☐ |
+| ID | Check ID(s) | Severity | Fix | File(s) / location | Effort | Impact | Audit ref | Done |
+|----|-------------|----------|-----|--------------------|:------:|:------:|-----------|:----:|
+| FIX-1 | <INDEX-004> | 🔴 | <one line> | <path> | S | High | F1 | ☐ |
+| FIX-2 | <ID> | 🟠 | | | | | F2 | ☐ |
+| … | | | | | | | | ☐ |
 
 ---
 
@@ -42,6 +50,8 @@ Repeat this block per item.
 
 - [ ] **Done**
 - **Audit finding:** F1
+- **Check ID(s):** `<INDEX-004>`
+- **Effort / expected impact:** <S/M/L> · <High/Medium/Low — one line on what improves>
 - **Where:** `<exact file path>`:`<line or selector>` (or build config / CMS field)
 - **Current state (what's there now):**
   ```html
@@ -60,6 +70,7 @@ Repeat this block per item.
   - Production response for <URL> contains no `noindex` in meta **or**
     `X-Robots-Tag`.
   - `curl -I <URL>` / rendered DOM confirms.
+  - The check ID above now reports **pass** in seo_check.py (or the manual check).
 - **Risk / watch-outs:** <regressions to avoid, e.g. don't index staging>
 - **Outcome:** <filled in by implementer: commit hash, what changed, verification result>
 
@@ -67,6 +78,8 @@ Repeat this block per item.
 
 - [ ] **Done**
 - **Audit finding:** F2
+- **Check ID(s):**
+- **Effort / expected impact:**
 - **Where:**
 - **Current state:**
   ```
@@ -91,7 +104,7 @@ Repeat this block per item.
 | Next.js (pages router) | `next/head` | `public/robots.txt` or route | `next-sitemap` / API route | |
 | Astro | `<head>` in layout | `public/robots.txt` | `@astrojs/sitemap` | |
 | Plain HTML | per-file `<head>` | `/robots.txt` | hand-written/generated `sitemap.xml` | |
-| React/Vite SPA | `react-helmet-async` + **SSR/prerender** | `public/robots.txt` | build-time script | CSR-only content may not index — flag if SSR needed. |
+| React/Vite SPA | `react-helmet-async` + **SSR/prerender** | `public/robots.txt` | build-time script | CSR-only content may not index — flag if SSR needed. Canonical and robots meta must be in the served HTML, not added by JS. |
 
 ---
 
@@ -99,6 +112,9 @@ Repeat this block per item.
 
 - [ ] Re-check every acceptance criterion above.
 - [ ] Run the pre-deployment checklist blockers.
+- [ ] Re-run `scripts/seo_check.py` on the representative pages and
+      `--compare` against the baseline snapshot: every fixed check ID now passes,
+      and no new 🔴/red drift appears (thresholds in `references/diagnostics.md`).
 - [ ] Diff the rendered `<head>` of each representative page vs. the intended
       state.
 - [ ] Re-run Lighthouse on a mobile page for any CWV fixes; confirm no

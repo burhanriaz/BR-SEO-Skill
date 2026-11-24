@@ -181,6 +181,7 @@ try {
     New-Item -ItemType Directory -Force $base | Out-Null
     if (Test-Path $dest) { Remove-Item -Recurse -Force $dest }
     Copy-Item -Recurse -Force $src $dest
+    Get-ChildItem -Path $dest -Recurse -Directory -Filter "__pycache__" -ErrorAction SilentlyContinue | Remove-Item -Recurse -Force
     Write-Host "Installed $dest"
   }
 

@@ -9,6 +9,12 @@ entity reputation) and `common-seo-mistakes.md` (link anti-patterns).
 > The modern rule: **earn** links by being genuinely citation-worthy. Every
 > "acquire links fast" shortcut below the line is a Google link-scheme violation.
 
+> **INSUFFICIENT DATA rule.** Backlink findings need data: a GSC Links export
+> and/or an export from any backlink tool (Ahrefs, Semrush, Majestic, Moz, Bing
+> Webmaster Tools). Without one, mark off-page checks **not measured**, say
+> which export is needed, and don't estimate a profile from `site:` searches or
+> memory.
+
 ## What makes a backlink valuable
 
 | Signal | Worth more | Worth less / risky |
@@ -40,6 +46,45 @@ authoritative domains beats hundreds from one source.
   that require an attribution link back. Low-impact but legitimate.
 - **Inbound anchor text** — when you *can* influence it (guest contributions,
   partner pages), prefer natural, descriptive anchors over repeated exact-match.
+
+## Link-intersect: find realistic prospects
+
+Sites that link to **two or more competitors but not to you** already cover your
+topic and link out — they're the warmest prospects. Works with any tool export.
+
+1. Pick 3–5 real SERP competitors for the target topics (not just business
+   rivals).
+2. Export **referring domains** for each competitor and for your site (CSV).
+3. Normalize to registrable domain (`blog.example.co.uk` → `example.co.uk`),
+   drop spam/scraper domains and pure-social hosts.
+4. Count, per domain, how many competitors it links to; keep domains with count
+   **≥ 2** that are **absent** from your list.
+5. Sort by count, then topical relevance, then authority metric. For each, open
+   the linking page: what earned the link (a resource list, a study, a review,
+   a tool)? That tells you what asset and pitch you need.
+
+Output table: `Domain | Competitors linked (n) | Linking page example | Link type | Relevance | Suggested asset/pitch`.
+
+## Backlink profile health
+
+Read the profile as trends and mixes, not one score. Third-party "toxicity"
+scores are vendor heuristics, not Google signals — treat them as a reason to
+look, never as a verdict.
+
+| Signal | Healthy | Investigate |
+|--------|---------|-------------|
+| **Anchor-text mix** | Mostly brand, URL and natural phrases; exact-match commercial anchors a small minority | Exact-match money anchors dominating, or the same anchor from many unrelated domains |
+| **Referring-domain trend** | Steady growth that tracks content, PR or brand activity | Sudden spikes (bought links, negative SEO, scraper networks) or sharp drops (lost major referrer, site migration broke URLs) |
+| **Topical relevance** | Most linking domains relate to your industry/topic or locality | Large share of off-topic, foreign-language-unrelated, or casino/pharma/adult domains |
+| **Link types** | Editorial in-content links, citations, reviews, partners | Sitewide footer links, comment/forum signature links, widget links with keyword anchors |
+| **Concentration** | Links spread across many domains | Most links from a handful of domains or one network |
+| **Target pages** | Spread across home, content and resources | Unusual clusters of keyword-anchored links into one money page |
+
+Toxic patterns to flag: PBN footprints (same theme/IP/registrant, thin
+"blogs"), paid placements without `rel="sponsored"`, link exchanges, hacked-page
+injections, auto-generated directories. Most spam links are simply ignored by
+Google — flag them as **context**, act only when the patterns look like a scheme
+*you* are responsible for or a manual action exists.
 
 ## Backlink audit & maintenance
 
@@ -79,16 +124,21 @@ agency) or a **manual action** for unnatural links:
    tool) and flag the spammy/manipulative/irrelevant domains.
 2. **Remove what you can** — request removal from the linking sites first
    (genuine, if slow).
-3. **Disavow the rest** — submit a `disavow.txt` (domain-level where possible) via
-   Google's Disavow Tool. Use sparingly and deliberately — disavowing good links
-   hurts you. It's a last resort, not routine hygiene.
+3. **Disavow only what's left — and only in two cases:** there is a **manual
+   action** for unnatural links, **or** there is a considerable number of
+   spammy/artificial links that you (or a previous agency) built and that are
+   likely to cause one. Every line in `disavow.txt` (domain-level where
+   possible) is **human-reviewed**. Never disavow automatically from a tool's
+   toxicity score, and never as routine hygiene — disavowing good links hurts.
+   In a report, list *candidate* domains with evidence and leave the decision
+   to the owner.
 4. **Reconsideration** — for a *manual* action, file a reconsideration request
    documenting what you removed/disavowed and the process changes made.
 5. **Prevent recurrence** — stop whatever created the bad links; shift to earning
    editorial links (above).
 
 > Most sites never need to disavow — Google ignores most spam links automatically.
-> Reach for it only for a real toxic profile or a manual action.
+> Random spammy links you didn't build are not a reason to disavow.
 
 ## Anti-patterns (never do these — link schemes)
 
@@ -100,6 +150,9 @@ social-bookmarking link spam · blog-comment & forum-signature keyword links ·
 explicit Google spam-policy violation). These are flagged in
 `common-seo-mistakes.md`; the fix is always: earn editorial links instead.
 
-> Sources: HubSpot *Introduction to SEO*; LPU *Search Engine Optimization* course
-> text; Odom *SEO for 2016*; Bailyn *SEO Made Easy* — net-new, still-valid items
-> only; dated tactics excluded.
+> Sources: Google Search Central — Spam policies: link spam
+> (developers.google.com/search/docs/essentials/spam-policies#link-spam); Qualify
+> your outbound links (developers.google.com/search/docs/crawling-indexing/qualify-outbound-links);
+> Disavow links to your site (support.google.com/webmasters/answer/2648487).
+> Background from HubSpot *Introduction to SEO*; LPU *Search Engine Optimization*
+> course text; Bailyn *SEO Made Easy* — still-valid items only.

@@ -1,62 +1,80 @@
-# Web SEO Skill (SEO · AEO · AIO · GEO)
+# br-web-seo: SEO · AEO · GEO audits for any AI agent
 
-An [Agent Skill](https://agentskills.io) for **Claude Code, Codex, Gemini CLI,
-GitHub Copilot, Cursor**, and the **ChatGPT / Claude.ai / Gemini** chat apps. It audits, optimizes, and future-proofs a website or web
-app for search — classic SEO **and** AI/generative search (AEO, AIO, GEO) — then
-turns findings into changes precise enough for another session to apply.
+[![Validate](https://github.com/burhanriaz/BR-SEO-Skill/actions/workflows/validate.yml/badge.svg)](https://github.com/burhanriaz/BR-SEO-Skill/actions/workflows/validate.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![Agent Skill](https://img.shields.io/badge/Agent%20Skill-Claude%20%C2%B7%20Codex%20%C2%B7%20Gemini%20%C2%B7%20Copilot%20%C2%B7%20Cursor-2457d6)](#install)
+[![Website](https://img.shields.io/badge/site-burhanriaz.github.io-0f172a)](https://burhanriaz.github.io/BR-SEO-Skill/)
 
-Built from current Claude-SEO-skill practice (modular orchestrator + specialists,
-0–100 health score, file-based reports, analyze-before-rewrite) and the concrete
-frameworks shared by digital-marketing specialist **Faiza Parwez**
-(@faizaparwezofficial): the SEO/AEO/AIO/GEO split, the 12 internal-link types,
-the 12 robots meta directives, GSC's essential reports, local-SEO workflow, the
-AI-SEO landing-page anatomy, and a ranking-drop diagnosis framework.
+An open-source [Agent Skill](https://agentskills.io) for **Claude Code, Codex,
+Gemini CLI, GitHub Copilot, Cursor** and the **ChatGPT / Claude.ai / Gemini**
+chat apps. It audits a website or codebase for classic search **and** AI search
+(AEO, AIO, GEO), scores it 0–100 against ~220 checks with stable IDs, and turns
+the findings into a fix report precise enough for another AI session or a
+developer to apply. Every report exports to **PDF, Word, Excel, CSV or HTML**.
 
-## Deliverables in this package
+**[Website & report previews](https://burhanriaz.github.io/BR-SEO-Skill/)** ·
+**[Install](#install)** · **[Use](#using-it-commands--prompts)** ·
+**[Changelog](CHANGELOG.md)** · **[Security](SECURITY.md)**
 
-1. **SEO skill** — `skills/br-web-seo/SKILL.md`: the invokable workflow with operating
-   modes (technical audit, content, GEO/AI-search, internal linking, local,
-   diagnosis, pre-deploy gate).
-2. **Audit methodology** — `skills/br-web-seo/references/audit-methodology.md`.
-3. **Pre-deployment checklist** — `skills/br-web-seo/references/pre-deployment-checklist.md`.
-4. **Report templates** — audit (diagnosis), fix/hotfix (prescription for another
-   session), and content optimization.
+```bash
+# Claude Code (plugin)
+/plugin install br-web-seo --marketplace burhanriaz/BR-SEO-Skill
+
+# Any agent, this project (macOS / Linux / Git Bash)
+curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash
+```
+
+## What it does
+
+| Area | Modes |
+|------|-------|
+| **Technical** | site / codebase audit · pre-deploy go/no-go · drift between releases · ranking-drop diagnosis · structured data · sitemaps · hreflang · internal linking · programmatic SEO |
+| **Content** | content optimization · content briefs · keyword research & clustering · content audit (keep / refresh / merge / remove) · pre-publish E-E-A-T gate · comparison pages |
+| **AI search** | GEO / AEO citability · AI crawlers & agent readiness · AI-visibility (share-of-voice) tracking |
+| **Off-site & local** | backlink audit & link-intersect · Google Business Profile & local SEO |
+
+What makes it different:
+
+- **Evidence, not guesses.** Each check records status (pass / warn / fail /
+  not-measured), where it looked and the evidence. SPAs are checked in the
+  rendered DOM. Missing data is reported as *insufficient data*, never invented.
+- **Fixes another session can apply.** The fix report gives the check ID,
+  `file:line`, current state, change, code, effort, impact and acceptance
+  criteria.
+- **A score you can track.** Eight weighted categories, with tiered caps so a
+  live blocker can never hide behind a good average.
+- **Current, dated facts.** Rich-result status (FAQ and HowTo are retired),
+  AI-crawler names and Google guidance are dated and sourced.
+- **No API keys, no paid tools.** Markdown plus three standard-library Python
+  scripts: `seo_check.py` (evidence collector and drift diff),
+  `export_report.py` (PDF / Word / Excel / CSV / HTML) and `validate_skill.py`.
+
+Frameworks credit: the SEO/AEO/AIO/GEO split, 12 internal-link types, 12
+robots directives, GSC essentials, local workflow and AI landing-page anatomy
+draw on posts by digital-marketing specialist **Faiza Parwez**
+(@faizaparwezofficial).
 
 ## Layout
 
 ```
-SEO Skill/
-├── README.md · LICENSE · CONTRIBUTING.md · .gitignore
-├── install.sh · install.ps1             installers (any agent, project/user scope, chat-app packages)
-├── .github/workflows/release.yml        builds br-web-seo.zip + br-web-seo-bundle.md on each release
-└── skills/br-web-seo/
-    ├── SKILL.md                         the orchestrator (modes + workflow + scoring)
-    ├── references/
-    │   ├── audit-methodology.md         technical + on-page checks
-    │   ├── seo-program-roadmap.md       the 9-phase end-to-end program (top-level map)
-    │   ├── complete-seo-checklist.md    full-coverage program checklist
-    │   ├── search-landscape.md          SEO vs AEO vs AIO vs GEO
-    │   ├── search-intent.md             the 6 intent levels + content format each needs
-    │   ├── seo-article-checklist.md     20-step high-performing article checklist
-    │   ├── seo-kpis.md                  KPIs across SEO/SXO/conversion/tech/authority/AI
-    │   ├── content-and-geo.md           content optimization + GEO/AEO + AI landing page
-    │   ├── authority-and-entities.md    topical authority, entity SEO, digital PR
-    │   ├── internal-linking.md          12 link types + hub-and-spoke + authority flow + siloing
-    │   ├── off-page-seo.md              earning backlinks, backlink audit, link velocity, ORM
-    │   ├── international-seo.md          hreflang, ccTLD vs subdir, geotargeting, localization
-    │   ├── robots-directives.md         12 robots meta directives
-    │   ├── redirects.md                 10 redirect types
-    │   ├── schema-types.md              10 JSON-LD schema types
-    │   ├── image-seo.md                 image relevance, formats/compression, CWV, rich results
-    │   ├── common-seo-mistakes.md       8 costly mistakes + 27 AI/GEO anti-patterns
-    │   ├── local-seo.md                 Google Business Profile + local
-    │   ├── diagnostics.md               GSC reports + ranking-drop + drift
-    │   ├── pre-deployment-checklist.md  go/no-go gate
-    │   └── instagram-frameworks-log.md  index of source frameworks
-    └── templates/
-        ├── audit-report-template.md     the diagnosis
-        ├── fix-report-template.md       the prescription (for another session to execute)
-        └── content-report-template.md   content-optimization output
+├── skills/br-web-seo/                    the skill (what gets installed)
+│   ├── SKILL.md                          orchestrator: modes, workflow, scoring, reference map
+│   ├── references/                       28 topic references
+│   │   ├── audit-checks.md               ~220 checks with stable IDs, severities, score caps
+│   │   ├── audit-methodology.md · pre-deployment-checklist.md · complete-seo-checklist.md
+│   │   ├── robots-directives.md · redirects.md · sitemaps.md · schema-types.md · image-seo.md
+│   │   ├── international-seo.md · internal-linking.md · programmatic-seo.md · diagnostics.md
+│   │   ├── keyword-research.md · content-strategy.md · content-and-geo.md · search-intent.md
+│   │   ├── agent-readiness.md · authority-and-entities.md · off-page-seo.md · local-seo.md
+│   │   └── seo-kpis.md · seo-program-roadmap.md · report-formats.md · …
+│   ├── templates/                        audit · fix · content · content brief · keyword map
+│   │   └── examples/sample-audit-report.md
+│   └── scripts/                          seo_check.py · export_report.py · validate_skill.py
+├── install.sh · install.ps1              installers (any agent, project/user scope, chat packages)
+├── .claude-plugin/                       Claude Code plugin + marketplace manifests
+├── site/                                 GitHub Pages website
+├── .github/                              CI (validate, release, pages), issue/PR templates, CODEOWNERS
+└── SECURITY.md · PRIVACY.md · CODE_OF_CONDUCT.md · CONTRIBUTING.md · AGENTS.md · CHANGELOG.md
 ```
 
 ## What you need (prerequisites)
@@ -83,12 +101,26 @@ its skills folder, and chat apps can take it as an upload. Pick your tool below.
 
 | Where you use AI | How to add it | Section |
 |------------------|---------------|---------|
+| Claude Code | Plugin marketplace (or the installer) | [Claude Code plugin](#claude-code-plugin) |
 | Claude Code · Codex · Gemini CLI · Copilot · Cursor (terminal / IDE agents) | One-line installer | [A](#a-coding-agents-one-command) |
 | Claude.ai (web / desktop / mobile) | Upload `br-web-seo.zip` as a skill | [B](#b-chat-apps-chatgpt--claudeai--gemini) |
 | ChatGPT · Gemini · Claude Projects | Upload `br-web-seo-bundle.md` as a knowledge file | [B](#b-chat-apps-chatgpt--claudeai--gemini) |
 | Anything else | Copy the `skills/br-web-seo/` folder wherever it reads skills or instructions | [C](#c-manual-install--any-other-tool) |
 
+### Claude Code plugin
+
+```text
+/plugin install br-web-seo --marketplace burhanriaz/BR-SEO-Skill
+```
+
+On older Claude Code versions, add the marketplace first:
+`/plugin marketplace add burhanriaz/BR-SEO-Skill`, then
+`/plugin install br-web-seo@br-seo`. Update with `/plugin update`.
+
 ### A. Coding agents: one command
+
+> Prefer to read before you run? Download `install.sh` / `install.ps1`, review it
+> (both are short and only copy files), then run it locally.
 
 Run it **from your project root** for a project install, or add the user-scope
 option to install it once for every project. The default (`all`) installs into
@@ -245,7 +277,38 @@ go/no-go.
 # Apply a fix report produced earlier (hand the report to a fresh session)
 Here is a br-web-seo fix report. Apply the changes to this repo, file by file, and
 report what you changed.
+
+# Keyword research → keyword map (Excel)
+br-web-seo keyword research for "<niche>": cluster by SERP overlap, map clusters to
+pages, and give me the keyword map as Excel.
+
+# Content brief for a writer
+br-web-seo content brief for "<keyword>": read the SERP, find the page type and
+the information gain the top results miss.
+
+# Content audit / pruning (needs a GSC export)
+br-web-seo content audit: here is our GSC pages export. Give every URL a
+KEEP / REFRESH / CONSOLIDATE / REMOVE verdict.
+
+# AI crawlers and agent readiness
+br-web-seo: which AI crawlers can reach https://example.com, is our CDN blocking any,
+and what should robots.txt say?
+
+# What did this release change? (drift)
+br-web-seo drift check: compare the seo_check runs from before and after the deploy.
 ```
+
+### Scripts (optional, standard library only)
+
+```bash
+cd skills/br-web-seo   # or wherever the skill is installed
+python scripts/seo_check.py https://example.com --max-pages 20 --json run.json --md run.md
+python scripts/seo_check.py --compare before.json after.json --md drift.md
+python scripts/export_report.py reports/example-audit-report.md -f pdf,docx,xlsx,csv
+```
+
+`seo_check.py` reads raw HTML only (no JavaScript), so rendering-dependent checks
+come back `not-measured` for the agent to verify in a browser.
 
 **Outputs are files, not just chat.** Each mode writes a Markdown deliverable from
 `skills/br-web-seo/templates/` (audit report → fix report → optional pre-deploy gate), so
@@ -254,9 +317,9 @@ teams can diff runs over time.
 ## Flow
 
 ```
-scope → audit (per mode) → 0–100 score → audit report (diagnosis)
-                                        → fix report (prescription, for another session)
-                                        → pre-deploy checklist (go/no-go)
+scope → collect evidence → audit (check IDs) → 0–100 score (with caps)
+      → audit report (diagnosis) → fix report (prescription, for another session)
+      → pre-deploy go/no-go → export (PDF · Word · Excel · CSV · HTML)
 ```
 
 ## Notes

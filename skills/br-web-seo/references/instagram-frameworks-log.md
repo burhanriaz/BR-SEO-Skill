@@ -80,6 +80,8 @@ multi-format, original research, search-driven titles. → folded into
 ### 10 Schema Types for AI-Ready Websites
 Organization, Person, Article, Product, FAQPage, HowTo, Review/AggregateRating,
 BreadcrumbList, WebSite, LocalBusiness. → `references/schema-types.md` (NEW).
+_Update 2026: Google has retired HowTo (2023) and FAQ (2026) rich results, so
+`schema-types.md` now marks both as deprecated; this entry records the source post._
 
 ### The Google Update Impact Diagnosis Framework  [read in full]
 Timeline & context → 8-step diagnostic → evidence-classification matrix.

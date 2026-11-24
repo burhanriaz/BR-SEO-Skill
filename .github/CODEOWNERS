@@ -1,0 +1,9 @@
+# Default owner for everything
+*                         @burhanriaz
+
+# Security-sensitive: installers, scripts, workflows, policy
+/install.sh               @burhanriaz
+/install.ps1              @burhanriaz
+/skills/br-web-seo/scripts/ @burhanriaz
+/.github/workflows/       @burhanriaz
+/SECURITY.md              @burhanriaz

@@ -14,6 +14,24 @@ it attracts the wrong visitors.
 | 5 | **Transactional** | Ready to act — buy, sign up, hire | "hire an SEO consultant" | Landing pages, product pages, pricing pages, service pages, lead forms |
 | 6 | **Navigational** | Looking for a specific site/brand/page | "<brand> login" | Homepage, login pages, brand pages, product/feature pages, support pages |
 
+Mapping to the classic four (used in the content report): informational,
+diagnostic and exploratory → **informational**; comparative → **commercial**;
+transactional → **transactional**; navigational → **navigational**.
+
+## Classify from the SERP, not the keyword
+
+The live results are the ground truth for intent. Check the top 10 (target
+country, mobile, logged out) and record the dominant page type and SERP features
+(`content-strategy.md` §A). Rules:
+
+- **≥ 6 of 10 results share a type** → that's the intent; build that page type.
+- **Split SERP** → mixed intent; pick the type you can do best and cover the
+  other intent with a section or a linked page.
+- Shopping units, prices, "buy" ads → transactional/commercial. PAA, AI Overview,
+  long guides → informational. Brand sitelinks → navigational. Map pack → local.
+- Intent shifts over time (seasonal, news); re-check before refreshing a page.
+- No SERP access → state the intent as **assumed** and say why.
+
 ## Expand a query into its full journey
 
 A 1–2 word head term hides a whole decision process. Map it before writing:
@@ -46,23 +64,30 @@ not just high-volume.
   different demographic how they'd phrase it; capture the variants (voice &
   natural-language queries).
 
-## Why long-tail breadth wins (benchmarks)
+## Why long-tail breadth wins (older benchmarks — directional only)
 
-- ~58.8% of queries are 1–3 words; ~78.8% are 1–4 words.
-- **~95% of all queries are searched ≤10 times/month** (Ahrefs) — the demand lives
-  in the long tail, so topical breadth beats chasing a few head terms.
-- Users who find useful **informational** content on your site are **~131% more
-  likely to buy from you later** (Conductor) — justifies top-of-funnel investment.
+- Most keywords have tiny volume: Ahrefs' keyword-database studies found ~95% of
+  keywords get ≤ 10 searches/month — the demand lives in the long tail, so
+  topical breadth beats chasing a few head terms. Long-tail, conversational
+  phrasing has grown further with AI-style queries.
+- Conductor's 2017 study found users who read early-stage informational content
+  from a brand were far likelier to buy from it later (reported as ~131%) —
+  supports top-of-funnel investment, but cite it as a dated single study.
 
 ## How to apply
 
-1. Classify the primary query's intent level before writing or auditing a page.
+1. Classify the primary query's intent level **from the SERP** before writing or
+   auditing a page; see `keyword-research.md` for clustering queries that share
+   intent.
 2. Confirm the **page type matches** the intent (don't answer a comparative query
-   with a thin product page, or a transactional query with a blog post).
+   with a thin product page, or a transactional query with a blog post). A
+   mismatch is a 🟠 finding; content edits won't fix it.
 3. Map each **cluster** across levels: an informational/diagnostic/exploratory hub
    feeding comparative and transactional pages (see `internal-linking.md`).
 4. For AI search, lead each section with a **self-contained answer** so it can be
    cited regardless of intent level (see `content-and-geo.md`).
 
-> Sources: "The 6 Levels of Search Intent", @faizaparwezofficial; journey
-> frameworks, valuation and benchmarks from *The Art of SEO*, 4th ed. (O'Reilly).
+> Sources: intent levels adapted from "The 6 Levels of Search Intent",
+> @faizaparwezofficial; journey frameworks from *The Art of SEO*, 4th ed.
+> (O'Reilly) and Think with Google, "Decoding decisions: the messy middle" (2020);
+> Ahrefs long-tail keyword study; Conductor (2017) content-and-purchase study.

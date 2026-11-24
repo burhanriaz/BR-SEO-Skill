@@ -117,7 +117,8 @@ table.t{width:100%;border-collapse:collapse;font-size:14.5px;background:#fff;bor
 table.t th,table.t td{padding:10px 12px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
 table.t th{background:var(--soft);font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
 table.t tr:last-child td{border-bottom:0}
-.two{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.two{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:28px}
+.two>*,.viewer>*{min-width:0}
 .note{font-size:14px;color:var(--muted)}
 
 /* prompts */
@@ -242,7 +243,7 @@ Installed .agents\skills\br-web-seo</span>
 <section id="what">
   <div class="wrap">
     <h2>What it does</h2>
-    <p class="sub">One skill with focused modes. Ask in plain language and your agent picks the mode,
+    <p class="sub">One skill, 20 focused modes and ~220 checks with stable IDs. Ask in plain language and your agent picks the mode,
       follows a checklist, collects evidence, and writes the deliverable.</p>
     <div class="cards">
       <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg></div>
@@ -261,6 +262,14 @@ Installed .agents\skills\br-web-seo</span>
         <h3>Pre-deploy gate</h3><p>A go/no-go checklist before release, so a stray <code>noindex</code> or broken canonical never ships.</p><span class="tag">→ go / no-go</span></div>
       <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div>
         <h3>Reports in any format</h3><p>Every deliverable is Markdown first, then exported to PDF, Word, Excel, CSV or HTML with the bundled zero-dependency exporter.</p><span class="tag">→ .pdf · .docx · .xlsx · .csv</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11h6M11 8v6"/></svg></div>
+        <h3>Keyword research</h3><p>Seed → expand → filter → cluster by SERP overlap → a keyword map of pillar and spoke pages, plus a competitor gap.</p><span class="tag">→ keyword map (Excel)</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5M9 8h3"/></svg></div>
+        <h3>Content briefs</h3><p>Writer-ready briefs: page type from the SERP, outline, the information gain competitors miss, E-E-A-T needs.</p><span class="tag">→ content brief</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h6"/><path d="M17 15l3 3-3 3"/></svg></div>
+        <h3>Content audit</h3><p>Every URL gets a KEEP / REFRESH / CONSOLIDATE / REMOVE verdict from Search Console data, with decay and cannibalisation checks.</p><span class="tag">→ verdict table</span></div>
+      <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V4M9 13h.01M15 13h.01"/></svg></div>
+        <h3>AI crawlers & agents</h3><p>GPTBot, ClaudeBot, PerplexityBot and more, by purpose. CDN/WAF blocks, agent-friendly pages, AI share-of-voice tracking.</p><span class="tag">→ audit + fix report</span></div>
     </div>
   </div>
 </section>
@@ -412,6 +421,8 @@ cp -R BR-SEO-Skill/br-web-seo  your-project/.agents/skills/   <span class="c"># 
         <button role="tab" aria-selected="false" data-report="audit-report-template" data-title="Audit report template"><b>Audit report</b><span>The diagnosis: what's wrong, why it matters, severity, scorecard.</span></button>
         <button role="tab" aria-selected="false" data-report="fix-report-template" data-title="Fix / hotfix report template"><b>Fix / hotfix report</b><span>The prescription: exact changes, code and acceptance criteria.</span></button>
         <button role="tab" aria-selected="false" data-report="content-report-template" data-title="Content optimization report template"><b>Content report</b><span>Intent, keyword placement, content gaps, E-E-A-T, AI citability.</span></button>
+        <button role="tab" aria-selected="false" data-report="content-brief-template" data-title="Content brief template"><b>Content brief</b><span>Writer-ready brief: outline, information gain, entities, schema.</span></button>
+        <button role="tab" aria-selected="false" data-report="keyword-map-template" data-title="Keyword map template"><b>Keyword map</b><span>Clusters, pillar and spoke pages, gaps and build order.</span></button>
       </div>
       <div class="frame">
         <div class="fbar">
@@ -433,7 +444,9 @@ cp -R BR-SEO-Skill/br-web-seo  your-project/.agents/skills/   <span class="c"># 
     <div>
       <h2>A score you can track</h2>
       <p class="sub" style="margin-bottom:20px">Each category is scored out of 10 and weighted. A single live blocker,
-        such as a production <code>noindex</code>, caps the total at 49 however good the rest is.</p>
+        such as a production <code>noindex</code>, caps the total at 49 however good the rest is.
+        Broken indexing caps it at 20, and any open High issue keeps it below 90. Checks that
+        couldn't be verified are reported as <i>not measured</i>, never as a pass.</p>
       <div class="bands">
         <div class="band g"><b>90–100</b>Excellent</div>
         <div class="band y"><b>70–89</b>Good</div>

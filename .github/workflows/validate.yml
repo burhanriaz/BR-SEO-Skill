@@ -1,0 +1,94 @@
+# Lints the skill and smoke-tests the bundled scripts and installers on every
+# push and pull request. Everything here uses only the Python standard library.
+name: Validate
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  linux:
+    runs-on: ubuntu-latest
+    env:
+      SKILL: skills/br-web-seo
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Lint skill (frontmatter, links, versions)
+        run: python "$SKILL/scripts/validate_skill.py"
+
+      - name: Compile scripts
+        run: python -m py_compile "$SKILL"/scripts/*.py
+
+      - name: Export the sample report (all formats except PDF)
+        run: |
+          python "$SKILL/scripts/export_report.py" "$SKILL/templates/examples/sample-audit-report.md" \
+            -f md,html,docx,doc,xlsx,csv -o /tmp/out
+          for ext in md html docx doc xlsx csv; do
+            test -s "/tmp/out/sample-audit-report.$ext" || { echo "missing .$ext"; exit 1; }
+          done
+
+      - name: seo_check smoke test (local server)
+        run: |
+          python "$SKILL/scripts/seo_check.py" --list-checks > /dev/null
+          mkdir -p /tmp/site
+          printf '%s\n' '<!doctype html><html lang="en"><head><meta charset="utf-8">' \
+            '<meta name="viewport" content="width=device-width, initial-scale=1">' \
+            '<title>Smoke test page for the SEO checker</title></head>' \
+            '<body><h1>Hello</h1><a href="/">home</a></body></html>' > /tmp/site/index.html
+          python -m http.server 8765 --bind 127.0.0.1 --directory /tmp/site > /dev/null 2>&1 &
+          sleep 2
+          python "$SKILL/scripts/seo_check.py" http://127.0.0.1:8765/ --allow-private --delay 0 \
+            --json /tmp/run.json --md /tmp/run.md
+          test -s /tmp/run.json && test -s /tmp/run.md
+          python "$SKILL/scripts/seo_check.py" --compare /tmp/run.json /tmp/run.json
+          python "$SKILL/scripts/export_report.py" /tmp/run.md -f xlsx,csv -o /tmp/out
+          test -s /tmp/out/run.xlsx && test -s /tmp/out/run.csv
+
+      - name: install.sh syntax
+        run: bash -n install.sh
+
+      - name: install.sh into a temp project
+        run: |
+          mkdir -p /tmp/proj && cd /tmp/proj
+          bash "$GITHUB_WORKSPACE/install.sh" --agent all --force
+          test -f .claude/skills/br-web-seo/SKILL.md
+          test -f .agents/skills/br-web-seo/SKILL.md
+
+  windows:
+    runs-on: windows-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: install.ps1 into a temp project
+        run: |
+          $proj = Join-Path $env:RUNNER_TEMP "proj"
+          New-Item -ItemType Directory -Force $proj | Out-Null
+          Set-Location $proj
+          & "$env:GITHUB_WORKSPACE\install.ps1" -Agent all -Force
+          foreach ($p in @(".claude\skills\br-web-seo\SKILL.md", ".agents\skills\br-web-seo\SKILL.md")) {
+            if (-not (Test-Path $p)) { throw "missing $p" }
+          }
+
+      - name: Export the sample report to Word and Excel
+        run: |
+          $out = Join-Path $env:RUNNER_TEMP "out"
+          python skills/br-web-seo/scripts/export_report.py skills/br-web-seo/templates/examples/sample-audit-report.md -f docx,xlsx -o $out
+          if ($LASTEXITCODE -ne 0) { throw "export_report failed" }
+          foreach ($ext in @("docx", "xlsx")) {
+            if (-not (Test-Path (Join-Path $out "sample-audit-report.$ext"))) { throw "missing .$ext" }
+          }

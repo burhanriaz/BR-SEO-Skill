@@ -43,10 +43,41 @@ everything.
 ## LLM visibility (AEO / GEO)
 | KPI | What it tells | Tool | Target |
 |-----|---------------|------|--------|
-| AI answer inclusion rate | Content cited in AI answers | Manual / multi-engine prompt bank | ↑ (across engines) |
-| AI brand mentions | Whether you're a primary source | Prompt test tools | ↑ |
-| Brand representation accuracy | Correctness of AI answers about you | Manual prompt tests | ↑ accurate |
+| AI citation share of voice | Your citations ÷ all brand citations across a fixed prompt set | Prompt bank per `agent-readiness.md` §7 | ↑ vs competitors |
+| AI answer inclusion rate | Share of prompts where you're mentioned or cited | Same prompt bank, per engine | ↑ (across engines) |
+| AI referral sessions | Visits from AI assistants | GA4 (referrer filter below) | ↑ |
+| AI referral conversion rate | Whether AI visitors convert | GA4 key events | ≥ site average |
+| Brand representation accuracy | Correctness of AI answers about you | Manual prompt tests | ↑ accurate (0 wrong facts) |
 
-> Source: "SEO + AI Visibility KPIs to Track in 2026", @faizaparwezofficial.
-> (CWV targets are Google's published thresholds; other exact targets vary by
-> site — set your own baselines.)
+**AI referral filter (GA4).** Build an exploration or custom channel group on
+session source matching, for example:
+
+```
+chatgpt\.com|chat\.openai\.com|perplexity\.ai|gemini\.google\.com|copilot\.microsoft\.com|claude\.ai|chat\.deepseek\.com
+```
+
+ChatGPT also appends `utm_source=chatgpt.com` to many links. Treat the number as
+a floor: some AI apps send no referrer and land in Direct. Verify the domain
+list against current traffic before reporting.
+
+**Google AI features aren't separable.** Clicks and impressions from AI Overviews
+and AI Mode are counted inside Search Console's ordinary web search totals; there
+is no dedicated filter. Watch for "impressions up, CTR down" on queries that
+show AI Overviews instead.
+
+## Measurement rules
+
+- **Baseline first.** Record each KPI before changes; compare same-length periods
+  and year over year for seasonal sites.
+- **No data → no claim.** If GSC, GA4 or the prompt log isn't available, report
+  the KPI as **INSUFFICIENT DATA** and name the export needed.
+- **Brand vs non-brand.** Split GSC queries by a brand regex; most "SEO growth"
+  questions are about non-brand.
+- Pick 5–8 KPIs that tie to the business goal; report the rest only when they
+  explain a change.
+
+> Sources: KPI framework adapted from "SEO + AI Visibility KPIs to Track in 2026",
+> @faizaparwezofficial. CWV thresholds: web.dev/articles/vitals. AI features in
+> Search Console reporting: Google Search Central, AI features and your website
+> (developers.google.com/search/docs/appearance/ai-features). Other targets vary
+> by site — set your own baselines.

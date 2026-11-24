@@ -19,6 +19,18 @@ Mark each: `[x]` pass · `[ ]` fail · `[–]` n/a. Record evidence next to any 
 - [ ] Sitemap lists production URLs (not staging) and is reachable.
 - [ ] No hard-coded preview/staging hostnames in `og:url`, canonicals, sitemap,
       or internal links.
+- [ ] No links or asset URLs pointing at `localhost`, `127.0.0.1`, `0.0.0.0`,
+      `*.local`, `staging.`/`dev.`/`preview.` hosts or deploy-preview domains
+      (grep the built HTML, JS bundles, sitemap and JSON-LD, not just source).
+- [ ] No placeholder text shipped: `lorem ipsum`, `TODO`, `FIXME`, `TBD`,
+      `Untitled`, `Page title`, `example.com` contact details, or unrendered
+      template tokens such as `{{ title }}`, `${...}`, `%s`, `[object Object]`,
+      `undefined`/`null` in titles, descriptions, headings, alt text or JSON-LD.
+- [ ] `canonical` and `robots`/`noindex` are in the **server HTML** and not
+      added, removed or changed by client-side JavaScript. Compare view-source
+      against the rendered DOM: if JS changes them, Google may use either value.
+- [ ] Sitemap contains **only canonical, indexable, `200`** URLs: no redirects,
+      404s, `noindex` pages or non-canonical variants (see `sitemaps.md`).
 - [ ] Analytics/tracking uses the **production** property ID, not a test one.
 
 ## 🟠 High — fix before deploy if at all possible
@@ -33,6 +45,11 @@ Mark each: `[x]` pass · `[ ]` fail · `[–]` n/a. Record evidence next to any 
       (LCP ≤ 2.5s, CLS ≤ 0.1, INP ≤ 200ms).
 - [ ] 404 route returns a real `404` status (not soft-404 `200`).
 - [ ] Redirects for any changed/removed URLs are in place as `301` (no chains).
+- [ ] Security headers basics: `Strict-Transport-Security` (HSTS, for example
+      `max-age=31536000; includeSubDomains`, adding `preload` only once every
+      subdomain serves HTTPS), plus `X-Content-Type-Options: nosniff` and a
+      sensible `Content-Security-Policy`/`frame-ancestors`. These aren't ranking
+      factors, but they protect the HTTPS signal and users' trust.
 
 ## 🟣 GEO / AI-search readiness (verify before launch)
 
@@ -40,8 +57,9 @@ Mark each: `[x]` pass · `[ ]` fail · `[–]` n/a. Record evidence next to any 
       `CCBot`) are allowed/blocked **intentionally** in `robots.txt` — no
       accidental block of engines you want citations from.
 - [ ] Key pages lead with a self-contained, quotable answer (AEO/GEO citability).
-- [ ] `FAQPage` / `HowTo` / `Article` + `Author`/`Organization` JSON-LD present
-      where applicable.
+- [ ] `Article` + author (`Person`)/`Organization` JSON-LD present where
+      applicable. Don't count `FAQPage`/`HowTo` as a rich-result win; Google
+      retired both (see `schema-types.md`).
 - [ ] `max-image-preview:large` set where rich previews help.
 - [ ] `llms.txt` present and consistent with the sitemap (if used).
 - [ ] E-E-A-T signals in place: named author, dates, citations.
@@ -82,3 +100,12 @@ Mark each: `[x]` pass · `[ ]` fail · `[–]` n/a. Record evidence next to any 
 | Blockers all pass? | ☐ Yes → may deploy · ☐ No → **blocked** |
 | Outstanding High items | _list_ |
 | Sign-off | _name / date_ |
+
+## Sources
+
+- Google Search Central, JavaScript SEO basics (canonical/robots set by JS): https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics
+- Google Search Central, build and submit a sitemap: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+- Google Search Central, HowTo/FAQ rich result changes: https://developers.google.com/search/blog/2023/08/howto-faq-changes
+- Google Search Central, documentation changelog (FAQ rich results ended 2026-05-07): https://developers.google.com/search/updates
+- MDN, Strict-Transport-Security: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Strict-Transport-Security
+- hstspreload.org (preload requirements): https://hstspreload.org/

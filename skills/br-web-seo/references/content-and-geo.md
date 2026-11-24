@@ -90,16 +90,26 @@ and Google AI Overviews (GEO).
   steps, comparison tables, FAQs.
 - State **entities and facts explicitly** (names, numbers, dates) rather than
   implying them.
-- Add `FAQPage` / `HowTo` / `Article` + `Organization`/`Author` **JSON-LD**.
+- Add `Article` + `Organization`/`Person` (author) **JSON-LD** that matches the
+  visible page. Google no longer shows FAQ (since 2026-05-07) or HowTo (since
+  2023-09) rich results, so a visible FAQ or numbered-step section is valuable
+  as **content** that AI engines and snippets can quote. `FAQPage`/`HowTo`
+  markup is optional and earns nothing in Google (see `schema-types.md`).
 
 ### AI-crawler access
 
-- Decide intentionally whether to allow AI crawlers in `robots.txt`:
-  `GPTBot` (OpenAI), `PerplexityBot`, `Google-Extended` (Gemini/AI training),
-  `ClaudeBot`/`anthropic-ai`, `CCBot` (Common Crawl). Blocking them removes you
-  from that engine's answers; flag any accidental blocks.
-- Consider an **`llms.txt`** file (site root) summarizing key pages/policies for
-  LLMs, and keep it consistent with the sitemap.
+- Decide on purpose, **per bot category**, what to allow in `robots.txt`:
+  training crawlers (e.g. `GPTBot`, `ClaudeBot`, `CCBot`, the `Google-Extended`
+  token), AI-search crawlers (e.g. `OAI-SearchBot`, `Claude-SearchBot`,
+  `PerplexityBot`) and user-triggered fetchers (e.g. `ChatGPT-User`,
+  `Claude-User`). Blocking an AI-search crawler removes you from that engine's
+  answers. Google AI Overviews / AI Mode use Googlebot, so `Google-Extended`
+  doesn't opt you out of them.
+- Check the CDN/WAF too: bot-management settings (e.g. Cloudflare's AI-bot
+  controls) can block AI crawlers even when `robots.txt` allows them.
+- `llms.txt` is optional and low priority: no major engine confirms using it.
+- Full bot list, robots.txt examples, agent-friendly pages and an AI-visibility
+  tracking protocol: `agent-readiness.md`.
 
 ### 12 ways to improve SEO & AI-search visibility
 
@@ -173,8 +183,9 @@ bottom. Use as a checklist when auditing or building a key landing page:
 5. **Benefits & differentiators** — why you vs alternatives (concrete, specific).
 6. **Proof / case studies** — data, results, testimonials, named outcomes.
 7. **Pricing & engagement options** — transparent, with a clear next step.
-8. **FAQ section** — real questions, concise answers (doubles as AEO/snippet
-   fuel + `FAQPage` schema).
+8. **FAQ section** — real questions, concise answers. The visible text is good
+   AEO/snippet and AI-citation material; `FAQPage` markup no longer earns a
+   Google rich result, so don't promise one.
 9. **Human assistance / support** — chat, contact, or booking to reduce friction.
 10. **Analytics & performance** — conversion tracking and event measurement wired
     in.

@@ -1,0 +1,10 @@
+{
+  "name": "br-web-seo",
+  "version": "1.0.0",
+  "description": "SEO, AEO and GEO audits for websites and codebases: a 0-100 health score, stable-ID checks, implementable fix reports, content briefs and keyword maps, exported as Markdown, PDF, Word, Excel, CSV or HTML.",
+  "author": { "name": "Burhan Riaz", "url": "https://github.com/burhanriaz" },
+  "homepage": "https://burhanriaz.github.io/BR-SEO-Skill/",
+  "repository": "https://github.com/burhanriaz/BR-SEO-Skill",
+  "license": "MIT",
+  "keywords": ["seo", "aeo", "geo", "ai-search", "technical-seo", "audit", "schema", "core-web-vitals", "content", "agent-skill"]
+}

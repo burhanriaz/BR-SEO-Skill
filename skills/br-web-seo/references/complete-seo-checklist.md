@@ -20,7 +20,12 @@ completeness or to plan work. Mark `[x]` done · `[ ]` gap · `[–]` n/a.
 - [ ] Optimize Core Web Vitals
 - [ ] Site is mobile friendly
 - [ ] Canonical tags implemented correctly
-- [ ] Implement FAQ, HowTo & Article schema
+- [ ] Canonical and `noindex`/robots meta are in the server HTML and not altered by JavaScript
+- [ ] XML sitemap contains only canonical, indexable, `200` URLs with truthful `lastmod` (see `sitemaps.md`)
+- [ ] HTTPS hardened with HSTS (`Strict-Transport-Security`) and basic security headers
+- [ ] No placeholder text in production (lorem ipsum, TODO, unrendered `{{ }}` tokens)
+- [ ] No links or assets pointing at localhost, staging or preview hosts
+- [ ] Implement structured data for each page's main entity (Organization, WebSite, Article, Product, BreadcrumbList, LocalBusiness). Not FAQ/HowTo for rich results: Google retired both (see `schema-types.md`)
 
 ## Keyword research
 - [ ] Find primary & supporting keywords
@@ -52,7 +57,7 @@ completeness or to plan work. Mark `[x]` done · `[ ]` gap · `[–]` n/a.
 - [ ] E-E-A-T signals present (author, bios, sources)
 - [ ] Helpful images, infographics & videos
 - [ ] Clear CTAs
-- [ ] FAQs where relevant
+- [ ] Visible FAQ sections where relevant (for users and AI answers; no Google rich result)
 - [ ] Match schema & format to intent (answer / guide / comparison)
 - [ ] Encourage user-generated content
 - [ ] Update content regularly
@@ -79,3 +84,9 @@ completeness or to plan work. Mark `[x]` done · `[ ]` gap · `[–]` n/a.
 - [ ] Embed Google Map on site
 
 > Source: "Complete SEO Checklist (AI-Ready)", @faizaparwezofficial.
+
+Additions (structured-data status, sitemap hygiene, JS canonical/noindex, HSTS,
+placeholder and staging-link checks) are from Google Search Central:
+https://developers.google.com/search/updates ,
+https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap ,
+https://developers.google.com/search/docs/crawling-indexing/javascript/javascript-seo-basics

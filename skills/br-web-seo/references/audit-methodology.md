@@ -1,8 +1,15 @@
 # SEO Audit Methodology
 
-Work through every category. For each check, record **status** (pass / fail /
-n-a), **where you looked** (URL, file:line, header, or tool), and **evidence**
-(the actual value). "Good" columns tell you the target state.
+Work through every category. For each check, record **status** (pass / warn /
+fail / not-measured / n-a), **where you looked** (URL, file:line, header, or
+tool), and **evidence** (the actual value). "Good" columns tell you the target
+state. `not-measured` means the check applies but couldn't be verified. It is
+left out of the score and is never counted as a pass.
+
+> **Stable check IDs.** Every check has a stable ID (e.g. `INDEX-004`) in
+> `audit-checks.md`, which also holds the severity, the pass/fail rule, the
+> category roll-up and the score caps. Cite the ID on every finding, e.g.
+> "F3 (INDEX-004)", so fix reports and run-to-run diffs line up.
 
 > Verify, don't assume. For live sites check the **rendered** DOM and real HTTP
 > response headers — a value present in framework source may be stripped, and a
@@ -55,7 +62,7 @@ diagnosis & drift monitoring → `diagnostics.md`.
 
 | Check | What good looks like |
 |-------|----------------------|
-| JSON-LD schema | Relevant `schema.org` types (`Organization`, `WebSite`, `BreadcrumbList`, `Article`, `Product`, `FAQPage`, etc.) as `<script type="application/ld+json">`. Valid against the Rich Results Test. |
+| JSON-LD schema | Relevant `schema.org` types (`Organization`, `WebSite`, `BreadcrumbList`, `Article`, `Product`, `LocalBusiness`, etc.; never recommend `HowTo` or `FAQPage` for rich results, see `schema-types.md`) as `<script type="application/ld+json">`. Valid against the Rich Results Test. |
 | Open Graph | `og:title`, `og:description`, `og:type`, `og:url`, `og:image` (absolute URL, ~1200×630). |
 | Twitter cards | `twitter:card`, `twitter:title`, `twitter:description`, `twitter:image`. |
 | No schema errors | No required-property warnings; markup reflects visible page content (no cloaking). |

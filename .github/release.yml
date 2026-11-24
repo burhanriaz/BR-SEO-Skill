@@ -1,0 +1,17 @@
+# Groups auto-generated release notes by pull-request label.
+changelog:
+  exclude:
+    labels: [skip-changelog]
+  categories:
+    - title: 🔒 Security
+      labels: [security]
+    - title: ✨ New checks, modes and features
+      labels: [enhancement, feature, new-check]
+    - title: 🐛 Fixes
+      labels: [bug, fix]
+    - title: 📚 Docs and references
+      labels: [documentation, docs, reference]
+    - title: 🧰 Tooling and CI
+      labels: [tooling, ci, dependencies]
+    - title: Other changes
+      labels: ["*"]
