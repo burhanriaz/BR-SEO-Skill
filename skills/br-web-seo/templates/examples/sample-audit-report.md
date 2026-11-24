@@ -14,7 +14,7 @@
 
 ## 1. Executive summary
 
-The site scores **58/100 (needs work)**. The biggest risk is that product pages
+The site scores **20/100 (unhealthy)**, capped from 58 by the site-wide `noindex` (INDEX-001). The biggest risk is that product pages
 render their content only in client-side JavaScript and ship a global
 `noindex` from the staging config, so Google currently sees almost nothing.
 Fix the two blockers first; they cap the score until they are gone.
@@ -31,7 +31,7 @@ Fix the two blockers first; they cap the score until they are gone.
 | GEO / AI-search readiness | 5 /10 | no answer-first summaries |
 | Mobile & accessibility | 8 /10 | tap targets OK, 4 images lack alt |
 | Analytics & monitoring | 9 /10 | GA4 + Search Console verified |
-| **Overall** | **58 /100** | capped: blockers present |
+| **Overall** | **20 /100** | capped from 58 by INDEX-001 (site-wide `noindex`) |
 
 ## 3. Findings summary
 

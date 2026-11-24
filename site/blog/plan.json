@@ -1,0 +1,730 @@
+[
+ {
+  "cluster": "Technical SEO",
+  "pillar": true,
+  "title": "Technical SEO in 2026: the complete guide to crawling, rendering and indexing",
+  "slug": "technical-seo-in-2026-the-complete-guide-to-crawling-rendering-and-indexing",
+  "date": "2026-11-24"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": true,
+  "title": "Generative Engine Optimization (GEO): how to get cited by AI search",
+  "slug": "generative-engine-optimization-geo-how-to-get-cited-by-ai-search",
+  "date": "2026-11-24"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": true,
+  "title": "Keyword research from scratch: a step-by-step workflow",
+  "slug": "keyword-research-from-scratch-a-step-by-step-workflow",
+  "date": "2026-11-25"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": true,
+  "title": "Structured data in 2026: which schema types still get rich results",
+  "slug": "structured-data-in-2026-which-schema-types-still-get-rich-results",
+  "date": "2026-11-25"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": true,
+  "title": "Core Web Vitals in 2026: LCP, INP and CLS explained",
+  "slug": "core-web-vitals-in-2026-lcp-inp-and-cls-explained",
+  "date": "2026-11-26"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": true,
+  "title": "Local SEO guide: rank in Google Maps and the local pack",
+  "slug": "local-seo-guide-rank-in-google-maps-and-the-local-pack",
+  "date": "2026-11-26"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": true,
+  "title": "How to run a complete SEO audit with an AI agent",
+  "slug": "how-to-run-a-complete-seo-audit-with-an-ai-agent",
+  "date": "2026-11-27"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": true,
+  "title": "Link building in 2026: what still works",
+  "slug": "link-building-in-2026-what-still-works",
+  "date": "2026-11-27"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "How to read the Google Search Console Page indexing report",
+  "slug": "how-to-read-the-google-search-console-page-indexing-report",
+  "date": "2026-11-28"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "SEO vs AEO vs GEO: what's different and what stays the same",
+  "slug": "seo-vs-aeo-vs-geo-whats-different-and-what-stays-the-same",
+  "date": "2026-11-28"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "Keyword clustering by SERP overlap: build pages that rank for dozens of terms",
+  "slug": "keyword-clustering-by-serp-overlap-build-pages-that-rank-for-dozens-of-terms",
+  "date": "2026-11-29"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "FAQ and HowTo rich results are gone: what to do instead",
+  "slug": "faq-and-howto-rich-results-are-gone-what-to-do-instead",
+  "date": "2026-11-29"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "How to fix a slow Largest Contentful Paint",
+  "slug": "how-to-fix-a-slow-largest-contentful-paint",
+  "date": "2026-11-30"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "Google Business Profile optimization checklist",
+  "slug": "google-business-profile-optimization-checklist",
+  "date": "2026-11-30"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "What is an Agent Skill? SEO workflows for Claude, ChatGPT, Codex and Gemini",
+  "slug": "what-is-an-agent-skill-seo-workflows-for-claude-chatgpt-codex-and-gemini",
+  "date": "2026-12-01"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "Internal linking strategy: hubs, spokes and click depth",
+  "slug": "internal-linking-strategy-hubs-spokes-and-click-depth",
+  "date": "2026-12-01"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "Canonical tags explained: rules, mistakes and how to test them",
+  "slug": "canonical-tags-explained-rules-mistakes-and-how-to-test-them",
+  "date": "2026-12-02"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "How Google AI Overviews and AI Mode choose their sources",
+  "slug": "how-google-ai-overviews-and-ai-mode-choose-their-sources",
+  "date": "2026-12-02"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "Search intent: the six levels and the page each one needs",
+  "slug": "search-intent-the-six-levels-and-the-page-each-one-needs",
+  "date": "2026-12-03"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "Organization and WebSite schema: the foundation every site needs",
+  "slug": "organization-and-website-schema-the-foundation-every-site-needs",
+  "date": "2026-12-03"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "Interaction to Next Paint (INP): diagnose and fix slow interactions",
+  "slug": "interaction-to-next-paint-inp-diagnose-and-fix-slow-interactions",
+  "date": "2026-12-04"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "Getting more Google reviews without breaking the rules",
+  "slug": "getting-more-google-reviews-without-breaking-the-rules",
+  "date": "2026-12-04"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "Install br-web-seo in Claude Code, Codex, Gemini CLI, Copilot or Cursor",
+  "slug": "install-br-web-seo-in-claude-code-codex-gemini-cli-copilot-or-cursor",
+  "date": "2026-12-05"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "Finding and fixing orphan pages",
+  "slug": "finding-and-fixing-orphan-pages",
+  "date": "2026-12-05"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "noindex vs robots.txt disallow: which one to use and why mixing them fails",
+  "slug": "noindex-vs-robots-txt-disallow-which-one-to-use-and-why-mixing-them-fails",
+  "date": "2026-12-06"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "AI crawlers explained: GPTBot, ClaudeBot, PerplexityBot and friends",
+  "slug": "ai-crawlers-explained-gptbot-claudebot-perplexitybot-and-friends",
+  "date": "2026-12-06"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "How to write a content brief writers can actually use",
+  "slug": "how-to-write-a-content-brief-writers-can-actually-use",
+  "date": "2026-12-07"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "Article and BlogPosting schema done right",
+  "slug": "article-and-blogposting-schema-done-right",
+  "date": "2026-12-07"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "Cumulative Layout Shift: stop your page from jumping",
+  "slug": "cumulative-layout-shift-stop-your-page-from-jumping",
+  "date": "2026-12-08"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "NAP consistency and citations: does it still matter?",
+  "slug": "nap-consistency-and-citations-does-it-still-matter",
+  "date": "2026-12-08"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "Using br-web-seo in ChatGPT, Claude.ai and Gemini",
+  "slug": "using-br-web-seo-in-chatgpt-claude-ai-and-gemini",
+  "date": "2026-12-09"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "Anchor text best practices for internal and external links",
+  "slug": "anchor-text-best-practices-for-internal-and-external-links",
+  "date": "2026-12-09"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "JavaScript SEO: making React, Vue and Next.js sites crawlable",
+  "slug": "javascript-seo-making-react-vue-and-next-js-sites-crawlable",
+  "date": "2026-12-10"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "Should you block AI crawlers? A decision framework",
+  "slug": "should-you-block-ai-crawlers-a-decision-framework",
+  "date": "2026-12-10"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "E-E-A-T in practice: signals you can add this week",
+  "slug": "e-e-a-t-in-practice-signals-you-can-add-this-week",
+  "date": "2026-12-11"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "Product schema and merchant listings: a practical guide",
+  "slug": "product-schema-and-merchant-listings-a-practical-guide",
+  "date": "2026-12-11"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "Lab data vs field data: why PageSpeed scores disagree",
+  "slug": "lab-data-vs-field-data-why-pagespeed-scores-disagree",
+  "date": "2026-12-12"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "Service area businesses: local SEO without a storefront",
+  "slug": "service-area-businesses-local-seo-without-a-storefront",
+  "date": "2026-12-12"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "The SEO health score: how a 0-100 score with caps works",
+  "slug": "the-seo-health-score-how-a-0-100-score-with-caps-works",
+  "date": "2026-12-13"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "Link intersect: find sites that link to competitors but not you",
+  "slug": "link-intersect-find-sites-that-link-to-competitors-but-not-you",
+  "date": "2026-12-13"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "Redirect chains and loops: how to find and fix them",
+  "slug": "redirect-chains-and-loops-how-to-find-and-fix-them",
+  "date": "2026-12-14"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "llms.txt: what it is and whether you need one",
+  "slug": "llms-txt-what-it-is-and-whether-you-need-one",
+  "date": "2026-12-14"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "Content pruning: keep, refresh, consolidate or remove",
+  "slug": "content-pruning-keep-refresh-consolidate-or-remove",
+  "date": "2026-12-15"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "LocalBusiness schema: fields that matter for local search",
+  "slug": "localbusiness-schema-fields-that-matter-for-local-search",
+  "date": "2026-12-15"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "Image SEO and performance: formats, sizing and lazy loading",
+  "slug": "image-seo-and-performance-formats-sizing-and-lazy-loading",
+  "date": "2026-12-16"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "Location pages that aren't doorway pages",
+  "slug": "location-pages-that-arent-doorway-pages",
+  "date": "2026-12-16"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "Writing SEO fix reports a developer (or AI) can implement",
+  "slug": "writing-seo-fix-reports-a-developer-or-ai-can-implement",
+  "date": "2026-12-17"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "Backlink audits: what to look for and what to ignore",
+  "slug": "backlink-audits-what-to-look-for-and-what-to-ignore",
+  "date": "2026-12-17"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "301 vs 302 vs 307 vs 308: choosing the right redirect",
+  "slug": "301-vs-302-vs-307-vs-308-choosing-the-right-redirect",
+  "date": "2026-12-18"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "Writing answer-first content that AI engines quote",
+  "slug": "writing-answer-first-content-that-ai-engines-quote",
+  "date": "2026-12-18"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "Keyword cannibalization: find it and fix it",
+  "slug": "keyword-cannibalization-find-it-and-fix-it",
+  "date": "2026-12-19"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "BreadcrumbList schema and how breadcrumbs appear in Google",
+  "slug": "breadcrumblist-schema-and-how-breadcrumbs-appear-in-google",
+  "date": "2026-12-19"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "fetchpriority and preload: speed up your hero image",
+  "slug": "fetchpriority-and-preload-speed-up-your-hero-image",
+  "date": "2026-12-20"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "International SEO: ccTLD vs subdirectory vs subdomain",
+  "slug": "international-seo-cctld-vs-subdirectory-vs-subdomain",
+  "date": "2026-12-20"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "A pre-deployment SEO checklist to stop launch disasters",
+  "slug": "a-pre-deployment-seo-checklist-to-stop-launch-disasters",
+  "date": "2026-12-21"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "When to use the disavow tool (almost never)",
+  "slug": "when-to-use-the-disavow-tool-almost-never",
+  "date": "2026-12-21"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "XML sitemaps that Google trusts: a practical guide",
+  "slug": "xml-sitemaps-that-google-trusts-a-practical-guide",
+  "date": "2026-12-22"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "Measuring AI search visibility: a share-of-voice method",
+  "slug": "measuring-ai-search-visibility-a-share-of-voice-method",
+  "date": "2026-12-22"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "Content decay: spot falling pages before traffic disappears",
+  "slug": "content-decay-spot-falling-pages-before-traffic-disappears",
+  "date": "2026-12-23"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "Review and AggregateRating rules: avoid self-serving markup",
+  "slug": "review-and-aggregaterating-rules-avoid-self-serving-markup",
+  "date": "2026-12-23"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "Third-party scripts: the hidden Core Web Vitals killer",
+  "slug": "third-party-scripts-the-hidden-core-web-vitals-killer",
+  "date": "2026-12-24"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "hreflang explained with examples",
+  "slug": "hreflang-explained-with-examples",
+  "date": "2026-12-24"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "Catching SEO regressions between releases with drift checks",
+  "slug": "catching-seo-regressions-between-releases-with-drift-checks",
+  "date": "2026-12-25"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "Digital PR for SEO: earning links with data and stories",
+  "slug": "digital-pr-for-seo-earning-links-with-data-and-stories",
+  "date": "2026-12-25"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "Soft 404 errors: what they are and how to fix them",
+  "slug": "soft-404-errors-what-they-are-and-how-to-fix-them",
+  "date": "2026-12-26"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "Entity SEO: help search engines and LLMs understand your brand",
+  "slug": "entity-seo-help-search-engines-and-llms-understand-your-brand",
+  "date": "2026-12-26"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "Information gain: how to beat the pages already ranking",
+  "slug": "information-gain-how-to-beat-the-pages-already-ranking",
+  "date": "2026-12-27"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "Event schema after the 2025 changes",
+  "slug": "event-schema-after-the-2025-changes",
+  "date": "2026-12-27"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "Web fonts without layout shift or slow text",
+  "slug": "web-fonts-without-layout-shift-or-slow-text",
+  "date": "2026-12-28"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "hreflang errors: how to validate and fix them",
+  "slug": "hreflang-errors-how-to-validate-and-fix-them",
+  "date": "2026-12-28"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "Auditing a Next.js site for SEO",
+  "slug": "auditing-a-next-js-site-for-seo",
+  "date": "2026-12-29"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "Topical authority: how to build it with content clusters",
+  "slug": "topical-authority-how-to-build-it-with-content-clusters",
+  "date": "2026-12-29"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "Crawl budget: when it matters and when it doesn't",
+  "slug": "crawl-budget-when-it-matters-and-when-it-doesnt",
+  "date": "2026-12-30"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "Is Cloudflare blocking AI crawlers on your site? How to check",
+  "slug": "is-cloudflare-blocking-ai-crawlers-on-your-site-how-to-check",
+  "date": "2026-12-30"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "Title tags and meta descriptions that earn clicks in 2026",
+  "slug": "title-tags-and-meta-descriptions-that-earn-clicks-in-2026",
+  "date": "2026-12-31"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "VideoObject and key moments: get your videos seen",
+  "slug": "videoobject-and-key-moments-get-your-videos-seen",
+  "date": "2026-12-31"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "Caching and compression headers for faster pages",
+  "slug": "caching-and-compression-headers-for-faster-pages",
+  "date": "2027-01-01"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "Translating vs localizing content for SEO",
+  "slug": "translating-vs-localizing-content-for-seo",
+  "date": "2027-01-01"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "Auditing a single-page app (React or Vue) for SEO",
+  "slug": "auditing-a-single-page-app-react-or-vue-for-seo",
+  "date": "2027-01-02"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "Broken link building and link reclamation",
+  "slug": "broken-link-building-and-link-reclamation",
+  "date": "2027-01-02"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "Faceted navigation SEO without crawl traps",
+  "slug": "faceted-navigation-seo-without-crawl-traps",
+  "date": "2027-01-03"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "Making your website usable by AI agents that browse",
+  "slug": "making-your-website-usable-by-ai-agents-that-browse",
+  "date": "2027-01-03"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "Writing comparison and alternatives pages that rank fairly",
+  "slug": "writing-comparison-and-alternatives-pages-that-rank-fairly",
+  "date": "2027-01-04"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "How to test structured data: Rich Results Test vs Schema Validator",
+  "slug": "how-to-test-structured-data-rich-results-test-vs-schema-validator",
+  "date": "2027-01-04"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "Mobile-first indexing: what must match between mobile and desktop",
+  "slug": "mobile-first-indexing-what-must-match-between-mobile-and-desktop",
+  "date": "2027-01-05"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "x-default and language selectors done right",
+  "slug": "x-default-and-language-selectors-done-right",
+  "date": "2027-01-05"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "Turning SEO audits into PDF, Word and Excel reports",
+  "slug": "turning-seo-audits-into-pdf-word-and-excel-reports",
+  "date": "2027-01-06"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "Brand mentions vs links in the age of AI search",
+  "slug": "brand-mentions-vs-links-in-the-age-of-ai-search",
+  "date": "2027-01-06"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "Site migration SEO checklist: move without losing traffic",
+  "slug": "site-migration-seo-checklist-move-without-losing-traffic",
+  "date": "2027-01-07"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "Tracking ChatGPT and Perplexity referral traffic in GA4",
+  "slug": "tracking-chatgpt-and-perplexity-referral-traffic-in-ga4",
+  "date": "2027-01-07"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "Programmatic SEO without thin content or spam risk",
+  "slug": "programmatic-seo-without-thin-content-or-spam-risk",
+  "date": "2027-01-08"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "JSON-LD @id and entity graphs explained simply",
+  "slug": "json-ld-id-and-entity-graphs-explained-simply",
+  "date": "2027-01-08"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "Performance budgets: keep your site fast after launch",
+  "slug": "performance-budgets-keep-your-site-fast-after-launch",
+  "date": "2027-01-09"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "Multi-regional ecommerce SEO basics",
+  "slug": "multi-regional-ecommerce-seo-basics",
+  "date": "2027-01-09"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "Diagnosing a sudden ranking drop after a Google update",
+  "slug": "diagnosing-a-sudden-ranking-drop-after-a-google-update",
+  "date": "2027-01-10"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "nofollow, sponsored and ugc: link attributes explained",
+  "slug": "nofollow-sponsored-and-ugc-link-attributes-explained",
+  "date": "2027-01-10"
+ },
+ {
+  "cluster": "Technical SEO",
+  "pillar": false,
+  "title": "HTTPS, HSTS and mixed content: the security basics that affect SEO",
+  "slug": "https-hsts-and-mixed-content-the-security-basics-that-affect-seo",
+  "date": "2027-01-11"
+ },
+ {
+  "cluster": "AI Search & GEO",
+  "pillar": false,
+  "title": "Content Signals in robots.txt: the emerging AI-use controls",
+  "slug": "content-signals-in-robots-txt-the-emerging-ai-use-controls",
+  "date": "2027-01-11"
+ },
+ {
+  "cluster": "Content & Keywords",
+  "pillar": false,
+  "title": "How to use AI to write content without hurting rankings",
+  "slug": "how-to-use-ai-to-write-content-without-hurting-rankings",
+  "date": "2027-01-12"
+ },
+ {
+  "cluster": "Structured Data",
+  "pillar": false,
+  "title": "Common structured data errors and how to fix them",
+  "slug": "common-structured-data-errors-and-how-to-fix-them",
+  "date": "2027-01-12"
+ },
+ {
+  "cluster": "Performance & Core Web Vitals",
+  "pillar": false,
+  "title": "Do Core Web Vitals really affect rankings?",
+  "slug": "do-core-web-vitals-really-affect-rankings",
+  "date": "2027-01-13"
+ },
+ {
+  "cluster": "Local & International",
+  "pillar": false,
+  "title": "Local SEO for multi-location brands",
+  "slug": "local-seo-for-multi-location-brands",
+  "date": "2027-01-13"
+ },
+ {
+  "cluster": "Audits & Tooling",
+  "pillar": false,
+  "title": "SEO KPIs that matter: what to report every month",
+  "slug": "seo-kpis-that-matter-what-to-report-every-month",
+  "date": "2027-01-14"
+ },
+ {
+  "cluster": "Links & Authority",
+  "pillar": false,
+  "title": "Managing your brand SERP and online reputation",
+  "slug": "managing-your-brand-serp-and-online-reputation",
+  "date": "2027-01-14"
+ }
+]

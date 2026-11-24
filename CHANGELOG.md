@@ -6,6 +6,16 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+- **Website:** dark glassmorphism redesign with scroll animations; a blog of
+  104 sourced articles across 8 topics, published two a day by a daily
+  scheduled rebuild (`site/build.py`); generated sitemap, robots.txt, RSS feed,
+  404 page, canonical/Open Graph tags, JSON-LD and a social preview image.
+
+### Fixed
+- README manual-install path (`BR-SEO-Skill/skills/br-web-seo`).
+- Sample audit report now applies the score cap (20, capped from 58 by INDEX-001).
+
 ## [1.0.0] - 2026-11-24
 
 First versioned release.

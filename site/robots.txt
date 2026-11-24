@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://burhanriaz.github.io/BR-SEO-Skill/sitemap.xml

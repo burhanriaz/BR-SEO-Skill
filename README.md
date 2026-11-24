@@ -220,7 +220,7 @@ together) into the tool's skills folder:
 
 ```bash
 git clone --depth 1 https://github.com/burhanriaz/BR-SEO-Skill.git
-cp -R BR-SEO-Skill/br-web-seo <your-project>/.agents/skills/      # or .claude/skills, ~/.claude/skills, ...
+cp -R BR-SEO-Skill/skills/br-web-seo <your-project>/.agents/skills/      # or .claude/skills, ~/.claude/skills, ...
 ```
 
 For a tool with no skills support that reads an instructions file (`AGENTS.md`,
