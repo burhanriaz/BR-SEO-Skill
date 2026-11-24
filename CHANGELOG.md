@@ -11,6 +11,9 @@ All notable changes to this project are documented here. The format follows
   104 sourced articles across 8 topics, published two a day by a daily
   scheduled rebuild (`site/build.py`); generated sitemap, robots.txt, RSS feed,
   404 page, canonical/Open Graph tags, JSON-LD and a social preview image.
+- **Website:** new app icon (SVG favicon, PNG sizes, web manifest) and AI-tool
+  logos (Claude, ChatGPT/Codex, Gemini, Copilot, Cursor; marks from Simple Icons).
+- Dependabot groups all action updates into one monthly PR.
 
 ### Fixed
 - README manual-install path (`BR-SEO-Skill/skills/br-web-seo`).

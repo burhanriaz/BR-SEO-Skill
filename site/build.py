@@ -100,7 +100,7 @@ def page_parts():
     style = re.search(r"<style>.*?</style>", home, re.S).group(0)
     header = re.search(r'<header class="nav">.*?</header>', home, re.S).group(0)
     footer = re.search(r"<footer>.*?</footer>", home, re.S).group(0)
-    bg = re.search(r'<div class="bg".*?</div></div>', home, re.S).group(0)
+    bg = re.search(r'<svg id="ai-sprite".*?</svg>', home, re.S).group(0) + "\n" + re.search(r'<div class="bg".*?</div></div>', home, re.S).group(0)
     return home, style, header, footer, bg
 
 
@@ -171,7 +171,10 @@ def head(title, desc, canonical, style, og_type="website", extra="", jsonld=None
         '<meta name="twitter:title" content="%s">' % html.escape(title),
         '<meta name="twitter:description" content="%s">' % html.escape(desc),
         '<link rel="alternate" type="application/rss+xml" title="br-web-seo blog" href="%s/blog/feed.xml">' % BASE,
-        '<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 64 64\'%3E%3Crect width=\'64\' height=\'64\' rx=\'16\' fill=\'%237c8cff\'/%3E%3Ccircle cx=\'28\' cy=\'28\' r=\'13\' fill=\'none\' stroke=\'white\' stroke-width=\'6\'/%3E%3Cpath d=\'M38 38l12 12\' stroke=\'white\' stroke-width=\'7\' stroke-linecap=\'round\'/%3E%3C/svg%3E">',
+        '<link rel="icon" href="%s/favicon.svg" type="image/svg+xml">' % BASE,
+        '<link rel="icon" href="%s/favicon-32.png" sizes="32x32" type="image/png">' % BASE,
+        '<link rel="apple-touch-icon" href="%s/apple-touch-icon.png">' % BASE,
+        '<link rel="manifest" href="%s/site.webmanifest">' % BASE,
         extra,
     ]
     for block in jsonld or []:
@@ -232,7 +235,7 @@ def card(p, prefix):
 
 
 ORG = {"@type": "Organization", "@id": BASE + "/#org", "name": SITE_NAME, "url": BASE + "/",
-       "logo": BASE + "/og.png", "sameAs": ["https://github.com/burhanriaz/BR-SEO-Skill"]}
+       "logo": BASE + "/icon-512.png", "sameAs": ["https://github.com/burhanriaz/BR-SEO-Skill"]}
 PERSON = {"@type": "Person", "@id": BASE + "/#author", "name": AUTHOR["name"], "url": AUTHOR["url"]}
 
 
@@ -290,7 +293,7 @@ def build(out, today, drafts=False):
   <div class="post-grid">
     <article>
       <div class="prose">{content}
-        <div class="cta-box"><h2>Run this check with br-web-seo</h2><p>br-web-seo is a free, open-source Agent Skill that turns Claude, ChatGPT, Codex, Gemini, Copilot or Cursor into an SEO, AEO and GEO auditor, with scored reports you can export to PDF, Word or Excel.</p><p><a class="btn btn-primary btn-sm" href="{p}#install">Install in one command</a> <a class="btn btn-ghost btn-sm" href="https://github.com/burhanriaz/BR-SEO-Skill">View on GitHub</a></p></div>
+        <div class="cta-box"><h2>Run this check with br-web-seo</h2><p>br-web-seo is a free, open-source Agent Skill that turns Claude, ChatGPT, Codex, Gemini, Copilot or Cursor into an SEO, AEO and GEO auditor, with scored reports you can export to PDF, Word or Excel.</p><p><a class="btn btn-primary btn-sm" href="{p}#install">Install in one command</a> <a class="btn btn-ghost btn-sm" href="https://github.com/burhanriaz/BR-SEO-Skill">View on GitHub</a></p><p class="logos" aria-label="Works with Claude, ChatGPT, Codex, Gemini, Copilot and Cursor"><svg class="ai" aria-hidden="true"><use href="#ai-claude"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-openai"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-gemini"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-copilot"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-cursor"/></svg></p></div>
       </div>
       {pager}
       <section class="related" aria-label="Related articles" style="padding:0"><h2 style="font-size:24px">Related articles</h2><div class="post-list">{related}</div></section>

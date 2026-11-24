@@ -1,0 +1,27 @@
+{
+ "name": "br-web-seo",
+ "short_name": "br-web-seo",
+ "description": "SEO, AEO & GEO audits for any AI agent.",
+ "start_url": "/BR-SEO-Skill/",
+ "scope": "/BR-SEO-Skill/",
+ "display": "standalone",
+ "background_color": "#05070f",
+ "theme_color": "#05070f",
+ "icons": [
+  {
+   "src": "icon-192.png",
+   "sizes": "192x192",
+   "type": "image/png"
+  },
+  {
+   "src": "icon-512.png",
+   "sizes": "512x512",
+   "type": "image/png"
+  },
+  {
+   "src": "favicon.svg",
+   "sizes": "any",
+   "type": "image/svg+xml"
+  }
+ ]
+}
