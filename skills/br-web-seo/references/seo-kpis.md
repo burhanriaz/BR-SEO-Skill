@@ -56,6 +56,11 @@ session source matching, for example:
 chatgpt\.com|chat\.openai\.com|perplexity\.ai|gemini\.google\.com|copilot\.microsoft\.com|claude\.ai|chat\.deepseek\.com
 ```
 
+GA4's default channel group now includes an **AI Assistant** channel
+(medium `ai-assistant`). It doesn't cover Google AI Overviews or AI Mode, which
+are reported as Google organic search, and its source list may not include every
+assistant: compare it with the regex above before relying on it.
+
 ChatGPT also appends `utm_source=chatgpt.com` to many links. Treat the number as
 a floor: some AI apps send no referrer and land in Direct. Verify the domain
 list against current traffic before reporting.

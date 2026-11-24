@@ -132,7 +132,7 @@ Even a perfect robots.txt can be overridden at the edge. CDN and WAF bot setting
 - **Forgetting subdomains.** Each subdomain needs its own robots.txt.
 - **Using a stale bot list.** Google renamed `Google-NotebookLM`, and vendors add bots regularly.
 
-For deciding what to allow, use the decision framework in the next post in this series. For the overall GEO picture, start with the [GEO guide](/blog/generative-engine-optimization-geo-how-to-get-cited-by-ai-search/).
+For deciding what to allow, use the [decision framework for blocking AI crawlers](/blog/should-you-block-ai-crawlers-a-decision-framework/). For the overall GEO picture, start with the [GEO guide](/blog/generative-engine-optimization-geo-how-to-get-cited-by-ai-search/).
 
 ## Check it with br-web-seo
 

@@ -104,7 +104,7 @@ If the image really must come from CSS or JavaScript, preload it in the `<head>`
       imagesizes="100vw" fetchpriority="high">
 ```
 
-Preload and `fetchpriority` have their own pitfalls, such as preloading the wrong size or prioritizing too many images. A later post in this series covers them.
+Preload and `fetchpriority` have their own pitfalls, such as preloading the wrong size or prioritizing too many images. The [fetchpriority and preload guide](/blog/fetchpriority-and-preload-speed-up-your-hero-image/) covers them.
 
 ## Fix: long resource load duration
 

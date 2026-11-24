@@ -79,7 +79,7 @@ Google's helpful-content guidance asks whether content provides "original inform
 
 ### 2. Link-intersect prospecting
 
-The warmest prospects are sites that already link to two or more of your competitors but not to you. They cover your topic and they link out. The method takes an afternoon with any backlink tool export, and it tells you which asset to build because you can see what earned each competitor's link. The full walkthrough is in the link-intersect post in this series.
+The warmest prospects are sites that already link to two or more of your competitors but not to you. They cover your topic and they link out. The method takes an afternoon with any backlink tool export, and it tells you which asset to build because you can see what earned each competitor's link. The full walkthrough is in the [link-intersect post](/blog/link-intersect-find-sites-that-link-to-competitors-but-not-you/).
 
 ### 3. Digital PR
 

@@ -98,7 +98,7 @@ All of these are named in Google's [link spam policy](https://developers.google.
 | Manual action for unnatural links in Search Console | You | Clean up, document, reconsideration request |
 | Competitors have links you lack | Opportunity | Run link intersect |
 
-The disavow question deserves its own post, coming later in this series. The short version: it is for manual actions and for schemes you built and cannot remove, and every line should be reviewed by a person.
+The disavow question has [its own post](/blog/when-to-use-the-disavow-tool-almost-never/). The short version: it is for manual actions and for schemes you built and cannot remove, and every line should be reviewed by a person.
 
 ## A hypothetical audit summary
 

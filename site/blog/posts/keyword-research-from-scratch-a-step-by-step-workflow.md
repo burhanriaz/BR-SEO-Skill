@@ -91,7 +91,7 @@ The reliable test is to compare what Google ranks. If the same URLs show up in t
 
 Pick each cluster's primary keyword: the highest-demand term whose intent matches the page type you'll build. The rest become secondaries.
 
-This step has enough nuance to deserve its own guide. Thresholds, chaining errors and how to handle sparse results are covered in the upcoming post on keyword clustering by SERP overlap.
+This step has enough nuance to deserve its own guide. Thresholds, chaining errors and how to handle sparse results are covered in the [post on keyword clustering by SERP overlap](/blog/keyword-clustering-by-serp-overlap-build-pages-that-rank-for-dozens-of-terms/).
 
 If you can't check results for every keyword, check the top 50 or so by demand and cluster the rest by meaning. Mark those clusters as unverified so nobody mistakes a guess for a measurement.
 

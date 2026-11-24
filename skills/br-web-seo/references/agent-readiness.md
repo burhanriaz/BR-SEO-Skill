@@ -22,7 +22,7 @@ visibility. Citability of the content itself is in `content-and-geo.md`.
 | OpenAI | `GPTBot` | `OAI-SearchBot` (ChatGPT search) | `ChatGPT-User` — OpenAI says robots.txt rules may not apply |
 | Anthropic | `ClaudeBot` | `Claude-SearchBot` | `Claude-User` — Anthropic says all three honour robots.txt |
 | Perplexity | — | `PerplexityBot` | `Perplexity-User` — generally ignores robots.txt (user-requested) |
-| Google | `Google-Extended` — a **robots.txt token, not a crawler**; controls Gemini/Vertex training & grounding use of content Googlebot already fetched | AI Overviews / AI Mode use **Googlebot** — they are part of Search | `Google-Agent` (agents acting for a user, e.g. Project Mariner), `Google-NotebookLM` — Google says user-triggered fetchers generally ignore robots.txt |
+| Google | `Google-Extended` — a **robots.txt token, not a crawler**; controls Gemini/Vertex training & grounding use of content Googlebot already fetched | AI Overviews / AI Mode use **Googlebot** — they are part of Search | `Google-Agent` (agents acting for a user, e.g. Project Mariner), `Google-GeminiNotebook` (formerly `Google-NotebookLM`) — Google says user-triggered fetchers generally ignore robots.txt |
 | Apple | `Applebot-Extended` — a **token, not a crawler**; opts out of Apple AI training | `Applebot` (Siri/Spotlight) | — |
 | Microsoft | — | `Bingbot` (feeds Bing and Copilot) | — |
 | Meta | `Meta-ExternalAgent` | — | `Meta-ExternalFetcher` (may ignore robots.txt for user-supplied URLs) |
@@ -121,6 +121,15 @@ Allow: /
 answers (RAG/grounding); `ai-train` = training. It is **voluntary and not yet
 confirmed as honoured** by major AI vendors; treat it as a statement of intent
 alongside, not instead of, per-bot rules.
+
+**IETF AI-preferences (AIPREF) training signal.** A separate, standards-track
+effort expresses a training opt-out in robots.txt as a dedicated user-agent
+group (`User-agent: __usage_ai-training`, per the current IETF draft). As of
+2026-11, Google's crawler docs say it will support the signal in early 2027,
+OpenAI has said "in the coming months", and Anthropic began rolling it out on
+2026-10-30. Vendors haven't documented support for Cloudflare's
+`Content-Signal` line in the same way, so recommend the IETF form once the
+draft and vendor docs settle, and re-check them before advising.
 
 ## 5. llms.txt — be honest about it
 

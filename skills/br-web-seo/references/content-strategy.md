@@ -126,9 +126,11 @@ values, with an "as of <date>" note and a link to each vendor's source.
 affiliate commission; mark affiliate links `rel="sponsored"`.
 
 **Schema:** `Article` with author + `dateModified`; `ItemList` for ranked lists;
-a visible FAQ section is fine as content (FAQ rich results are retired). Don't add `Review`/`AggregateRating` markup for
-your own product on your own site — self-serving reviews aren't eligible for
-review rich results.
+a visible FAQ section is fine as content (FAQ rich results are retired). Google's self-serving
+rule is narrower than often stated: review stars are ineligible when a
+`LocalBusiness` or `Organization` marks up reviews about **itself**. Reviews of
+products, including your own products, can be eligible if the reviews are
+genuine and visible on the page (Google, Review snippet docs, checked 2026-11).
 
 ---
 

@@ -96,7 +96,7 @@ Search Console's [Links report](https://support.google.com/webmasters/answer/904
 - The same commercial anchor appears from many unrelated domains.
 - One money page receives a cluster of keyword-anchored links that appeared in a short period.
 
-Those patterns often point to links someone bought or arranged in the past. Remember that most random spam links are ignored by Google; a strange anchor from a scraper site you never heard of is context, not an emergency. The backlink audit post later in this series covers how to judge those patterns.
+Those patterns often point to links someone bought or arranged in the past. Remember that most random spam links are ignored by Google; a strange anchor from a scraper site you never heard of is context, not an emergency. The [backlink audit guide](/blog/backlink-audits-what-to-look-for-and-what-to-ignore/) covers how to judge those patterns.
 
 ## Common mistakes
 

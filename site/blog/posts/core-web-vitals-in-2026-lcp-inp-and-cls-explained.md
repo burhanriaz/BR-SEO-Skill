@@ -121,7 +121,7 @@ This is where most confusion starts. There are two kinds of performance data:
 - **Field data** comes from real visitors. Google's source is the [Chrome UX Report (CrUX)](https://developer.chrome.com/docs/crux/methodology), which collects data from opted-in Chrome users on desktop and Android. Chrome on iOS doesn't contribute. PageSpeed Insights shows CrUX over the previous 28 days, and Search Console's Core Web Vitals report is built from it too.
 - **Lab data** comes from a single simulated load. Lighthouse in PageSpeed Insights emulates a mid-range phone on a throttled connection. The 0–100 Performance score is lab-only.
 
-A Lighthouse score of 98 with failing field LCP is common, and so is a score of 55 with passing field data. Google's assessment uses the field numbers. Use lab tools to reproduce and debug problems, then confirm the fix in the field. The full explanation is in the sibling post on lab data vs field data, coming later in this series.
+A Lighthouse score of 98 with failing field LCP is common, and so is a score of 55 with passing field data. Google's assessment uses the field numbers. Use lab tools to reproduce and debug problems, then confirm the fix in the field. The full explanation is in the post on [lab data vs field data](/blog/lab-data-vs-field-data-why-pagespeed-scores-disagree/).
 
 Pages with too little traffic have no URL-level CrUX data. PageSpeed Insights then falls back to origin-level data, and if the origin is also too small, there is no field data at all. In that case your own real-user monitoring is the only real measurement.
 

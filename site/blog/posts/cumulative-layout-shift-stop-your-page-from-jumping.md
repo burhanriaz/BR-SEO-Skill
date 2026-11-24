@@ -121,7 +121,7 @@ The same applies to "related articles," newsletter forms and recommendation bloc
 
 ### Web fonts
 
-When a fallback font is replaced by a web font with different metrics, text reflows and lines move. Fixes include `font-display: optional` for non-critical fonts, preloading the main font, and adjusting the fallback font's metrics with `size-adjust` and the override descriptors. Fonts have their own post later in this series.
+When a fallback font is replaced by a web font with different metrics, text reflows and lines move. Fixes include `font-display: optional` for non-critical fonts, preloading the main font, and adjusting the fallback font's metrics with `size-adjust` and the override descriptors. Fonts have [their own post](/blog/web-fonts-without-layout-shift-or-slow-text/).
 
 ### Animations
 

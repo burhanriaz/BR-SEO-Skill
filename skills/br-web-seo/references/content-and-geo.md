@@ -148,9 +148,11 @@ citation — prioritize them.
 
 ### Always verify AI-generated content
 
-AI drafting is fine; publishing it unchecked is not. Evidence: CNET found errors in
-**41 of 71** AI-written articles; one 30-query study found ~20% of ChatGPT output
-overtly incorrect and over half with material omissions. **Rule:** human-review,
+AI drafting is fine; publishing it unchecked is not. Google's guidance on
+generative AI content asks for accuracy, quality and relevance whatever the
+method, and its spam policies treat mass-produced unhelpful pages as scaled
+content abuse (developers.google.com/search/docs/fundamentals/using-gen-ai-content).
+Publicized newsroom cases of AI articles needing corrections show the risk. **Rule:** human-review,
 fact-check, and add first-hand experience before publishing. Unreviewed mass AI
 content is a known anti-pattern (see `common-seo-mistakes.md`).
 

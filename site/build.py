@@ -257,6 +257,9 @@ def build(out, today, drafts=False):
         body_html = md.blocks_to_html(md.parse_blocks(p["body"].splitlines()))
         # internal links written as /blog/<slug>/ or / -> relative to the site root
         body_html = re.sub(r'href="/(?!/)', 'href="%s' % prefix, body_html)
+        # links to posts not yet published render as plain text until their date
+        body_html = re.sub(r'<a href="%sblog/([^/"]+)/"[^>]*>(.*?)</a>' % re.escape(prefix),
+                           lambda m: m.group(0) if m.group(1) in by_slug else m.group(2), body_html)
         body_html, toc = add_heading_ids(body_html)
         url = "%s/blog/%s/" % (BASE, p["slug"])
         related = [q for q in posts if q is not p and q["cluster"] == p["cluster"]][:3]

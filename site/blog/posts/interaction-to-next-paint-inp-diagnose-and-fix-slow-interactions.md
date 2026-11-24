@@ -137,7 +137,7 @@ In practice, poor INP tends to come from the same few sources. Check these befor
 | Huge DOM | High presentation delay everywhere | Paginate, virtualize long lists, simplify markup |
 | Consent banners | Slow "Accept" click | Make the click update the UI first and defer the tag initialization it triggers |
 
-Third-party scripts get their own post later in this series.
+Third-party scripts get [their own post](/blog/third-party-scripts-the-hidden-core-web-vitals-killer/).
 
 ## Common mistakes
 

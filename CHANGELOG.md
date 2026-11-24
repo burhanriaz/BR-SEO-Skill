@@ -6,6 +6,8 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [1.0.1] - 2026-11-24
+
 ### Added
 - **Website:** dark glassmorphism redesign with scroll animations; a blog of
   104 sourced articles across 8 topics, published two a day by a daily
@@ -14,10 +16,18 @@ All notable changes to this project are documented here. The format follows
 - **Website:** new app icon (SVG favicon, PNG sizes, web manifest) and AI-tool
   logos (Claude, ChatGPT/Codex, Gemini, Copilot, Cursor; marks from Simple Icons).
 - Dependabot groups all action updates into one monthly PR.
+- References: IETF AI-preferences training signal and vendor support dates
+  (`agent-readiness.md`); GA4's AI Assistant channel (`seo-kpis.md`);
+  `Google-NotebookLM` renamed `Google-GeminiNotebook`.
+- Blog links to posts not yet published render as plain text until their date.
 
 ### Fixed
 - README manual-install path (`BR-SEO-Skill/skills/br-web-seo`).
 - Sample audit report now applies the score cap (20, capped from 58 by INDEX-001).
+- `content-strategy.md`: the self-serving review rule applies to
+  `LocalBusiness`/`Organization` reviewing itself, not to all product reviews.
+- `content-and-geo.md`: replaced an unverified AI-content statistic with
+  Google's own guidance.
 
 ## [1.0.0] - 2026-11-24
 
@@ -75,5 +85,6 @@ First versioned release.
   purpose.
 - Removed the retired Search Console country-targeting advice.
 
-[Unreleased]: https://github.com/burhanriaz/BR-SEO-Skill/compare/v1.0.0...HEAD
+[Unreleased]: https://github.com/burhanriaz/BR-SEO-Skill/compare/v1.0.1...HEAD
+[1.0.1]: https://github.com/burhanriaz/BR-SEO-Skill/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/burhanriaz/BR-SEO-Skill/releases/tag/v1.0.0
