@@ -33,6 +33,8 @@ BASE = "https://burhanriaz.github.io/BR-SEO-Skill"
 SITE_NAME = "br-web-seo"
 AUTHOR = {"name": "Burhan Riaz", "url": "https://github.com/burhanriaz"}
 POSTS_DIR = os.path.join(HERE, "blog", "posts")
+IMAGES_JSON = os.path.join(HERE, "blog", "images", "images.json")
+IMAGES = json.load(open(IMAGES_JSON, encoding="utf-8")) if os.path.exists(IMAGES_JSON) else {}
 
 spec = importlib.util.spec_from_file_location(
     "export_report", os.path.join(ROOT, "skills", "br-web-seo", "scripts", "export_report.py"))
@@ -88,6 +90,7 @@ def load_posts(today, drafts=False):
             "tags": [t.strip() for t in meta.get("tags", "").split(",") if t.strip()],
             "cluster": meta.get("cluster", "SEO"), "body": body, "words": words,
             "minutes": max(1, math.ceil(words / 220)),
+            "image": IMAGES.get(slug),
         })
     posts.sort(key=lambda p: (p["date"], p["slug"]), reverse=True)
     return posts, problems
@@ -136,6 +139,9 @@ ARTICLE_CSS = """<style>
 .related{margin-top:34px}
 .post-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px}
 .post-card .pill{align-self:flex-start}
+.post-card picture{display:contents}.post-card .thumb{display:block;width:calc(100% + 44px);max-width:none;height:auto;aspect-ratio:1200/630;object-fit:cover;margin:-22px -22px 6px;border-radius:18px 18px 0 0;border-bottom:1px solid var(--line)}
+.hero-img{margin:0 0 30px}.hero-img img{display:block;width:100%;height:auto;aspect-ratio:1200/630;object-fit:cover;border-radius:22px;border:1px solid var(--line);box-shadow:var(--shadow)}
+.hero-img figcaption{font-size:12.5px;color:var(--muted);margin-top:8px}.hero-img figcaption a{color:var(--ink-2)}
 .post-card{display:flex;flex-direction:column;gap:10px;padding:22px;border-radius:18px;color:var(--ink-2)}
 .post-card h3{margin:0;font-size:18px;line-height:1.3;color:#fff}
 .post-card p{margin:0;font-size:14.5px}
@@ -153,7 +159,7 @@ ARTICLE_CSS = """<style>
 </style>"""
 
 
-def head(title, desc, canonical, style, og_type="website", extra="", jsonld=None, noindex=False):
+def head(title, desc, canonical, style, og_type="website", extra="", jsonld=None, noindex=False, image=None, image_alt=""):
     tags = [
         '<meta charset="utf-8">',
         '<meta name="viewport" content="width=device-width, initial-scale=1">',
@@ -168,7 +174,9 @@ def head(title, desc, canonical, style, og_type="website", extra="", jsonld=None
         '<meta property="og:title" content="%s">' % html.escape(title),
         '<meta property="og:description" content="%s">' % html.escape(desc),
         '<meta property="og:url" content="%s">' % canonical,
-        '<meta property="og:image" content="%s/og.png">' % BASE,
+        '<meta property="og:image" content="%s">' % (image or BASE + "/og.png"),
+        ('<meta property="og:image:width" content="1200">\n<meta property="og:image:height" content="630">\n'
+         '<meta property="og:image:alt" content="%s">' % html.escape(image_alt)) if image else "",
         '<meta name="twitter:card" content="summary_large_image">',
         '<meta name="twitter:title" content="%s">' % html.escape(title),
         '<meta name="twitter:description" content="%s">' % html.escape(desc),
@@ -201,6 +209,7 @@ def shell(head_html, header, bg, footer, body, prefix):
 NAV_JS = """<script>
 (function(){var n=document.querySelector('header.nav');var f=function(){n.classList.toggle('scrolled',scrollY>8)};addEventListener('scroll',f,{passive:true});f();
 var ls=document.querySelectorAll('.toc a');if(ls.length&&'IntersectionObserver' in window){var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){ls.forEach(function(a){a.classList.toggle('on',a.getAttribute('href')==='#'+e.target.id)})}})},{rootMargin:'0px 0px -70% 0px'});document.querySelectorAll('.prose h2[id]').forEach(function(h){io.observe(h)})}
+document.querySelectorAll('.mac .copy').forEach(function(b){b.addEventListener('click',function(){var t=b.closest('.mac').querySelector('pre').innerText;var done=function(){var o=b.textContent;b.textContent='Copied';setTimeout(function(){b.textContent=o},1400)};if(navigator.clipboard){navigator.clipboard.writeText(t).then(done)}else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();done()}})});
 var fb=document.querySelectorAll('.filters button');fb.forEach(function(b){b.addEventListener('click',function(){fb.forEach(function(x){x.setAttribute('aria-pressed',x===b)});var t=b.dataset.tag;document.querySelectorAll('.post-card').forEach(function(c){c.style.display=(!t||c.dataset.tags.split('|').indexOf(t)>-1)?'':'none'})})});
 })();
 </script>
@@ -209,6 +218,27 @@ var fb=document.querySelectorAll('.filters button');fb.forEach(function(b){b.add
 
 def nice_date(d):
     return d.strftime("%b %-d, %Y") if os.name != "nt" else d.strftime("%b %d, %Y").replace(" 0", " ")
+
+
+LANG_NAMES = {"bash": "bash", "sh": "bash", "shell": "bash", "powershell": "PowerShell", "ps1": "PowerShell",
+              "html": "HTML", "json": "JSON", "jsonld": "JSON-LD", "js": "JavaScript", "javascript": "JavaScript",
+              "ts": "TypeScript", "typescript": "TypeScript", "tsx": "TSX", "jsx": "JSX", "css": "CSS", "xml": "XML",
+              "yaml": "YAML", "yml": "YAML", "txt": "text", "text": "text", "nginx": "nginx", "apache": "Apache",
+              "http": "HTTP", "python": "Python", "py": "Python", "md": "Markdown", "markdown": "Markdown",
+              "toml": "TOML", "csv": "CSV", "regex": "regex", "robots": "robots.txt"}
+
+
+def mac_windows(body_html):
+    """Wrap every code block in a macOS-style terminal window with a copy button."""
+    def rep(m):
+        lang = (m.group(1) or "").lower()
+        name = LANG_NAMES.get(lang, lang or "text")
+        if "robots" in m.group(2)[:200].lower() and lang in ("", "text", "txt"):
+            name = "robots.txt"
+        return ('<div class="mac"><div class="mac-bar"><i></i><i></i><i></i><span class="mac-title">%s</span>'
+                '<button class="copy" type="button">Copy</button></div><pre><code%s>%s</code></pre></div>'
+                % (html.escape(name), (' class="language-%s"' % lang) if lang else "", m.group(2)))
+    return re.sub(r'<pre><code(?: class="language-([\w+-]+)")?>(.*?)</code></pre>', rep, body_html, flags=re.S)
 
 
 def add_heading_ids(body_html):
@@ -229,11 +259,22 @@ def add_heading_ids(body_html):
     return re.sub(r"<h([23])>(.*?)</h\1>", rep, body_html), toc
 
 
+def picture(im, prefix, cls="", sizes="100vw", lazy=True):
+    """<picture> with WebP + JPEG at 600w and 1200w (made by the image prep step)."""
+    b = "%sblog/images/%s" % (prefix, im["file"][:-4])
+    load = 'loading="lazy" decoding="async"' if lazy else 'fetchpriority="high" decoding="async"'
+    return ('<picture><source type="image/webp" srcset="{b}-600.webp 600w, {b}.webp 1200w" sizes="{sz}">'
+            '<img{c} src="{b}.jpg" srcset="{b}-600.jpg 600w, {b}.jpg 1200w" sizes="{sz}" alt="{a}" width="1200" height="630" {l}></picture>'
+            ).format(b=b, sz=sizes, c=(' class="%s"' % cls) if cls else "", a=html.escape(im["alt"]), l=load)
+
+
 def card(p, prefix):
-    return ('<a class="post-card card" href="%sblog/%s/" data-tags="%s"><span class="pill">%s</span>'
+    im = p.get("image")
+    thumb = picture(im, prefix, "thumb", "(max-width: 700px) 100vw, 380px") if im else ""
+    return (('<a class="post-card card" href="%sblog/%s/" data-tags="%s">%s<span class="pill">%s</span>'
             '<h3>%s</h3><p>%s</p><div class="meta-row"><time datetime="%s">%s</time><span>·</span><span>%d min read</span></div></a>'
-            % (prefix, p["slug"], html.escape("|".join([p["cluster"]] + p["tags"])), html.escape(p["cluster"]),
-               html.escape(p["title"]), html.escape(p["description"]), p["date"].isoformat(), nice_date(p["date"]), p["minutes"]))
+            % (prefix, p["slug"], html.escape("|".join([p["cluster"]] + p["tags"])), thumb, html.escape(p["cluster"]),
+               html.escape(p["title"]), html.escape(p["description"]), p["date"].isoformat(), nice_date(p["date"]), p["minutes"])))
 
 
 TOPICS = {
@@ -261,7 +302,7 @@ def build(out, today, drafts=False):
 
     if os.path.isdir(out):
         shutil.rmtree(out)
-    shutil.copytree(HERE, out, ignore=shutil.ignore_patterns("build.py", "posts", "plan.json", "__pycache__", "*.pyc"))
+    shutil.copytree(HERE, out, ignore=shutil.ignore_patterns("build.py", "posts", "plan.json", "images.json", "__pycache__", "*.pyc"))
 
     # ---- posts
     by_slug = {p["slug"]: p for p in posts}
@@ -274,6 +315,7 @@ def build(out, today, drafts=False):
         body_html = re.sub(r'<a href="%sblog/([^/"]+)/"[^>]*>(.*?)</a>' % re.escape(prefix),
                            lambda m: m.group(0) if m.group(1) in by_slug else m.group(2), body_html)
         body_html, toc = add_heading_ids(body_html)
+        body_html = mac_windows(body_html)
         url = "%s/blog/%s/" % (BASE, p["slug"])
         related = [q for q in posts if q is not p and q["cluster"] == p["cluster"]][:3]
         if len(related) < 3:
@@ -285,7 +327,7 @@ def build(out, today, drafts=False):
              "description": p["description"], "datePublished": p["date"].isoformat(),
              "dateModified": p["updated"].isoformat(), "mainEntityOfPage": url, "url": url,
              "wordCount": p["words"], "keywords": ", ".join(p["tags"]), "articleSection": p["cluster"],
-             "image": BASE + "/og.png", "author": PERSON, "publisher": ORG, "inLanguage": "en"},
+             "image": ("%s/blog/images/%s" % (BASE, p["image"]["file"])) if p.get("image") else BASE + "/og.png", "author": PERSON, "publisher": ORG, "inLanguage": "en"},
             {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
                 {"@type": "ListItem", "position": 1, "name": "Home", "item": BASE + "/"},
                 {"@type": "ListItem", "position": 2, "name": "Blog", "item": BASE + "/blog/"},
@@ -300,6 +342,17 @@ def build(out, today, drafts=False):
         pager = '<nav class="pager" aria-label="More articles">%s%s</nav>' % (
             ('<a href="%sblog/%s/">← Older<b>%s</b></a>' % (prefix, older["slug"], html.escape(older["title"]))) if older else "<span></span>",
             ('<a href="%sblog/%s/" style="text-align:right">Newer →<b>%s</b></a>' % (prefix, newer["slug"], html.escape(newer["title"]))) if newer else "<span></span>")
+        im = p.get("image")
+        figure_html = ""
+        if im:
+            who = html.escape(im["creator"] or "Unknown")
+            if im.get("creator_url"):
+                who = '<a href="%s" rel="nofollow noopener">%s</a>' % (html.escape(im["creator_url"]), who)
+            lic = {"cc0": "CC0", "pdm": "Public Domain Mark"}.get(im["license"], im["license"].upper())
+            figure_html = ('<figure class="hero-img">%s'
+                           '<figcaption>Photo: %s via <a href="%s" rel="nofollow noopener">%s</a> · <a href="%s" rel="nofollow noopener license">%s</a></figcaption></figure>'
+                           % (picture(im, prefix, sizes="(max-width: 900px) 100vw, 860px", lazy=False), who, html.escape(im["landing"]), html.escape(im["source"].title()),
+                              html.escape(im["license_url"]), lic))
         body = """<div class="wrap">
   <div class="post-hero">
     <nav class="crumbs" aria-label="Breadcrumb"><a href="{p}">Home</a><span>/</span><a href="{p}blog/">Blog</a><span>/</span><span>{cluster}</span></nav>
@@ -308,6 +361,7 @@ def build(out, today, drafts=False):
   </div>
   <div class="post-grid">
     <article>
+      {figure}
       <div class="prose">{content}
         <div class="cta-box"><h2>Run this check with br-web-seo</h2><p>br-web-seo is a free, open-source Agent Skill that turns Claude, ChatGPT, Codex, Gemini, Copilot or Cursor into an SEO, AEO and GEO auditor, with scored reports you can export to PDF, Word or Excel.</p><p><a class="btn btn-primary btn-sm" href="{p}#install">Install in one command</a> <a class="btn btn-ghost btn-sm" href="https://github.com/burhanriaz/BR-SEO-Skill">View on GitHub</a></p><p class="logos" aria-label="Works with Claude, ChatGPT, Codex, Gemini, Copilot and Cursor"><svg class="ai" aria-hidden="true"><use href="#ai-claude"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-openai"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-gemini"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-copilot"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-cursor"/></svg></p></div>
       </div>
@@ -318,9 +372,10 @@ def build(out, today, drafts=False):
   </div>
 </div>""".format(p=prefix, cluster=html.escape(p["cluster"]), title=html.escape(p["title"]),
                  author=AUTHOR["name"], author_url=AUTHOR["url"], iso=p["date"].isoformat(),
-                 date=nice_date(p["date"]), mins=p["minutes"], content=body_html, pager=pager,
+                 date=nice_date(p["date"]), mins=p["minutes"], content=body_html, figure=figure_html, pager=pager,
                  related="".join(card(q, prefix) for q in related), toc=toc_html)
-        page = shell(head(p["title"] if len(p["title"]) + len(SITE_NAME) + 3 > 60 else "%s | %s" % (p["title"], SITE_NAME), p["description"], url, style, "article", extra, jsonld),
+        page = shell(head(p["title"] if len(p["title"]) + len(SITE_NAME) + 3 > 60 else "%s | %s" % (p["title"], SITE_NAME), p["description"], url, style, "article", extra, jsonld,
+                          image=("%s/blog/images/%s" % (BASE, im["file"])) if im else None, image_alt=im["alt"] if im else ""),
                      header, bg, footer, body, prefix)
         d = os.path.join(out, "blog", p["slug"])
         os.makedirs(d, exist_ok=True)
@@ -385,11 +440,14 @@ def build(out, today, drafts=False):
 
     # ---- sitemap + robots
     latest_date = max([p["updated"] for p in posts], default=today)
-    urls = [(BASE + "/", latest_date), (BASE + "/blog/", latest_date)] + [
-        ("%s/blog/%s/" % (BASE, p["slug"]), p["updated"]) for p in posts]
+    urls = [(BASE + "/", latest_date, None), (BASE + "/blog/", latest_date, None)] + [
+        ("%s/blog/%s/" % (BASE, p["slug"]), p["updated"],
+         ("%s/blog/images/%s" % (BASE, p["image"]["file"])) if p.get("image") else None) for p in posts]
     with open(os.path.join(out, "sitemap.xml"), "w", encoding="utf-8") as f:
-        f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n%s</urlset>\n'
-                % "".join("  <url><loc>%s</loc><lastmod>%s</lastmod></url>\n" % (u, d.isoformat()) for u, d in urls))
+        f.write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">\n%s</urlset>\n'
+                % "".join("  <url><loc>%s</loc><lastmod>%s</lastmod>%s</url>\n"
+                          % (u, d.isoformat(), ("<image:image><image:loc>%s</image:loc></image:image>" % img) if img else "")
+                          for u, d, img in urls))
     with open(os.path.join(out, "robots.txt"), "w", encoding="utf-8") as f:
         f.write("User-agent: *\nAllow: /\n\nSitemap: %s/sitemap.xml\n" % BASE)
 

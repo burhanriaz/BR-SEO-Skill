@@ -274,6 +274,14 @@ footer a{color:var(--ink-2)}footer a:hover{color:#fff}
 .agent{display:inline-flex;align-items:center;gap:8px;white-space:nowrap}
 .logos{display:flex!important;gap:10px;margin:6px 0 4px}.logos .ai{width:18px;height:18px}
 .brand svg{border-radius:9px}
+.mac{position:relative;margin:12px 0 22px;border-radius:16px;overflow:hidden;background:linear-gradient(180deg,rgba(14,19,40,.82),rgba(8,11,24,.78));border:1px solid var(--line);box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 24px 50px -24px rgba(0,0,0,.8);-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.mac::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:var(--grad);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;opacity:.35;pointer-events:none}
+.mac-bar{display:flex;align-items:center;gap:7px;padding:10px 12px;border-bottom:1px solid var(--line);background:rgba(255,255,255,.03)}
+.mac-bar>i{width:11px;height:11px;border-radius:50%;background:#ff5f57;flex:none}.mac-bar>i+i{background:#febc2e}.mac-bar>i+i+i{background:#28c840}
+.mac-title{flex:1;text-align:center;font:600 12px/1 var(--mono);color:var(--muted);letter-spacing:.02em;padding-right:4px}
+.mac-bar .copy{padding:6px 10px;font-size:12px}
+.mac pre,.mac pre.code{margin:0!important;border:0!important;border-radius:0!important;background:transparent!important;padding:16px 18px!important;font:13.5px/1.7 var(--mono);color:#dfe5ff;overflow:auto;white-space:pre}
+.mac pre code{background:none!important;border:0!important;padding:0!important;color:inherit;font:inherit}
 </style>
 </head>
 <body>
@@ -431,7 +439,7 @@ Installed .agents\skills\br-web-seo</span>
       <div class="two">
         <div>
           <h3>macOS · Linux · WSL · Git Bash</h3>
-          <div class="codewrap"><pre class="code"><span class="c"># this project</span>
+          <div class="mac"><div class="mac-bar"><i></i><i></i><i></i><span class="mac-title">bash — install</span><button class="copy">Copy</button></div><pre class="code"><span class="c"># this project</span>
 curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash
 
 <span class="c"># every project (user / global)</span>
@@ -440,7 +448,7 @@ curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/instal
 <span class="c"># choose agents</span>
 curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash -s -- --agent claude,copilot,cursor</pre></div>
           <h3>Windows PowerShell</h3>
-          <div class="codewrap"><pre class="code"><span class="c"># this project</span>
+          <div class="mac"><div class="mac-bar"><i></i><i></i><i></i><span class="mac-title">PowerShell — install</span><button class="copy">Copy</button></div><pre class="code"><span class="c"># this project</span>
 irm https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.ps1 | iex
 
 <span class="c"># every project (user / global)</span>
@@ -484,22 +492,22 @@ irm https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.ps1 |
         </div>
         <div>
           <h3>Instructions to paste</h3>
-          <div class="codewrap"><pre class="code" id="chat-prompt">You are an SEO, AEO and GEO specialist. Follow the br-web-seo skill in the attached
+          <div class="mac"><div class="mac-bar"><i></i><i></i><i></i><span class="mac-title">prompt — project instructions</span><button class="copy" data-copy-from="chat-prompt">Copy</button></div><pre class="code" id="chat-prompt">You are an SEO, AEO and GEO specialist. Follow the br-web-seo skill in the attached
 file br-web-seo-bundle.md exactly: start with its SKILL.md section, choose the
 operating mode, and open the "FILE: references/..." and "FILE: templates/..."
 sections it points to. Score sites 0-100 as it describes and write deliverables
 in its templates. If you cannot fetch a page yourself, ask me to paste the HTML,
-headers, robots.txt and sitemap, and mark anything unverified as unverified.</pre><button class="copy" data-copy-from="chat-prompt">Copy</button></div>
+headers, robots.txt and sitemap, and mark anything unverified as unverified.</pre></div>
         </div>
       </div>
     </div>
 
     <div class="panel" id="i-manual" hidden>
-      <div class="codewrap"><pre class="code">git clone --depth 1 https://github.com/burhanriaz/BR-SEO-Skill.git
-cp -R BR-SEO-Skill/br-web-seo  your-project/.agents/skills/   <span class="c"># or .claude/skills, ~/.claude/skills …</span></pre></div>
+      <div class="mac"><div class="mac-bar"><i></i><i></i><i></i><span class="mac-title">bash — manual install</span><button class="copy">Copy</button></div><pre class="code">git clone --depth 1 https://github.com/burhanriaz/BR-SEO-Skill.git
+cp -R BR-SEO-Skill/skills/br-web-seo  your-project/.agents/skills/   <span class="c"># or .claude/skills, ~/.claude/skills …</span></pre></div>
       <p>For a tool without skills support, copy the folder into the repo and add one line to its
         instructions file (<code>AGENTS.md</code>, <code>GEMINI.md</code>, <code>.github/copilot-instructions.md</code>):</p>
-      <div class="codewrap"><pre class="code">For SEO, AEO or GEO work, follow `.agents/skills/br-web-seo/SKILL.md` and the references and templates it links to.</pre></div>
+      <div class="mac"><div class="mac-bar"><i></i><i></i><i></i><span class="mac-title">AGENTS.md</span><button class="copy">Copy</button></div><pre class="code">For SEO, AEO or GEO work, follow `.agents/skills/br-web-seo/SKILL.md` and the references and templates it links to.</pre></div>
     </div>
   </div>
 </section>
@@ -638,7 +646,7 @@ cp -R BR-SEO-Skill/br-web-seo  your-project/.agents/skills/   <span class="c"># 
       var text = btn.dataset.copy;
       if (!text && btn.dataset.copyFrom) text = document.getElementById(btn.dataset.copyFrom).textContent;
       if (!text) { var q = btn.parentElement.querySelector('q'); if (q) text = q.textContent; }
-      if (!text) { var pre = btn.parentElement.querySelector('pre'); if (pre) text = pre.textContent.replace(/^#.*$/gm, '').replace(/\n{2,}/g, '\n').trim(); }
+      if (!text) { var win = btn.closest('.mac') || btn.parentElement; var pre = win.querySelector('pre'); if (pre) text = pre.textContent.replace(/^#.*$/gm, '').replace(/\n{2,}/g, '\n').trim(); }
       copy(text || '', btn);
     });
   });

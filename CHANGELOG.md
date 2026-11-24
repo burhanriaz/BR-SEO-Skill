@@ -6,6 +6,15 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+### Added
+- Blog: a public-domain (CC0 / PDM) cover photo for every post, from Openverse,
+  with credit and licence link; WebP + JPEG at 600 and 1200 px via `<picture>`,
+  per-post Open Graph image, `image` in BlogPosting JSON-LD and image sitemap
+  entries. Sources are recorded in `site/blog/images/images.json`.
+- macOS-style terminal windows (title bar, language label, Copy button) for
+  every code block on the home page and in blog posts.
+- IndexNow ping after each deploy; `llms.txt`; blog topic overview.
+
 ## [1.0.1] - 2026-11-24
 
 ### Added
