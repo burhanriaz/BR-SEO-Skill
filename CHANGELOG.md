@@ -10,10 +10,12 @@ All notable changes to this project are documented here. The format follows
 - Blog: unpublished posts now live in a private queue repo; a daily job
   there copies each day's posts (three a day) into this repo, so future
   articles are no longer public before their date.
-- Blog: a public-domain (CC0 / PDM) cover photo for every post, from Openverse,
-  with credit and licence link; WebP + JPEG at 600 and 1200 px via `<picture>`,
+- Blog: a generated cover card for every post (mac-style window with the
+  post's title, topic colour and tags) instead of stock photos, which were
+  often unrelated to the article; WebP + JPEG at 600 and 1200 px via `<picture>`,
   per-post Open Graph image, `image` in BlogPosting JSON-LD and image sitemap
-  entries. Sources are recorded in `site/blog/images/images.json`.
+  entries. Image entries live in `site/blog/images/images.json`; a photo
+  credit is shown only for third-party images.
 - macOS-style terminal windows (title bar, language label, Copy button) for
   every code block on the home page and in blog posts.
 - IndexNow ping after each deploy; `llms.txt`; blog topic overview.

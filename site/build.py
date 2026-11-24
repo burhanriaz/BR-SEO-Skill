@@ -344,14 +344,17 @@ def build(out, today, drafts=False):
             ('<a href="%sblog/%s/" style="text-align:right">Newer →<b>%s</b></a>' % (prefix, newer["slug"], html.escape(newer["title"]))) if newer else "<span></span>")
         im = p.get("image")
         figure_html = ""
-        if im:
-            who = html.escape(im["creator"] or "Unknown")
-            if im.get("creator_url"):
+        if im and im.get("license") == "own":
+            figure_html = '<figure class="hero-img">%s</figure>' % picture(im, prefix, sizes="(max-width: 900px) 100vw, 860px", lazy=False)
+        elif im:
+            who = html.escape(im.get("creator") or "")
+            if who and im.get("creator_url"):
                 who = '<a href="%s" rel="nofollow noopener">%s</a>' % (html.escape(im["creator_url"]), who)
-            lic = {"cc0": "CC0", "pdm": "Public Domain Mark"}.get(im["license"], im["license"].upper())
+            lic = {"cc0": "CC0", "pdm": "Public Domain Mark", "pd": "Public domain"}.get(im["license"], im["license"].upper())
             figure_html = ('<figure class="hero-img">%s'
-                           '<figcaption>Photo: %s via <a href="%s" rel="nofollow noopener">%s</a> · <a href="%s" rel="nofollow noopener license">%s</a></figcaption></figure>'
-                           % (picture(im, prefix, sizes="(max-width: 900px) 100vw, 860px", lazy=False), who, html.escape(im["landing"]), html.escape(im["source"].title()),
+                           '<figcaption>Photo%s via <a href="%s" rel="nofollow noopener">%s</a> · <a href="%s" rel="nofollow noopener license">%s</a></figcaption></figure>'
+                           % (picture(im, prefix, sizes="(max-width: 900px) 100vw, 860px", lazy=False), (": " + who) if who else "",
+                              html.escape(im["landing"]), html.escape(im["source"].title()),
                               html.escape(im["license_url"]), lic))
         body = """<div class="wrap">
   <div class="post-hero">
