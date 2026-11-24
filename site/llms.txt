@@ -1,0 +1,12 @@
+# br-web-seo
+
+> Free, open-source Agent Skill that turns Claude, ChatGPT, Codex, Gemini, GitHub Copilot or Cursor into an SEO, AEO and GEO auditor: ~220 checks with stable IDs, a 0-100 health score, fix reports, and exports to PDF, Word, Excel and CSV.
+
+## Start here
+- [Home and install](https://burhanriaz.github.io/BR-SEO-Skill/): what the skill does, install commands, prompts and sample reports
+- [Source code](https://github.com/burhanriaz/BR-SEO-Skill): SKILL.md, references, templates and scripts (MIT)
+- [Releases](https://github.com/burhanriaz/BR-SEO-Skill/releases): br-web-seo.zip for Claude.ai, br-web-seo-bundle.md for ChatGPT, Gemini and Claude Projects
+
+## Blog
+- [All articles](https://burhanriaz.github.io/BR-SEO-Skill/blog/): guides on technical SEO, AI search, content, structured data, performance, local and international SEO, links and audits
+- [RSS feed](https://burhanriaz.github.io/BR-SEO-Skill/blog/feed.xml)

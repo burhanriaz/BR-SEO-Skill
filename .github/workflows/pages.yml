@@ -55,3 +55,25 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v5
+
+      # Tell Bing (and other IndexNow engines) about today's new posts.
+      - uses: actions/checkout@v7
+      - name: Ping IndexNow
+        continue-on-error: true
+        run: |
+          python3 - <<'PY'
+          import datetime, glob, json, os, re, urllib.request
+          base = "https://burhanriaz.github.io/BR-SEO-Skill"
+          key = next(os.path.basename(f)[:-4] for f in glob.glob("site/*.txt")
+                     if re.fullmatch(r"[0-9a-f]{32}\.txt", os.path.basename(f)))
+          today = datetime.datetime.now(datetime.timezone.utc).date().isoformat()
+          plan = json.load(open("site/blog/plan.json"))
+          urls = [base + "/", base + "/blog/"] + [
+              "%s/blog/%s/" % (base, p["slug"]) for p in plan if p["date"] == today]
+          body = json.dumps({"host": "burhanriaz.github.io", "key": key,
+                             "keyLocation": "%s/%s.txt" % (base, key), "urlList": urls}).encode()
+          req = urllib.request.Request("https://api.indexnow.org/indexnow", data=body,
+                                       headers={"Content-Type": "application/json; charset=utf-8"})
+          with urllib.request.urlopen(req, timeout=30) as r:
+              print("IndexNow", r.status, "for", len(urls), "URLs:", *urls, sep="\n  ")
+          PY

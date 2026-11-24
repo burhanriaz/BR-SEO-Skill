@@ -141,6 +141,8 @@ ARTICLE_CSS = """<style>
 .post-card p{margin:0;font-size:14.5px}
 .post-card .meta-row{font-size:13px;margin-top:auto}
 .post-card:hover h3{color:#c9d0ff}
+.topics{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:10px 24px;color:var(--ink-2);font-size:15px}
+.topics b{display:block;color:#fff}
 .filters{display:flex;gap:8px;flex-wrap:wrap;margin:0 0 26px}
 .filters button{font:600 13px/1 inherit;padding:9px 14px;border-radius:999px;cursor:pointer;color:var(--ink-2);background:var(--glass);border:1px solid var(--line);transition:.2s}
 .filters button[aria-pressed="true"],.filters button:hover{color:#fff;border-color:rgba(124,140,255,.6);background:rgba(124,140,255,.18)}
@@ -234,6 +236,17 @@ def card(p, prefix):
                html.escape(p["title"]), html.escape(p["description"]), p["date"].isoformat(), nice_date(p["date"]), p["minutes"]))
 
 
+TOPICS = {
+    "AI Search & GEO": "How AI Overviews, ChatGPT, Perplexity and other answer engines pick sources, which AI crawlers to allow, and how to measure AI visibility.",
+    "Audits & Tooling": "Running full SEO audits with an AI agent, health scores, fix reports, pre-launch checks, drift checks and reporting.",
+    "Content & Keywords": "Keyword research, clustering, search intent, briefs, E-E-A-T, pruning, cannibalization and writing pages that earn clicks.",
+    "Links & Authority": "Internal linking, orphan pages, link building that follows Google's rules, backlink audits, disavow and brand signals.",
+    "Local & International": "Google Business Profile, reviews, service areas, location pages, hreflang and multi-regional sites.",
+    "Performance & Core Web Vitals": "LCP, INP and CLS, lab vs field data, images, fonts, third-party scripts, caching and performance budgets.",
+    "Structured Data": "Which schema types still earn rich results, copy-paste JSON-LD, testing tools and the errors that break markup.",
+    "Technical SEO": "Crawling, rendering, indexing, canonicals, redirects, sitemaps, faceted navigation, migrations and HTTPS.",
+}
+
 ORG = {"@type": "Organization", "@id": BASE + "/#org", "name": SITE_NAME, "url": BASE + "/",
        "logo": BASE + "/icon-512.png", "sameAs": ["https://github.com/burhanriaz/BR-SEO-Skill"]}
 PERSON = {"@type": "Person", "@id": BASE + "/#author", "name": AUTHOR["name"], "url": AUTHOR["url"]}
@@ -307,7 +320,7 @@ def build(out, today, drafts=False):
                  author=AUTHOR["name"], author_url=AUTHOR["url"], iso=p["date"].isoformat(),
                  date=nice_date(p["date"]), mins=p["minutes"], content=body_html, pager=pager,
                  related="".join(card(q, prefix) for q in related), toc=toc_html)
-        page = shell(head("%s | %s" % (p["title"], SITE_NAME), p["description"], url, style, "article", extra, jsonld),
+        page = shell(head(p["title"] if len(p["title"]) + len(SITE_NAME) + 3 > 60 else "%s | %s" % (p["title"], SITE_NAME), p["description"], url, style, "article", extra, jsonld),
                      header, bg, footer, body, prefix)
         d = os.path.join(out, "blog", p["slug"])
         os.makedirs(d, exist_ok=True)
@@ -331,7 +344,10 @@ def build(out, today, drafts=False):
   <nav class="crumbs" aria-label="Breadcrumb"><a href="../">Home</a><span>/</span><span>Blog</span></nav>
   <h1>The <em>SEO, AEO &amp; GEO</em> blog</h1>
   <p class="lead">{desc} {n} articles so far, new ones twice a day.</p></div>
-  {filters}<div class="post-list" style="padding-bottom:90px">{cards}</div></div>""".format(
+  <h2 style="font-size:26px;margin:8px 0 16px">Browse by topic</h2>
+  <ul class="topics">{topics}</ul>
+  <h2 style="font-size:26px;margin:34px 0 16px">All articles</h2>
+  {filters}<div class="post-list" style="padding-bottom:90px">{cards}</div></div>""".format(topics="".join('<li><b>%s</b> %s</li>' % (html.escape(c), html.escape(TOPICS.get(c, ""))) for c in clusters),
         desc=desc, n=len(posts), filters=filters, cards="".join(card(p, prefix) for p in posts) or "<p>First articles coming soon.</p>")
     os.makedirs(os.path.join(out, "blog"), exist_ok=True)
     with open(os.path.join(out, "blog", "index.html"), "w", encoding="utf-8") as f:
