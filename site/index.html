@@ -312,7 +312,7 @@ footer a{color:var(--ink-2)}footer a:hover{color:#fff}
       <h1>Turn your AI assistant into an <em>SEO, AEO &amp; GEO</em> auditor.</h1>
       <p class="lead">br-web-seo audits a website or codebase for classic search <i>and</i> AI search
         (ChatGPT, Perplexity, Google AI Overviews). It scores the site 0–100, then writes a fix report
-        precise enough for another AI session or a developer to apply, as PDF, Word, Excel, CSV or Markdown.</p>
+        precise enough for another AI session or a developer to apply, delivered as Markdown + PDF.</p>
       <div class="cta">
         <a class="btn btn-primary" href="#install">Install in one command</a>
         <a class="btn btn-ghost" href="#reports">See the reports</a>
@@ -338,7 +338,7 @@ Installed .agents/skills/br-web-seo</span>
 
 <span class="c"># then ask your agent</span>
 <span class="p">›</span> Use the br-web-seo skill to audit https://example.com
-  and give me the report as PDF and Excel.<span class="cursor"></span></pre>
+  and give me the report as Markdown + PDF.<span class="cursor"></span></pre>
         <div class="foot"><button class="copy" data-copy="curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash">Copy command</button></div>
       </div>
       <div class="panel" id="h-win" hidden><pre><span class="c"># PowerShell: install into this project</span>
@@ -348,7 +348,7 @@ Installed .agents\skills\br-web-seo</span>
 
 <span class="c"># then ask your agent</span>
 <span class="p">›</span> Use the br-web-seo skill to audit https://example.com
-  and give me the report as PDF and Excel.<span class="cursor"></span></pre>
+  and give me the report as Markdown + PDF.<span class="cursor"></span></pre>
         <div class="foot"><button class="copy" data-copy="irm https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.ps1 | iex">Copy command</button></div>
       </div>
     </div>
@@ -377,9 +377,9 @@ Installed .agents\skills\br-web-seo</span>
       <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg></div>
         <h3>Pre-deploy gate</h3><p>A go/no-go checklist before release, so a stray <code>noindex</code> or broken canonical never ships.</p><span class="tag">→ go / no-go</span></div>
       <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5M10 13h6M10 17h6"/></svg></div>
-        <h3>Reports in any format</h3><p>Every deliverable is Markdown first, then exported to PDF, Word, Excel, CSV or HTML with the bundled zero-dependency exporter.</p><span class="tag">→ .pdf · .docx · .xlsx · .csv</span></div>
+        <h3>Two files per report</h3><p>Every deliverable is Markdown first, then printed to a styled PDF with the bundled zero-dependency exporter. Nothing else to clean up.</p><span class="tag">→ .md · .pdf</span></div>
       <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.5-4.5M8 11h6M11 8v6"/></svg></div>
-        <h3>Keyword research</h3><p>Seed → expand → filter → cluster by SERP overlap → a keyword map of pillar and spoke pages, plus a competitor gap.</p><span class="tag">→ keyword map (Excel)</span></div>
+        <h3>Keyword research</h3><p>Seed → expand → filter → cluster by SERP overlap → a keyword map of pillar and spoke pages, plus a competitor gap.</p><span class="tag">→ keyword map (.md + .pdf)</span></div>
       <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3h9l4 4v14H6z"/><path d="M9 12h7M9 16h5M9 8h3"/></svg></div>
         <h3>Content briefs</h3><p>Writer-ready briefs: page type from the SERP, outline, the information gain competitors miss, E-E-A-T needs.</p><span class="tag">→ content brief</span></div>
       <div class="card"><div class="icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 6h16M4 12h10M4 18h6"/><path d="M17 15l3 3-3 3"/></svg></div>
@@ -400,7 +400,7 @@ Installed .agents\skills\br-web-seo</span>
       <div class="step"><h3>Audit</h3><p>Every check records status, where it looked, and the actual evidence. Nothing is assumed.</p></div>
       <div class="step"><h3>Score</h3><p>A weighted 0–100 health score. Any live blocker caps the score at 49.</p></div>
       <div class="step"><h3>Report</h3><p>An audit report (the diagnosis) plus a fix report (the prescription) with code and acceptance criteria.</p></div>
-      <div class="step"><h3>Gate &amp; export</h3><p>Pre-deploy go/no-go, then export to PDF, Word, Excel or CSV for your team.</p></div>
+      <div class="step"><h3>Gate &amp; export</h3><p>Pre-deploy go/no-go, then export to Markdown + PDF for your team.</p></div>
     </div>
   </div>
 </section>
@@ -415,7 +415,7 @@ Installed .agents\skills\br-web-seo</span>
       <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Fixes another session can apply</b><span>The fix report is self-contained: location, current state, change, code and acceptance criteria.</span></div></div>
       <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Ready for AI search</b><span>Covers AEO and GEO alongside classic SEO: citability, entities, AI crawlers, llms.txt.</span></div></div>
       <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Works in the AI you already use</b><span class="logos"><svg class="ai" aria-hidden="true"><use href="#ai-claude"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-openai"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-gemini"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-copilot"/></svg><svg class="ai" aria-hidden="true"><use href="#ai-cursor"/></svg></span><span>Claude, ChatGPT, Codex, Gemini, Copilot or Cursor, in a terminal, an IDE or a chat app.</span></div></div>
-      <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Client-ready output</b><span>Send a PDF to the client, an Excel tracker to the team, and the Markdown to Git.</span></div></div>
+      <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Client-ready output</b><span>Send the PDF to the client and the Markdown to Git or the next AI session.</span></div></div>
       <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Free, private, no API keys</b><span>MIT-licensed Markdown and one standard-library Python script. Nothing is sent anywhere by the skill.</span></div></div>
       <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Comparable over time</b><span>Fixed templates and a weighted score turn "it feels better" into a before/after number.</span></div></div>
       <div class="benefit"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12l5 5 9-11"/></svg><div><b>Stops regressions at release</b><span>The pre-deploy gate catches the classic production disasters before they ship.</span></div></div>
@@ -518,14 +518,14 @@ cp -R BR-SEO-Skill/skills/br-web-seo  your-project/.agents/skills/   <span class
     <h2>How to use it</h2>
     <p class="sub">Just ask. These prompts work the same in every agent (Claude Code also accepts <code>/br-web-seo</code>).</p>
     <div class="prompts">
-      <div class="prompt"><small>Full audit</small><q>Use the br-web-seo skill to audit https://example.com, score it 0–100, and write the audit report and a fix report as PDF and Excel.</q><button class="copy">Copy</button></div>
+      <div class="prompt"><small>Full audit</small><q>Use the br-web-seo skill to audit https://example.com, score it 0–100, and write the audit report and a fix report.</q><button class="copy">Copy</button></div>
       <div class="prompt"><small>Audit a codebase</small><q>Run a br-web-seo technical audit on this Next.js repo. Confirm content exists in the rendered DOM, then produce an audit report and a fix report.</q><button class="copy">Copy</button></div>
       <div class="prompt"><small>Content</small><q>br-web-seo content mode: optimize /blog/my-post for "best running shoes". Analyze intent, headings, E-E-A-T and AI citability before changing anything.</q><button class="copy">Copy</button></div>
       <div class="prompt"><small>AI search / GEO</small><q>br-web-seo GEO check on https://example.com: is it structured to be cited by ChatGPT, Perplexity and AI Overviews? List the fixes.</q><button class="copy">Copy</button></div>
       <div class="prompt"><small>Ranking drop</small><q>br-web-seo diagnosis: organic traffic dropped ~30% after the last core update. Walk the diagnostic framework and give an evidence matrix.</q><button class="copy">Copy</button></div>
       <div class="prompt"><small>Before release</small><q>Run the br-web-seo pre-deployment checklist against the staging build and give me a go/no-go.</q><button class="copy">Copy</button></div>
       <div class="prompt"><small>Apply fixes</small><q>Here is a br-web-seo fix report. Apply the changes to this repo item by item, verify each acceptance criterion, and report what changed.</q><button class="copy">Copy</button></div>
-      <div class="prompt"><small>Export</small><q>Export reports/example-audit-report.md to PDF, Word and CSV with the br-web-seo exporter.</q><button class="copy">Copy</button></div>
+      <div class="prompt"><small>Export</small><q>Export reports/example-audit-report.md to Markdown + PDF with the br-web-seo exporter.</q><button class="copy">Copy</button></div>
     </div>
   </div>
 </section>
@@ -549,12 +549,9 @@ cp -R BR-SEO-Skill/skills/br-web-seo  your-project/.agents/skills/   <span class
         <div class="fbar">
           <strong id="rtitle">Sample: filled audit report</strong>
           <a class="dl" data-ext="pdf" href="reports/sample-audit-report.pdf" download>PDF</a>
-          <a class="dl" data-ext="docx" href="reports/sample-audit-report.docx" download>Word</a>
-          <a class="dl" data-ext="xlsx" href="reports/sample-audit-report.xlsx" download>Excel</a>
-          <a class="dl" data-ext="csv" href="reports/sample-audit-report.csv" download>CSV</a>
           <a class="dl" data-ext="md" href="reports/sample-audit-report.md" download>Markdown</a>
         </div>
-        <iframe id="rframe" title="Report preview" loading="lazy" src="reports/sample-audit-report.html"></iframe>
+        <iframe id="rframe" title="Report preview" loading="lazy" src="reports/sample-audit-report.pdf"></iframe>
       </div>
     </div>
   </div>
@@ -605,7 +602,7 @@ cp -R BR-SEO-Skill/skills/br-web-seo  your-project/.agents/skills/   <span class
     <details><summary>Do I need any API keys or paid SEO tools?</summary><p>No. The skill works with just an agent and a target. If you have Search Console, PageSpeed Insights or an SEO-tool export, give it to the agent for stronger evidence.</p></details>
     <details><summary>Can it change my code?</summary><p>Audits are read-only. Fixes are written as a report. Your agent applies them only when you ask, and checks each acceptance criterion as it goes.</p></details>
     <details><summary>Does it work if my AI can't browse the web?</summary><p>Yes. It asks you to paste the rendered HTML, headers, robots.txt and sitemap, and marks anything it couldn't verify as unverified rather than passing it.</p></details>
-    <details><summary>How do I get a PDF or Excel file?</summary><p>Ask for it, or say which formats you want when you start. Coding agents run the bundled exporter (Python standard library only). Chat apps with code execution can run the same script from the bundle, and without it you get Markdown plus CSV you can import.</p></details>
+    <details><summary>What files do I get?</summary><p>Exactly two per report: a Markdown file and a PDF. Coding agents run the bundled exporter (Python standard library only). Chat apps with code execution can run the same script from the bundle, and without it you get the Markdown to print as PDF yourself.</p></details>
     <details><summary>How do I update or remove it?</summary><p>Run the install command again to update. Add <code>--uninstall</code> (or <code>-Uninstall</code>) with the same agent and scope to remove it.</p></details>
     <details><summary>Is it safe to point at any site?</summary><p>The skill treats page content as data and never follows instructions found in it. See the <a href="https://github.com/burhanriaz/BR-SEO-Skill/security/policy">security policy</a> for scope and how to report issues.</p></details>
   </div>
@@ -655,7 +652,7 @@ cp -R BR-SEO-Skill/skills/br-web-seo  your-project/.agents/skills/   <span class
   var frame = document.getElementById('rframe'), title = document.getElementById('rtitle');
   var dls = document.querySelectorAll('.dl');
   function show(name, label) {
-    frame.src = 'reports/' + name + '.html';
+    frame.src = 'reports/' + name + '.pdf';
     title.textContent = label;
     dls.forEach(function (a) { a.href = 'reports/' + name + '.' + a.dataset.ext; a.setAttribute('download', name + '.' + a.dataset.ext); });
   }

@@ -1832,7 +1832,7 @@ def main(argv=None):
                "  python seo_check.py https://example.com --json run.json --md run.md\n"
                "  python seo_check.py https://example.com --max-pages 20 --delay 1 --md crawl.md\n"
                "  python seo_check.py --compare before.json after.json --md diff.md\n"
-               "  python export_report.py run.md -f xlsx,csv      # findings table -> Excel/CSV\n")
+               "  python export_report.py run.md                  # report -> .md + .pdf\n")
     ap.add_argument("url", nargs="?", help="page or site to check (https:// assumed if no scheme)")
     ap.add_argument("--max-pages", type=int, default=1, help="pages to fetch; >1 crawls the same host (BFS). default 1")
     ap.add_argument("--json", metavar="FILE", help="write the full JSON evidence here")

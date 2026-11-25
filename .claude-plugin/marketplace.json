@@ -3,14 +3,14 @@
   "owner": { "name": "Burhan Riaz", "url": "https://github.com/burhanriaz" },
   "metadata": {
     "description": "br-web-seo: SEO, AEO and GEO audit skill for AI agents.",
-    "version": "1.0.1"
+    "version": "1.1.0"
   },
   "plugins": [
     {
       "name": "br-web-seo",
       "source": "./",
-      "description": "SEO, AEO and GEO audits with a 0-100 score, fix reports and PDF/Word/Excel/CSV export.",
-      "version": "1.0.1",
+      "description": "SEO, AEO and GEO audits with a 0-100 score, fix reports, delivered as Markdown + PDF.",
+      "version": "1.1.0",
       "author": { "name": "Burhan Riaz" },
       "homepage": "https://burhanriaz.github.io/BR-SEO-Skill/",
       "license": "MIT",

@@ -10,11 +10,11 @@ description: >-
   agent readiness, AI-search visibility, a ranking-drop diagnosis, or SEO drift
   between releases. Produces a scored audit report with stable check IDs, a fix
   report another AI agent session can execute, and content, brief and keyword
-  deliverables, exported as Markdown, PDF, Word, Excel, CSV or HTML.
+  deliverables, each delivered as exactly two files: Markdown and PDF.
 license: MIT
 metadata:
   author: Burhan Riaz
-  version: 1.0.1
+  version: 1.1.0
   category: seo
 ---
 
@@ -74,8 +74,8 @@ Write down before auditing:
 - **Data available:** Search Console, GA4, PageSpeed/CrUX, an SEO-tool export
   (Ahrefs, Semrush, SE Ranking…). None is required. What's missing limits what
   you can conclude (see "Insufficient data" below).
-- **Report format(s):** ask which the user wants: Markdown (default), PDF,
-  Word (.docx), Excel (.xlsx), CSV or HTML. Any combination is fine.
+- **Report format:** don't ask. Every report is delivered as exactly two
+  files, `.md` and `.pdf`. No Word, Excel, CSV or HTML files.
 
 ### 2. Collect evidence
 
@@ -129,10 +129,11 @@ Run `references/pre-deployment-checklist.md` as a go/no-go gate. A failing
 `seo_check.py` runs from before and after:
 `python scripts/seo_check.py --compare reports/before.json reports/after.json --md reports/drift.md`.
 
-### 8. Export to the formats the user asked for
+### 8. Export: Markdown + PDF, nothing else
 
-Keep the Markdown, then convert with the zero-dependency exporter:
-`python scripts/export_report.py reports/<report>.md -f pdf,docx,xlsx,csv`.
+Keep the Markdown, then make its PDF with the zero-dependency exporter:
+`python scripts/export_report.py reports/<report>.md`. The output is exactly
+two files per report (`.md` and `.pdf`); leave no other files behind.
 In chat apps, or without Python, follow `references/report-formats.md`.
 
 ## Content work: analyze before rewriting
@@ -215,10 +216,10 @@ Strategy, content and AI search
 - `references/instagram-frameworks-log.md` — index of the @faizaparwezofficial posts the skill draws on.
 
 Deliverables and tools
-- `references/report-formats.md` — exporting to PDF, Word, Excel, CSV and HTML in any agent or chat app.
+- `references/report-formats.md` — delivering every report as Markdown + PDF in any agent or chat app.
 - `templates/audit-report-template.md` · `templates/fix-report-template.md` · `templates/content-report-template.md` · `templates/content-brief-template.md` · `templates/keyword-map-template.md` — fill-in deliverables; `templates/examples/sample-audit-report.md` is a filled example.
 - `scripts/seo_check.py` — evidence collector for live sites: raw HTML, headers, redirects, robots, sitemaps, findings with check IDs, `--compare` for drift (standard library only).
-- `scripts/export_report.py` — Markdown report → PDF / .docx / .xlsx / .csv / .html (standard library only).
+- `scripts/export_report.py` — Markdown report → `.md` + `.pdf`, nothing else (standard library only).
 - `scripts/validate_skill.py` — repository linter for contributors (frontmatter, links, versions).
 
 ## Running in any agent or chat app

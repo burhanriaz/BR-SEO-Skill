@@ -1,5 +1,5 @@
 # Builds and deploys the project website to GitHub Pages:
-# site/index.html + every report template rendered to HTML/PDF/Word/Excel/CSV
+# site/index.html + every report template rendered to Markdown + PDF
 # + the chat-app packages. One-time setup: Settings > Pages > Source: GitHub Actions.
 name: Website
 
@@ -36,7 +36,7 @@ jobs:
           mkdir -p _site/reports _site/downloads
           SK=skills/br-web-seo
           for f in $SK/templates/*.md $SK/templates/examples/*.md; do
-            python $SK/scripts/export_report.py "$f" -f md,html,pdf,docx,xlsx,csv -o _site/reports
+            python $SK/scripts/export_report.py "$f" -o _site/reports
           done
           (cd _site/downloads && bash "$GITHUB_WORKSPACE/install.sh" --package)
           ls -la _site/reports _site/downloads

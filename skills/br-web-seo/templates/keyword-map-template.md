@@ -37,7 +37,7 @@ recommended first three builds.>
 | <C1 name> | <keyword> | <kw; kw; kw> | <informational> | <n> | <n> | <0–3> | <score> | <url or /new-slug/> | <existing / new> | <guide> | <pillar cluster or —> |
 | <C2 name> | | | | | | | | | | | |
 
-Notes: separate multiple secondaries with `;` (keeps CSV columns intact).
+Notes: separate multiple secondaries with `;` (keeps table columns intact).
 Priority = (Demand × Business value × Intent fit) ÷ Effort.
 
 ## 3. Pillar / spoke structure

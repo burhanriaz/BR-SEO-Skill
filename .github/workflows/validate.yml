@@ -27,11 +27,14 @@ jobs:
       - name: Compile scripts
         run: python -m py_compile "$SKILL"/scripts/*.py
 
-      - name: Export the sample report (all formats except PDF)
+      - name: Export the sample report (exactly .md + .pdf)
         run: |
-          python "$SKILL/scripts/export_report.py" "$SKILL/templates/examples/sample-audit-report.md" \
-            -f md,html,docx,doc,xlsx,csv -o /tmp/out
-          for ext in md html docx doc xlsx csv; do
+          python "$SKILL/scripts/export_report.py" "$SKILL/templates/examples/sample-audit-report.md" -o /tmp/out
+          test "$(ls /tmp/out | wc -l)" -eq 2 || { ls /tmp/out; echo "expected only .md and .pdf"; exit 1; }
+          if python "$SKILL/scripts/export_report.py" "$SKILL/templates/examples/sample-audit-report.md" -f docx -o /tmp/out; then
+            echo "docx should be rejected"; exit 1
+          fi
+          for ext in md pdf; do
             test -s "/tmp/out/sample-audit-report.$ext" || { echo "missing .$ext"; exit 1; }
           done
 
@@ -49,8 +52,8 @@ jobs:
             --json /tmp/run.json --md /tmp/run.md
           test -s /tmp/run.json && test -s /tmp/run.md
           python "$SKILL/scripts/seo_check.py" --compare /tmp/run.json /tmp/run.json
-          python "$SKILL/scripts/export_report.py" /tmp/run.md -f xlsx,csv -o /tmp/out
-          test -s /tmp/out/run.xlsx && test -s /tmp/out/run.csv
+          python "$SKILL/scripts/export_report.py" /tmp/run.md -o /tmp/out2
+          test -s /tmp/out2/run.md && test -s /tmp/out2/run.pdf
 
       - name: install.sh syntax
         run: bash -n install.sh
@@ -84,11 +87,11 @@ jobs:
             if (-not (Test-Path $p)) { throw "missing $p" }
           }
 
-      - name: Export the sample report to Word and Excel
+      - name: Export the sample report to Markdown and PDF
         run: |
           $out = Join-Path $env:RUNNER_TEMP "out"
-          python skills/br-web-seo/scripts/export_report.py skills/br-web-seo/templates/examples/sample-audit-report.md -f docx,xlsx -o $out
+          python skills/br-web-seo/scripts/export_report.py skills/br-web-seo/templates/examples/sample-audit-report.md -o $out
           if ($LASTEXITCODE -ne 0) { throw "export_report failed" }
-          foreach ($ext in @("docx", "xlsx")) {
+          foreach ($ext in @("md", "pdf")) {
             if (-not (Test-Path (Join-Path $out "sample-audit-report.$ext"))) { throw "missing .$ext" }
           }

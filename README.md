@@ -10,7 +10,7 @@ Gemini CLI, GitHub Copilot, Cursor** and the **ChatGPT / Claude.ai / Gemini**
 chat apps. It audits a website or codebase for classic search **and** AI search
 (AEO, AIO, GEO), scores it 0–100 against ~220 checks with stable IDs, and turns
 the findings into a fix report precise enough for another AI session or a
-developer to apply. Every report exports to **PDF, Word, Excel, CSV or HTML**.
+developer to apply. Every report is delivered as exactly two files: **Markdown and PDF**.
 
 **[Website & report previews](https://burhanriaz.github.io/BR-SEO-Skill/)** ·
 **[Install](#install)** · **[Use](#using-it-commands--prompts)** ·
@@ -47,7 +47,7 @@ What makes it different:
   AI-crawler names and Google guidance are dated and sourced.
 - **No API keys, no paid tools.** Markdown plus three standard-library Python
   scripts: `seo_check.py` (evidence collector and drift diff),
-  `export_report.py` (PDF / Word / Excel / CSV / HTML) and `validate_skill.py`.
+  `export_report.py` (Markdown + PDF) and `validate_skill.py`.
 
 Frameworks credit: the SEO/AEO/AIO/GEO split, 12 internal-link types, 12
 robots directives, GSC essentials, local workflow and AI landing-page anatomy
@@ -278,9 +278,9 @@ go/no-go.
 Here is a br-web-seo fix report. Apply the changes to this repo, file by file, and
 report what you changed.
 
-# Keyword research → keyword map (Excel)
+# Keyword research → keyword map
 br-web-seo keyword research for "<niche>": cluster by SERP overlap, map clusters to
-pages, and give me the keyword map as Excel.
+pages, and give me the keyword map.
 
 # Content brief for a writer
 br-web-seo content brief for "<keyword>": read the SERP, find the page type and
@@ -304,7 +304,7 @@ br-web-seo drift check: compare the seo_check runs from before and after the dep
 cd skills/br-web-seo   # or wherever the skill is installed
 python scripts/seo_check.py https://example.com --max-pages 20 --json run.json --md run.md
 python scripts/seo_check.py --compare before.json after.json --md drift.md
-python scripts/export_report.py reports/example-audit-report.md -f pdf,docx,xlsx,csv
+python scripts/export_report.py reports/example-audit-report.md   # → .md + .pdf
 ```
 
 `seo_check.py` reads raw HTML only (no JavaScript), so rendering-dependent checks
@@ -319,7 +319,7 @@ teams can diff runs over time.
 ```
 scope → collect evidence → audit (check IDs) → 0–100 score (with caps)
       → audit report (diagnosis) → fix report (prescription, for another session)
-      → pre-deploy go/no-go → export (PDF · Word · Excel · CSV · HTML)
+      → pre-deploy go/no-go → export (Markdown + PDF)
 ```
 
 ## Notes

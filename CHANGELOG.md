@@ -6,6 +6,17 @@ All notable changes to this project are documented here. The format follows
 
 ## [Unreleased]
 
+## [1.1.0] - 2026-11-26
+
+### Changed
+- Reports are now delivered as exactly two files, Markdown (`.md`) and PDF
+  (`.pdf`). The skill no longer asks which format to use.
+
+### Removed
+- Word (`.docx`/`.doc`), Excel (`.xlsx`), CSV and HTML export.
+  `export_report.py` accepts `md`, `pdf` and `all` only; the HTML it prints
+  the PDF from is temporary and deleted.
+
 ### Added
 - Blog: unpublished posts now live in a private queue repo; a daily job
   there copies each day's posts (three a day) into this repo, so future
@@ -99,6 +110,7 @@ First versioned release.
   purpose.
 - Removed the retired Search Console country-targeting advice.
 
-[Unreleased]: https://github.com/burhanriaz/BR-SEO-Skill/compare/v1.0.1...HEAD
+[Unreleased]: https://github.com/burhanriaz/BR-SEO-Skill/compare/v1.1.0...HEAD
+[1.1.0]: https://github.com/burhanriaz/BR-SEO-Skill/compare/v1.0.1...v1.1.0
 [1.0.1]: https://github.com/burhanriaz/BR-SEO-Skill/compare/v1.0.0...v1.0.1
 [1.0.0]: https://github.com/burhanriaz/BR-SEO-Skill/releases/tag/v1.0.0

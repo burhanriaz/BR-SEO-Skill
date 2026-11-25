@@ -12,7 +12,7 @@ body:
       options:
         - Skill instructions / audit results
         - Report templates
-        - Exporter (PDF / Word / Excel / CSV / HTML)
+        - Exporter (Markdown / PDF)
         - Installer (install.sh / install.ps1)
         - Website (GitHub Pages)
         - Other

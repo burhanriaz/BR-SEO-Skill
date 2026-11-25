@@ -10,7 +10,7 @@ README) and follow `skills/br-web-seo/SKILL.md`.
 skills/br-web-seo/        the skill (this is what gets installed)
   SKILL.md                orchestrator: modes, workflow, scoring, reference map (keep ≤ 500 lines)
   references/*.md         one topic per file; SKILL.md links every one
-  templates/*.md          deliverable formats (pipe tables only: the exporter turns them into Excel/CSV)
+  templates/*.md          deliverable formats (pipe tables only; exported as .md + .pdf, nothing else)
   templates/examples/     filled samples
   scripts/                Python 3.8+ standard library only, no third-party imports
 install.sh, install.ps1   installers (keep the two in feature parity)
@@ -39,7 +39,7 @@ site/index.html           GitHub Pages site (built by .github/workflows/pages.ym
 
 ```bash
 python skills/br-web-seo/scripts/validate_skill.py
-python skills/br-web-seo/scripts/export_report.py skills/br-web-seo/templates/examples/sample-audit-report.md -f html,docx,xlsx,csv -o /tmp/out
+python skills/br-web-seo/scripts/export_report.py skills/br-web-seo/templates/examples/sample-audit-report.md -o /tmp/out   # writes .md + .pdf only
 bash -n install.sh
 claude plugin validate .        # if the Claude CLI is available
 ```
