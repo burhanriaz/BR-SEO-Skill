@@ -4,6 +4,8 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Agent Skill](https://img.shields.io/badge/Agent%20Skill-Claude%20%C2%B7%20Codex%20%C2%B7%20Gemini%20%C2%B7%20Copilot%20%C2%B7%20Cursor-2457d6)](#install)
 [![Website](https://img.shields.io/badge/site-burhanriaz.github.io-0f172a)](https://burhanriaz.github.io/BR-SEO-Skill/)
+[![GitHub stars](https://img.shields.io/github/stars/burhanriaz/BR-SEO-Skill?style=social)](https://github.com/burhanriaz/BR-SEO-Skill/stargazers)
+[![good first issues](https://img.shields.io/github/issues/burhanriaz/BR-SEO-Skill/good%20first%20issue?label=good%20first%20issues&color=7057ff)](https://github.com/burhanriaz/BR-SEO-Skill/labels/good%20first%20issue)
 
 An open-source [Agent Skill](https://agentskills.io) for **Claude Code, Codex,
 Gemini CLI, GitHub Copilot, Cursor** and the **ChatGPT / Claude.ai / Gemini**
@@ -15,6 +17,10 @@ developer to apply. Every report is delivered as exactly two files: **Markdown a
 **[Website & report previews](https://burhanriaz.github.io/BR-SEO-Skill/)** ·
 **[Install](#install)** · **[Use](#using-it-commands--prompts)** ·
 **[Changelog](CHANGELOG.md)** · **[Security](SECURITY.md)**
+
+> ⭐ **If br-web-seo saves you time, star the repo.** It's how other people find it.
+> Want to help? Pick a [good first issue](https://github.com/burhanriaz/BR-SEO-Skill/labels/good%20first%20issue)
+> or see the [roadmap](https://github.com/burhanriaz/BR-SEO-Skill/issues/12).
 
 ```bash
 # Claude Code (plugin)
