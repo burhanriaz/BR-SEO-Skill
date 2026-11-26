@@ -18,6 +18,14 @@ All notable changes to this project are documented here. The format follows
   the PDF from is temporary and deleted.
 
 ### Added
+- `gemini-extension.json`: install as a Gemini CLI extension with
+  `gemini extensions install https://github.com/burhanriaz/BR-SEO-Skill`.
+
+### Fixed
+- README: the Claude Code install command now uses the real two-step form
+  (`/plugin marketplace add`, then `/plugin install br-web-seo@br-seo`).
+
+### Added (site)
 - Blog: unpublished posts now live in a private queue repo; a daily job
   there copies each day's posts (three a day) into this repo, so future
   articles are no longer public before their date.

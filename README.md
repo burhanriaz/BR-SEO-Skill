@@ -18,7 +18,8 @@ developer to apply. Every report is delivered as exactly two files: **Markdown a
 
 ```bash
 # Claude Code (plugin)
-/plugin install br-web-seo --marketplace burhanriaz/BR-SEO-Skill
+/plugin marketplace add burhanriaz/BR-SEO-Skill
+/plugin install br-web-seo@br-seo
 
 # Any agent, this project (macOS / Linux / Git Bash)
 curl -fsSL https://raw.githubusercontent.com/burhanriaz/BR-SEO-Skill/main/install.sh | bash
@@ -109,13 +110,25 @@ its skills folder, and chat apps can take it as an upload. Pick your tool below.
 
 ### Claude Code plugin
 
+Inside Claude Code:
+
 ```text
-/plugin install br-web-seo --marketplace burhanriaz/BR-SEO-Skill
+/plugin marketplace add burhanriaz/BR-SEO-Skill
+/plugin install br-web-seo@br-seo
 ```
 
-On older Claude Code versions, add the marketplace first:
-`/plugin marketplace add burhanriaz/BR-SEO-Skill`, then
-`/plugin install br-web-seo@br-seo`. Update with `/plugin update`.
+Or from a terminal: `claude plugin marketplace add burhanriaz/BR-SEO-Skill`
+then `claude plugin install br-web-seo@br-seo`. Update later with
+`claude plugin marketplace update br-seo`.
+
+### Gemini CLI extension
+
+```bash
+gemini extensions install https://github.com/burhanriaz/BR-SEO-Skill
+```
+
+Gemini CLI picks up the skill from `skills/br-web-seo/` automatically. Update
+with `gemini extensions update br-web-seo`.
 
 ### A. Coding agents: one command
 

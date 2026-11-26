@@ -292,6 +292,11 @@ def check_versions(root, skills, rep):
                         len(plugins) == 1 or p.get("name") in names):
                     found.append((".claude-plugin/marketplace.json plugins[%s].version" % p.get("name"),
                                   str(p["version"])))
+    gj = os.path.join(root, "gemini-extension.json")
+    if os.path.isfile(gj):
+        d = load_json(gj, rep)
+        if isinstance(d, dict) and d.get("version") is not None:
+            found.append(("gemini-extension.json version", str(d["version"])))
     for folder, meta in sorted(skills.items()):
         md = meta.get("metadata") if isinstance(meta, dict) else None
         if isinstance(md, dict) and md.get("version"):
