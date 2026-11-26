@@ -50,5 +50,44 @@
   "landing": "",
   "license": "own",
   "license_url": ""
+ },
+ "core-web-vitals-in-2026-lcp-inp-and-cls-explained": {
+  "id": "cover:core-web-vitals-in-2026-lcp-inp-and-cls-explained",
+  "file": "core-web-vitals-in-2026-lcp-inp-and-cls-explained.jpg",
+  "alt": "Cover card: Core Web Vitals in 2026: LCP, INP and CLS explained",
+  "query": "",
+  "title": "Core Web Vitals in 2026: LCP, INP and CLS explained",
+  "creator": "",
+  "creator_url": "",
+  "source": "",
+  "landing": "",
+  "license": "own",
+  "license_url": ""
+ },
+ "how-to-run-a-complete-seo-audit-with-an-ai-agent": {
+  "id": "cover:how-to-run-a-complete-seo-audit-with-an-ai-agent",
+  "file": "how-to-run-a-complete-seo-audit-with-an-ai-agent.jpg",
+  "alt": "Cover card: How to run a complete SEO audit with an AI agent",
+  "query": "",
+  "title": "How to run a complete SEO audit with an AI agent",
+  "creator": "",
+  "creator_url": "",
+  "source": "",
+  "landing": "",
+  "license": "own",
+  "license_url": ""
+ },
+ "local-seo-guide-rank-in-google-maps-and-the-local-pack": {
+  "id": "cover:local-seo-guide-rank-in-google-maps-and-the-local-pack",
+  "file": "local-seo-guide-rank-in-google-maps-and-the-local-pack.jpg",
+  "alt": "Cover card: Local SEO guide: rank in Google Maps and the local pack",
+  "query": "",
+  "title": "Local SEO guide: rank in Google Maps and the local pack",
+  "creator": "",
+  "creator_url": "",
+  "source": "",
+  "landing": "",
+  "license": "own",
+  "license_url": ""
  }
 }
