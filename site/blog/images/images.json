@@ -128,5 +128,44 @@
   "landing": "",
   "license": "own",
   "license_url": ""
+ },
+ "faq-and-howto-rich-results-are-gone-what-to-do-instead": {
+  "id": "cover:faq-and-howto-rich-results-are-gone-what-to-do-instead",
+  "file": "faq-and-howto-rich-results-are-gone-what-to-do-instead.jpg",
+  "alt": "Cover card: FAQ and HowTo rich results are gone: what to do instead",
+  "query": "",
+  "title": "FAQ and HowTo rich results are gone: what to do instead",
+  "creator": "",
+  "creator_url": "",
+  "source": "",
+  "landing": "",
+  "license": "own",
+  "license_url": ""
+ },
+ "how-to-fix-a-slow-largest-contentful-paint": {
+  "id": "cover:how-to-fix-a-slow-largest-contentful-paint",
+  "file": "how-to-fix-a-slow-largest-contentful-paint.jpg",
+  "alt": "Cover card: How to fix a slow Largest Contentful Paint",
+  "query": "",
+  "title": "How to fix a slow Largest Contentful Paint",
+  "creator": "",
+  "creator_url": "",
+  "source": "",
+  "landing": "",
+  "license": "own",
+  "license_url": ""
+ },
+ "keyword-clustering-by-serp-overlap-build-pages-that-rank-for-dozens-of-terms": {
+  "id": "cover:keyword-clustering-by-serp-overlap-build-pages-that-rank-for-dozens-of-terms",
+  "file": "keyword-clustering-by-serp-overlap-build-pages-that-rank-for-dozens-of-terms.jpg",
+  "alt": "Cover card: Keyword clustering by SERP overlap: build pages that rank for dozens of terms",
+  "query": "",
+  "title": "Keyword clustering by SERP overlap: build pages that rank for dozens of terms",
+  "creator": "",
+  "creator_url": "",
+  "source": "",
+  "landing": "",
+  "license": "own",
+  "license_url": ""
  }
 }
